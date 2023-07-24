@@ -1,0 +1,71 @@
+.FooterContainer {
+  bottom: 0;
+  z-index: 5;
+  background: black;
+  width: 100vw;
+  padding: 2rem;
+  color: white;
+  display: flex;
+  position: sticky;
+  flex-shrink: 0;
+  padding: 3rem 20%;
+  flex-direction: column;
+}
+
+.Footer_text {
+  font-family: 'Bitter', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: grey;
+  line-height: 1.5;
+  margin: auto;
+}
+a.Footer_text {
+  text-decoration: none;
+}
+.Footer_text.button {
+  background: none;
+}
+a:hover.Footer_text,
+.Footer_me h6:hover,
+.Footer_text.button:hover {
+  color: rgb(114, 214, 94);
+}
+.Footer_links {
+  display: flex;
+}
+
+.Footer_me {
+  margin-top: 10px;
+}
+.Footer_me h6 {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgb(151, 150, 150);
+  letter-spacing: 1px;
+  font-size: 1rem;
+  width: fit-content;
+  margin: auto;
+}
+.Footer_me a {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .FooterContainer {
+    margin-top: 2rem
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .FooterContainer {
+    padding: 2rem;
+    margin-top: 2rem
+  }
+  .Footer_text {
+    line-height: 1.2;
+  }
+  .Footer_me {
+    margin: 2rem 0 1rem 0;
+  }
+}

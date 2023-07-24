@@ -1,0 +1,79 @@
+.NavbarContainer {
+  padding-top: 5rem;
+  width: 100%;
+  position: fixed;
+  height: 20rem;
+  display: flex;
+  top: 3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  flex-direction: column;
+  background: white;
+  margin-bottom: 2rem;
+  border: 0.25px solid black;
+  box-shadow: 0rem 1rem 0.5rem rgb(0 0 0 / 10%);
+}
+
+.Navbar-items {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  height: 3rem;
+  width: 60%;
+  margin: auto;
+  margin-top: 10rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: 100;
+  font-family: 'Nunito', sans-serif;
+}
+
+a.nav-links, a.nav-links:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.Navbar-logo {
+  margin-right: 10%;
+  margin-top: -5rem;
+}
+
+.Modal-button {
+  position: absolute;
+  background: white;
+  color: grey;
+  font-size: 2.5rem;
+  top: 25rem;
+}
+.nav-links {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: black
+}
+a.nav-links:hover,
+button.nav-links:hover {
+  color: #f78234;
+  /* color: rgb(114, 214, 94); */
+}
+a.nav-links.active, button.nav-links.active {
+  font-weight: 800;
+  color: grey;
+  cursor: default;
+  border-bottom: 0.25px solid black;
+}
+
+
+button.nav-links {
+  background: transparent;
+}
+button.nav-links:visited {
+  color: black
+}
+

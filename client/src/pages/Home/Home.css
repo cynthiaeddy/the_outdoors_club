@@ -1,0 +1,107 @@
+.HomeWrapper {
+  display: grid;
+}
+
+.ComponentContainer.home {
+  margin-top: 5rem;
+}
+
+.Home_about-text {
+  font-family: 'Bitter', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: grey;
+  line-height: 1.5;
+  max-width: 1500px;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 0rem 3rem;
+}
+
+/* ///// Carousel ///// */
+
+.carousel-wrapper {
+  margin-left: 6.5%;
+  margin-right: 6%;
+  margin-top: 200px;
+  position: relative;
+  max-width: 1500px;
+  max-height: 1000px;
+}
+
+.carousel-style {
+  height: 100% !important;
+}
+
+.carousel-style.home
+  > .carousel
+  .slider-wrapper.axis-horizontal
+  .slider
+  .slide {
+  margin: 0;
+}
+.carousel-img {
+  padding: 0rem 1rem;
+}
+
+.bridgebridge .carousel .control-arrow,
+.carousel.carousel-slider .control-arrow {
+  opacity: 1;
+}
+
+.carousel .control-next.control-arrow:before {
+  border-left: 12px solid white;
+}
+
+.carousel .control-prev.control-arrow:before {
+  border-right: 12px solid white;
+}
+
+.carousel-wrapper.mobile {
+  margin-top: 14rem;
+}
+
+/* ///// Media Queries ///// */
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .ComponentContainer.home {
+    width: calc(100% - 200px);
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .ComponentContainer.home {
+    width: calc(100% - 100px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ComponentContainer.home {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 100px);
+  }
+  .MemberPlanContainer {
+    margin-right: 0;
+  }
+  .carousel-wrapper {
+    margin: 20rem 3% 0 3%;
+  }
+  .carousel .control-next.control-arrow {
+    right: 1%;
+  }
+  .carousel .control-prev.control-arrow {
+    left: 1%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Home_about-text {
+    font-size: 1.8rem;
+    letter-spacing: 0.03rem;
+  }
+
+  .ComponentContainer.home {
+    width: calc(100% - 50px);
+    margin-top: 4rem;
+  }
+}

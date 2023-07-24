@@ -1,0 +1,136 @@
+.MemberPlanContainer {
+  grid-column: 1/10;
+  background: white;
+  padding: 0;
+  z-index: 10;
+  height: fit-content;
+  padding-top: 0;
+  border: 1px solid #ccc;
+  margin-right: 3rem;
+  padding-bottom: 2rem;
+}
+
+.Main_hed.reset {
+  line-height: 0.75;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.MemberPlan-cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.MemberPlan-cardContainer.extension {
+  margin-top: 3rem;
+  justify-content: space-between;
+  padding: 0 3rem 3rem 3rem;
+}
+
+.MemberPlan-card {
+  width: 40%;
+  border: 1px solid black;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  align-items: center;
+  margin: 1.5rem;
+  border: 1px solid #ccc;
+}
+.MemberPlan-card.extension {
+  width: 11%;
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.MemberPlan-price {
+  border-radius: 50px;
+  height: 100px;
+  width: 100px;
+  background: grey;
+  margin: auto;
+  font-size: 3rem;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+.MemberPlan-price.extension {
+  width: 60px;
+  height: 60px;
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.MemberPlan-card h3 {
+  margin: 0;
+}
+
+.MemberPlan-card.extension h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.MemberPlan-card > .cta-button.disabled:hover {
+  color: black;
+  cursor: default;
+}
+
+/** Media Queries **/
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 1024px) {
+  .MemberPlanContainer {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .MemberPlan-card.extension {
+    width: 40%;
+    margin-bottom: 2rem;
+    margin: 1rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+  }
+  .MemberPlan-cardContainer.extension {
+    padding: 0;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .MemberPlan-card {
+    margin: 1rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+  }
+  .MemberPlan-card h3,
+  .MemberPlan-card.extension h3 {
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+  .MemberPlan-price,
+  .MemberPlan-price.extension {
+    width: 80px;
+    height: 80px;
+    font-size: 3rem;
+  }
+  .MemberPlan-card.extension {
+    width: 40%;
+    margin-bottom: 2rem;
+    margin: 1rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+  }
+  .MemberPlan-cardContainer.extension {
+    padding: 0;
+    justify-content: center;
+  }
+}

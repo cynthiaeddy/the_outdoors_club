@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700;800;900&');
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800&display=swap');
+
+/* font-family: 'Bitter', serif;
+font-family: 'Nunito', sans-serif; */
+
+.usefulColors {
+  color: #7cc665;
+  background: #5ebb43;
+  background: #61bfff;
+  color: #2fa9fb;
+  color: #ffa061;
+  background: #f78234;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  overscroll-behavior: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* //hide scrollbar// */
+* {
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+.AppContainer {
+  width: 100vw;
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  text-align: center;
+  background: white;
+  overflow-y: scroll;
+  content: '';
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  bottom: 0;
+  background: snow;
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.ComponentContainer {
+  margin: auto;
+  display: grid;
+  width: calc(100% - 300px);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: repeat(14, 1fr);
+  grid-column-gap: 3rem;
+  padding-top: 0.2rem;
+  margin-top: 20rem;
+  overflow-y: scroll;
+}
+
+span.Main_hed,
+.Main_hed {
+  color: rgba(0, 0, 0, 0.1);
+  font-size: 7.7rem;
+  font-family: 'Bitter', serif;
+  font-weight: 900;
+  line-height: 0.75;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.Main_hed.modal {
+  margin-top: 1.5rem;
+}
+.Main_hed.signup {
+  margin-bottom: 2.5rem;
+}
+
+.App-intro {
+  position: absolute;
+  top: 20%;
+  color: white;
+  width: 80%;
+  font-size: 5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  font-family: 'Bitter', serif;
+}
+.App-img {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+h5 {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+h4 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 100;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+.cta-button {
+  background: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: black;
+  border: none;
+  font-family: 'Nunito',
+}
+.cta-button:hover {
+  color: #f78234;
+}
+
+.cta-button.disabled {
+  color: black;
+}
+.cta-button.disabled:hover {
+  color: black;
+}
+.cta-button.Admin {
+  font-size: 0.9rem;
+}
+input.custom {
+  accent-color: rgb(146, 214, 132);
+}
+
+.input-group label {
+  font-size: 2.8rem;
+}
+
+input[type='radio'] {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-clip: content-box;
+  border: 0.5px solid black;
+}
+
+input[type='radio']:checked {
+  border: 5px solid rgb(146, 214, 132);
+  padding: 0.2rem;
+  background-color: black;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ///// Media Queries ///// */
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  span.Main_hed,
+  .Main_hed {
+    font-size: 7.15rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  span.Main_hed,
+  .Main_hed {
+    font-size: 6.7rem;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  span.Main_hed,
+  .Main_hed {
+    font-size: 6.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  span.Main_hed,
+  .Main_hed, .Main_hed.signup {
+    font-size: 5.2rem;
+    line-height: 1;
+    margin-bottom: 0
+  }
+
+  input, select, textarea {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  span.Main_hed,
+  .Main_hed, .Main_hed.signup  {
+    font-size: 4rem;
+  }
+}

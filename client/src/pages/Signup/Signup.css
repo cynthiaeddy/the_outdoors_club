@@ -1,0 +1,356 @@
+/* //////////Containers////////// */
+.SignupWrapper.reset {
+  height: 90vh;
+}
+.SignupContainer {
+  grid-column: 3/13;
+  height: fit-content;
+  background: white;
+  padding-top: 0px;
+  border: 1px solid #ccc;
+}
+.SignupContainer.signup-too {
+  padding-top: 0;
+  border: 1px solid #ccc;
+}
+
+.ComponentContainer.signup,
+.ComponentContainer.login {
+  width: 100%;
+  margin-top: 19rem;
+}
+
+.ComponentContainer.edit {
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.ComponentContainer.login {
+  padding-top: 5rem;
+  grid: 1/15;
+}
+.ComponentContainer.signup.too {
+  margin-top: 5rem;
+}
+
+/* ////////reset password container///// */
+
+.ComponentContainer.reset {
+  margin-top: 2rem;
+}
+.ComponentContainer.reset,
+.ComponentContainer.testimonials {
+  margin-top: 19rem;
+}
+.ComponentContainer.reset.two {
+  margin-top: 5rem;
+}
+
+/* //////////Forms////////// */
+
+.Signup_form,
+.Login_form {
+  margin: auto;
+  background: white;
+  padding: 3rem;
+  padding-top: 0;
+}
+
+.Login_form {
+  width: 100%;
+  padding: 0 3rem;
+  margin-top: 0;
+  grid-column: 1/15;
+  padding: 3rem;
+  position: relative;
+  z-index: 100;
+  width: 100%;
+}
+
+.Login_form.password {
+  padding-top: 0;
+}
+
+.Signup_input,
+.Login_input {
+  height: 3.2rem;
+  width: 100%;
+  background: none;
+  border: 0.5px solid black;
+  margin-top: -4rem;
+  text-align: center;
+  margin-bottom: -0.5rem;
+  padding: 0.5rem;
+}
+
+select.Signup_input.state {
+  color: black
+}
+.Signup_input {
+  margin-bottom: 0.5rem;
+}
+
+.Signup_input.half {
+  width: 50%;
+}
+
+.Signup_password-wrapper {
+  position: relative;
+}
+.Login-forgotPassword {
+  padding: 0 3rem 3rem 3rem;
+}
+
+.Signup_login,
+.Login_signup {
+  margin: 1rem 0;
+}
+.Signup-error {
+  font-weight: 500;
+  color: red;
+}
+.Signup_tandc {
+  margin-top: 1rem;
+}
+
+/* ///////fonts//////// */
+
+.Signup_form h5,
+.Login_form h5 {
+  line-height: normal;
+  margin: 1rem 0 1.5rem 0;
+}
+
+h5.Signup_newletter,
+h5.Signup_radio {
+  font-weight: 200;
+}
+
+h5.Signup-question {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+h5.Signup-question.password {
+  margin-bottom: 0;
+  font-weight: 400;
+  margin-top: 0;
+}
+h5.Signup-question.password.open {
+  margin-top: -2rem;
+}
+
+/* ///////buttons//////// */
+
+.Signup_submit-button,
+.Login_submit-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.Login_submit-button {
+  margin-top: 2rem;
+}
+.Signup_submit.reset {
+  padding: 2rem;
+  padding-bottom: 0;
+}
+
+button.Signup_input-button {
+  border: none;
+  background: none;
+}
+.Signup_input-button {
+  color: grey;
+  font-size: 1.5rem;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 70%;
+  right: 2%;
+}
+.cta-button.terms {
+  font-weight: 300;
+}
+.cta-button.forgot {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+.cta-button.reset {
+  margin-top: 1rem;
+}
+
+.Signup_radioButtons {
+  display: flex;
+  width: fit-content;
+  margin: auto;
+  margin-bottom: -1rem;
+  margin-top: 1rem;
+}
+.Signup_radioButtons input {
+  background: none;
+  margin-top: 0;
+  margin-right: 1rem;
+}
+.Signup_radio {
+  display: flex;
+  align-items: center;
+  margin-right: 2rem !important;
+  margin-left: 2rem !important;
+}
+.Signup_checkbox {
+  margin: 1rem 0;
+}
+.checkbox {
+  margin: 0 1rem;
+}
+.fifty.login-button {
+  width: 100%;
+}
+
+/* ///////inputs, rest//////// */
+
+* :focus {
+  outline: none;
+}
+.wrap-input {
+  display: flex;
+  justify-content: space-between;
+}
+.wrap-input.Login-forgotPassword {
+  padding-top: 3rem;
+  justify-content: center;
+}
+.wrap-input.Login-forgotPassword.password {
+  padding-bottom: 1rem;
+}
+
+.fifty {
+  width: 47%;
+  justify-self: start;
+  position: relative;
+}
+.fifty.password {
+  width: 50%;
+}
+
+.fifty.left.first {
+  position: relative;
+}
+
+/* ///// Media Queries ///// */
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+  .ComponentContainer.signup,
+  .ComponentContainer.reset {
+    width: 85%;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .ComponentContainer.signup,
+  .ComponentContainer.reset {
+    width: calc(100% - 100px);
+    margin-top: 16rem;
+  }
+  .ComponentContainer.signup.too,
+  .ComponentContainer.reset.too {
+    width: calc(100% - 100px);
+    margin-top: 4rem;
+  }
+  .SignupContainer {
+    grid-column: 2/14;
+  }
+  .ComponentContainer.signup.login {
+    margin-top: 120px;
+    height: 75vh;
+    overscroll-behavior: none;
+    background: snow;
+    z-index: 5;
+    flex: 1;
+  }
+
+  .Login_form {
+    padding-top: 0;
+  }
+  .SignupContainer.account {
+    width: calc(100% - 100px);
+    display: block;
+    margin: auto;
+    margin-top: 15rem;
+  }
+  .ComponentContainer.signup {
+    margin-top: 14rem;
+  }
+  .ComponentContainer.signup.ComponentContainer.signup.edit-user {
+    margin-top: 4rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ComponentContainer.signup,
+  .ComponentContainer.reset,
+  .ComponentContainer.edit {
+    margin-top: 15rem;
+    width: calc(100% - 50px);
+    display: block;
+  }
+  .ComponentContainer.signup {
+    margin-top: 14rem;
+  }
+
+  .ComponentContainer.signup.too,
+  .ComponentContainer.reset.too,
+  .ComponentContainer.edit, .ComponentContainer.signup.edit-user {
+    margin-top: 4rem;
+  }
+  .fifty {
+    width: 100%;
+  }
+  .wrap-input {
+    display: block;
+  }
+  .ComponentContainer.mobile {
+    height: 80vh;
+    z-index: 5;
+  }
+  .LoginContainer {
+    margin-top: 120px;
+    overscroll-behavior: none;
+    background: snow;
+    z-index: 5;
+    flex: 1;
+  }
+  .LoginContainer > .Login_form {
+    background: none;
+  }
+
+  aside.wrap-input.Login-forgotPassword.password > .fifty.password {
+    width: 100%;
+  }
+  .SignupWrapper.reset {
+    height: 100vh;
+  }
+
+  .ComponentContainer.signup.login {
+    margin-top: 10rem;
+    height: 75vh;
+    overscroll-behavior: none;
+    background: snow;
+    z-index: 5;
+    flex: 1;
+  }
+  .Login_form {
+    padding-top: 0;
+  }
+  .SignupContainer.account {
+    width: calc(100% - 50px);
+    display: block;
+    margin: auto;
+    margin-top: 15rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .SignupWrapper.reset {
+    height: 140vh;
+  }
+}

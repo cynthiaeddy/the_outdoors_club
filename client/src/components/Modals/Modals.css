@@ -1,0 +1,41 @@
+.ModalWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 150;
+  background: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  width: 100vw;
+  padding-top: 100%;
+}
+
+.ModalContainer {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 175;
+  width: 50%;
+  max-width: 600px;
+  top: 0;
+  top: 20%;
+  background: white;
+}
+.ModalContainer.Account {
+  position: fixed;
+}
+
+.ModalContainer-button {
+  height: 3rem;
+  font-size: 2rem;
+  background: none;
+}
+
+.ModalDelete {
+  padding: 3rem;
+}
+
+.cta-button.delete {
+  margin: 10px;
+}

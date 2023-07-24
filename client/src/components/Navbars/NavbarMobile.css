@@ -1,0 +1,58 @@
+#chk {
+  position: absolute;
+  visibility: hidden;
+  z-index: -1111;
+}
+
+#chk:checked ~ .menu {
+  right: 0;
+  top: 21rem;
+  transition: 0.7s ease;
+  box-shadow: 0rem 1rem 0.5rem rgb(0 0 0 / 10%);
+}
+.menu {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: snow;
+  right: -100%;
+  text-align: center;
+  padding: 8rem 0;
+  line-height: normal;
+  transition: 0.7s ease;
+  justify-content: center;
+  color: white;
+}
+
+.menu.clicked {
+  right: 0;
+  top: 21rem;
+  transition: 0.7s ease;
+  transition: 0.7s ease;
+}
+.nav-links.clicked {
+  right: -100%;
+}
+
+.NavbarContainer.mobile {
+  top: 0%;
+}
+
+img.logo-mobile {
+  padding-top: 1.5rem;
+  width: 8rem;
+  object-fit: contain;
+}
+.Navbar-logo.mobile {
+  margin: auto;
+  margin-top: 4.5rem;
+}
+
+.ex {
+  position: absolute;
+  width: 100%;
+  height: 15rem;
+}
+li.nav-item.mobile {
+  padding: 2rem 0;
+}

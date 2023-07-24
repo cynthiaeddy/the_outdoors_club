@@ -1,0 +1,19 @@
+.TandCWrapper {
+  position: relative;
+  z-index: 200;
+  background: white;
+}
+.TandCWrapper-button {
+  height: 3rem;
+  font-size: 2rem;
+  background: none;
+  padding-top: 2rem;
+}
+
+.TandCContainer {
+  overflow: scroll;
+  height: 600px;
+}
+.TandCForm {
+  padding: 2rem;
+}
