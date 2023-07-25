@@ -9,6 +9,8 @@ import memberExtendRoutes from "./routes/extend-route.mjs";
 import memberPlanRoutes from "./routes/plan-route.mjs";
 import membershipRoutes from './routes/membership-route.mjs'
 import userRoutes from './routes/user-route.mjs'
+import passwordRoutes from './routes/password-routes.mjs'
+
 
 dotenv.config();
 
