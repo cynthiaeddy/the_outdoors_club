@@ -1,7 +1,13 @@
 import express from 'express'
+import Stripe from 'stripe'
+import dotenv from 'dotenv'
+dotenv.config({ path: './.env' });
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: '2022-11-15',
+})
+
 import { checkAuth } from '../middleware/checkAuth.mjs'
-import { stripe } from '../utils/stripe.mjs'
-import MemberPlan from'../models/memberPlan.mjs'
+import MemberPlan from '../models/memberPlan.mjs'
 import User from '../models/user.mjs'
 
 const membershipRouter = express.Router()

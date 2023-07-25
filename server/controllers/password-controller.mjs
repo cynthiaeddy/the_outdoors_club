@@ -1,13 +1,14 @@
 import User from '../models/user.mjs'
-import { fileURLToPath } from 'url';
+// import { fileURLToPath } from 'url';
 import path from 'path';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 // require('dotenv').config({ path: './.env' })
 // import path from 'path'
 import dotenv from 'dotenv'
-dotenv.config({ path: path.join(__dirname, '.env') });
+dotenv.config({ path: './.env' });
+// dotenv.config({ path: path.join(__dirname, '.env') });
 // import 'dotenv/config`
 
 import nodemailer from 'nodemailer'
