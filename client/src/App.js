@@ -5,8 +5,9 @@ import { Navbar } from './components/Navbars/Navbar'
 import { Footer } from './components/Footer/Footer'
 import { Signup } from './pages/Signup/Signup'
 import { LoginMobile } from './components/Login/LoginMobile'
+import { EditUser } from './pages/EditUser/EditUser'
 import { Admin } from './pages/Admin/Admin'
-// import { Leader } from './pages/Leader/Leader'
+import { Leader } from './pages/Leader/Leader'
 import { ProtectedRoute } from './routes/ProtectedRoute'
 import { UserAccount } from './components/UserAccount/UserAccount'
 import { UserAccountMobile } from './components/UserAccount/UserAccountMobile'
@@ -76,7 +77,7 @@ const App = () => {
         element={
           <ProtectedRoute isAllowed={!!user && user.role === 'leader'} />
         }>
-        {/* <Route path='/leader' element={<Leader />} /> */}
+        <Route path='/leader' element={<Leader />} />
       </Route>
       <Route
         element={<ProtectedRoute isAllowed={!!user && user.role === 'user'} />}>
@@ -94,7 +95,7 @@ const App = () => {
             )
           }
         />
-      {/* <Route path='/edit' element={<EditUser isMobile={isMobile} />} /> */}
+      <Route path='/edit' element={<EditUser isMobile={isMobile} />} />
        {/* <Route path='/success' element={<StripeSuccess />} /> */}
     </Route>
     </Routes>

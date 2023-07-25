@@ -3,12 +3,6 @@ import axios from 'axios'
 
 const UserContext = createContext([{ data: null, loading: true, error: null }, () => { }])
 
-// const userContext = React.createContext({user: {}});
-
-
-// const UserContext = createContext<
-//   [User, React.Dispatch<React.SetStateAction<User>>]
-// >([{ data: null, loading: true, error: null }, () => {}])
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState({
@@ -17,7 +11,6 @@ const UserProvider = ({ children }) => {
     error: null,
   })
 
-  console.log('in context')
 
   const token = localStorage.getItem('token')
 
@@ -64,7 +57,6 @@ const UserProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    console.log('in use effect before fetch user func called')
     if (token) {
       fetchUser()
     } else {

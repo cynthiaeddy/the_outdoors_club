@@ -109,7 +109,6 @@ export const signup = async (req, res) => {
 export const login = async (req, res)=> {
   const { email, password } = req.body
   const user = await User.findOne({ email }).populate('plan')
-  console.log(user,'in backend, login, user 113')
 
 
   if (!user) {
@@ -141,7 +140,6 @@ export const login = async (req, res)=> {
       expiresIn: 3600000,
     }
   )
-  console.log(token, 'backend, token, 144')
   res.json({
     errors: [],
     data: {

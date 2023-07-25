@@ -1,0 +1,28 @@
+.MemberPlanExtensionContainer {
+  grid-column: 1/15;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+.finePrint {
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+.finePrint.account {
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .MemberPlanExtensionContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+    grid-column: 2/14;
+  }
+
+  h5.finePrint {
+    padding: 0 1rem;
+  }
+}
