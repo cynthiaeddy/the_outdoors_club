@@ -116,4 +116,4 @@ export const updatePassword = async (req, res) => {
     console.log(err)
   }
 }
- export default {forgotPassword}
+ export default {forgotPassword, resetPassword, updatePassword}

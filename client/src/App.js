@@ -5,6 +5,13 @@ import { Navbar } from './components/Navbars/Navbar'
 import { Footer } from './components/Footer/Footer'
 import { Signup } from './pages/Signup/Signup'
 import { LoginMobile } from './components/Login/LoginMobile'
+import { Admin } from './pages/Admin/Admin'
+// import { Leader } from './pages/Leader/Leader'
+import { ProtectedRoute } from './routes/ProtectedRoute'
+import { UserAccount } from './components/UserAccount/UserAccount'
+import { UserAccountMobile } from './components/UserAccount/UserAccountMobile'
+
+
 
 
 
@@ -16,9 +23,9 @@ import { Home } from './pages/Home/Home'
 
 
 const App = () => {
-  // const [state] = useContext(UserContext)
+  const [state] = useContext(UserContext)
 
-  // const user = state.data
+  const user = state.data
 
   const getIsMobile = () => window.innerWidth <= 768
   const [isMobile, setIsMobile] = useState(getIsMobile)
@@ -43,8 +50,8 @@ const App = () => {
 
       <Route path='/' element={<Home isMobile={isMobile} />} />
 
-      {/* <Route path='/donate' element={<Donate />} />
-      <Route
+      {/* <Route path='/donate' element={<Donate />} /> */}
+      {/* <Route
         path='/forgot-password'
         element={
           <ForgotPassword
@@ -53,13 +60,13 @@ const App = () => {
             }}
           />
         }
-      />
-      <Route
+      /> */}
+      {/* <Route
         path='/reset/:token'
         element={<ResetPassword isMobile={isMobile} />}
       /> */}
 
-      {/* <Route
+       <Route
         element={
           <ProtectedRoute isAllowed={!!user && user.role === 'admin'} />
         }>
@@ -69,7 +76,7 @@ const App = () => {
         element={
           <ProtectedRoute isAllowed={!!user && user.role === 'leader'} />
         }>
-        <Route path='/leader' element={<Leader />} />
+        {/* <Route path='/leader' element={<Leader />} /> */}
       </Route>
       <Route
         element={<ProtectedRoute isAllowed={!!user && user.role === 'user'} />}>
@@ -77,19 +84,19 @@ const App = () => {
           path='/account'
           element={
             isMobile ? (
-              <UserAccountMobile /> */}
-            {/* ) : (
-              <UserAccount
-                modalUserAcctClose={function (): void {
+              <UserAccountMobile />
+      ) : (
+     <UserAccount
+                modalUserAcctClose={function () {
                   throw new Error('Function not implemented.')
                 }}
               />
             )
           }
-        /> */}
-        {/* <Route path='/edit' element={<EditUser isMobile={isMobile} />} />
-        <Route path='/success' element={<StripeSuccess />} /> */}
-      {/* </Route> */}
+        />
+      {/* <Route path='/edit' element={<EditUser isMobile={isMobile} />} /> */}
+       {/* <Route path='/success' element={<StripeSuccess />} /> */}
+    </Route>
     </Routes>
   )
   return (
