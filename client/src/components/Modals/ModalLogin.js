@@ -1,5 +1,5 @@
 import React from 'react'
-// import { Login } from '../Login/Login'
+import { Login } from '../Login/Login'
 import './Modals.css'
 
 
@@ -17,7 +17,7 @@ export const ModalLogin = ({
   return (
     <div className='ModalWrapper'>
       <div className='ModalContainer'>
-        {/* <Login modalLoginClose={modalLoginClose} /> */}
+        <Login modalLoginClose={modalLoginClose} />
       </div>
     </div>
   )
