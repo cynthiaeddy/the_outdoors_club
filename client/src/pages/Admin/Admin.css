@@ -1,0 +1,244 @@
+.ComponentContainer.admin {
+  grid: none;
+  width: fit-content;
+  max-width: max-content;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  position: relative;
+  overflow: unset;
+  min-height: 75vh;
+  height:80vh
+}
+.AdminContainer {
+  margin-top: 14rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.Admin-search {
+  position: fixed;
+  transform: translateX(-50%);
+  left: 50%;
+  background: snow;
+  width: 100%;
+  top: 0;
+  padding: 10rem 0;
+  z-index: 30;
+  margin-top: 25rem;
+  padding: 2rem 0rem 5rem 0rem;
+}
+input#search-form.search-input {
+  background: none;
+}
+
+.Admin_form {
+  overflow-x: scroll;
+  height: 60vh;
+
+}
+
+/* ///////table/////// */
+
+.Admin_table {
+  text-align: left;
+  width: 100%;
+  background: white;
+  overflow-x: scroll;
+  margin-bottom: 3rem;
+}
+
+.Admin_table th {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  font-size: 1rem;
+  position: sticky;
+  background: white;
+}
+
+table {
+  position: relative;
+  border-spacing: 0;
+}
+
+thead .Admin_table-hed {
+  background: white
+}
+
+table th {
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+}
+
+td:first-child, th:first-child {
+  position:sticky;
+  left:0;
+  z-index:2;
+  background-color:white;
+}
+td:nth-child(2),th:nth-child(2)  {
+position:sticky;
+  left:90px;
+  z-index:2;
+  background-color:white;
+  }
+
+th:first-child , th:nth-child(2) {
+  z-index:3
+  }
+  th.col-second {
+    z-index: 2
+  }
+
+th {
+  height: 3rem;
+}
+th,
+td {
+  padding: 1rem;
+  white-space: nowrap;
+}
+
+table,
+th,
+td {
+  border: .5px solid rgba(0, 0, 0, 0.5);
+}
+
+.Admin_button {
+  border: none;
+}
+.subhead {
+  display: flex;
+}
+.inner {
+  border: none;
+}
+
+input.Admin-input {
+  font-size: 1rem;
+  color: black;
+  padding: 1rem;
+  border-right: 1px solid #ccc;
+}
+input.Admin-input.edit {
+  border: none;
+  padding: 0;
+  width: 100%;
+}
+
+.Admin-input.edit.notes {
+  font-size: 1rem;
+}
+
+.Admin-input.edit {
+  background: snow;
+  color: black;
+  font-weight: 500;
+}
+tr.Admin-tr {
+  background: snow;
+}
+
+.Admin-search > .search-form {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  background: white;
+}
+.search-only {
+  background: none;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: black
+}
+
+.search-only:hover {
+  color: #f78234;
+}
+
+.forms {
+  position: fixed;
+  transform: translateX(-50%);
+  left: 50%;
+  background: snow;
+  width: 100%;
+  top: 0;
+  padding: 18rem 0 5rem 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-evenly;
+}
+.forms h5 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.6rem;
+  padding-bottom: 1rem;
+  font-weight: 400;
+}
+
+.forms a:link {
+  text-decoration: none;
+  color: grey;
+}
+.forms h5:hover {
+  color: #f78234;
+}
+.forms a:visited {
+  color: grey;
+}
+
+.ComponentContainer.leader {
+  grid: none;
+  max-width: fit-content;
+}
+
+/* ///// Media Queries ///// */
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .ComponentContainer.leader {
+    width: calc(100% - 250px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .forms {
+    padding: 14rem 0rem 6rem 0rem;
+  }
+  .ComponentContainer.leader {
+    width: calc(100% - 50px);
+  }
+  .Admin-search {
+    margin-top: 20rem;
+  }
+  .AdminContainer {
+    margin-top: 11rem;
+  }
+  .ComponentContainer.admin {height: 85vh}
+
+  /* .Admin_form {height:unset} */
+}
+
+@media screen and (max-width: 480px) {
+  .forms {
+    display: block;
+  }
+  .Admin-search {
+    margin-top: 22rem;
+    padding: 2rem 0rem 4rem 0rem;
+  }
+  .AdminContainer {
+    margin-top: 10rem;
+  }
+  .ComponentContainer.admin {
+    margin: 0 2rem;
+  }
+  .Admin_table {
+    margin-top: 20rem;
+  }
+  .Admin_table.leader {
+    margin-top: 0rem;
+  }
+}

@@ -5,7 +5,7 @@ import outdoors_logo from '../../assets/outdoors_logo.png'
 import { UserContext } from '../../context'
 
 import { ModalLogin } from '../Modals/ModalLogin'
-// import { ModalAccount } from '../Modals/ModalAccount'
+import { ModalAccount } from '../Modals/ModalAccount'
 import { NavbarMobile } from './NavbarMobile'
 
 
@@ -43,6 +43,7 @@ export const Navbar =  ({ isMobile = true }) => {
     localStorage.removeItem('token')
     navigate('/')
   }
+  console.log(state.data?.role,'state.data?.role in navbar,')
 
   return (
     <>
@@ -125,10 +126,10 @@ export const Navbar =  ({ isMobile = true }) => {
           />
         )}
       </nav>
-      {/* <ModalAccount
+      <ModalAccount
         isOpen={isModalUserAcctOpen}
         modalUserAcctClose={modalUserAcctClose}
-      /> */}
+      />
       <ModalLogin isOpen={isModalLoginOpen} modalLoginClose={modalLoginClose} />
     </>
   )

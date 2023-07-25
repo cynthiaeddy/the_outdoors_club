@@ -14,7 +14,6 @@ export const MemberPlan = () => {
 
   const user = localStorage.getItem('token')
 
-  console.log(process.env.REACT_APP_API_URL, 'process.env.REACT_APP_API_URL')
 
   useEffect(() => {
     setLoading(true)
@@ -38,13 +37,13 @@ export const MemberPlan = () => {
     setIsModalLoginOpen(false)
   }
 
-  console.log(
-    state.data?.plan,
-    state.data?.plan.length,
-    'state.data?.plan, in memberplan'
-  )
+  // console.log(
+  //   state.data?.plan,
+  //   state.data?.plan.length,
+  //   'state.data?.plan, in memberplan'
+  // )
 
-  console.log(plans,typeof plans,'plans, typeof plans,')
+  // console.log(plans,typeof plans,'plans, typeof plans,')
 
   const createSession = async (plan) => {
     if (state && user) {

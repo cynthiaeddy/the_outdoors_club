@@ -41,7 +41,7 @@ export const UserAccount = ({ modalUserAcctClose }) => {
     return startDate
   }
 
-  const getCorrectEndDate = (date, number => {
+  const getCorrectEndDate = (date, number) => {
     let endDate
     if (number === 'One Year') {
       const aYearFromNow = new Date(date)
@@ -54,9 +54,9 @@ export const UserAccount = ({ modalUserAcctClose }) => {
       twoYearsFromNow.setFullYear(twoYearsFromNow.getFullYear() + 2)
       endDate = twoYearsFromNow.toDateString()
     }
-    return endDatexx
+    return endDate
   }
-}
+
 
   const updateUserEndDate = async (date) => {
     const twoYearsFromNow = new Date(date)

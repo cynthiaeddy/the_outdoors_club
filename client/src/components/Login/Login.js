@@ -80,6 +80,7 @@ export const Login = (props) => {
     props.modalLoginClose()
     navigate('/')
   }
+  // console.log(user,'in login, user')
 
   return (
     <>

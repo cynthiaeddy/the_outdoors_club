@@ -16,9 +16,10 @@ export const checkAuth = async (
     })
   }
   token = token.split(' ')[1]
+  console.log(token,'in check auth, token')
 
   try {
-    const user = JWT.verify(token, process.env.JWT_SECRET )
+    const user = JWT.verify(token, process.env.JWT_SECRET)
     req.user = user.email
     next()
   } catch (error) {
