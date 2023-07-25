@@ -53,9 +53,9 @@ membershipRouter.post('/membership_create', checkAuth, async (req, res) => {
         // 'http://localhost:3000/order/success?session_id={CHECKOUT_SESSION_ID}',
         // 'http://yoursite.com/order/success?session_id={CHECKOUT_SESSION_ID}',
         // other options...,
-        `https://outdoors.rest/success`,
+        `http://localhost:3001/success`,
 
-      cancel_url: `https://outdoors.rest`,
+      cancel_url: `http://localhost:3001`,
     },
     { apiKey: process.env.STRIPE_SECRET_KEY }
   )
