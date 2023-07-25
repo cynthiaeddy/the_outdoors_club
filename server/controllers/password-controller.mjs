@@ -1,7 +1,15 @@
 import User from '../models/user.mjs'
+import { fileURLToPath } from 'url';
+import path from 'path';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+// require('dotenv').config({ path: './.env' })
+// import path from 'path'
 import dotenv from 'dotenv'
-dotenv.config({ path: './.env' })
+dotenv.config({ path: path.join(__dirname, '.env') });
+// import 'dotenv/config`
+
 import nodemailer from 'nodemailer'
 import bcrypt from 'bcryptjs'
 import crypto from 'crypto'
@@ -46,9 +54,8 @@ export const forgotPassword = async (req, res) => {
         text:
           'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
           'Please click on the following link, or paste this into your browser to complete the process within one hour of receiving it:\n\n' +
-          `https://outdoors.rest/reset/${token}\n\n` +
-          'If you did not request this, please ignore this email and your password will remain unchanged.\n\n' +
-          `https://outdoors.rest\n\n`  +`http://outdoors.rest\n\n`
+          `http://localhost:3001/reset/${token}\n\n` +
+          'If you did not request this, please ignore this email and your password will remain unchanged.\n\n'
         ,
       }
       await new Promise((resolve, reject) => {
@@ -116,4 +123,5 @@ export const updatePassword = async (req, res) => {
     console.log(err)
   }
 }
- export default {forgotPassword, resetPassword, updatePassword}
+
+export default {forgotPassword,resetPassword,updatePassword}

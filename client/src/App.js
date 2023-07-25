@@ -11,6 +11,8 @@ import { Leader } from './pages/Leader/Leader'
 import { ProtectedRoute } from './routes/ProtectedRoute'
 import { UserAccount } from './components/UserAccount/UserAccount'
 import { UserAccountMobile } from './components/UserAccount/UserAccountMobile'
+import { ForgotPassword } from './components/ForgotPassword/ForgotPassword'
+import { ResetPassword } from './pages/ResetPassword/ResetPassword'
 
 
 
@@ -52,7 +54,7 @@ const App = () => {
       <Route path='/' element={<Home isMobile={isMobile} />} />
 
       {/* <Route path='/donate' element={<Donate />} /> */}
-      {/* <Route
+      <Route
         path='/forgot-password'
         element={
           <ForgotPassword
@@ -61,11 +63,11 @@ const App = () => {
             }}
           />
         }
-      /> */}
-      {/* <Route
+      />
+      <Route
         path='/reset/:token'
         element={<ResetPassword isMobile={isMobile} />}
-      /> */}
+      />
 
        <Route
         element={

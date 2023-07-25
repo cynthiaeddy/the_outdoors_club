@@ -8,7 +8,7 @@ const membershipRouter = express.Router()
 
 import membershipController from '../controllers/membership-controller.mjs'
 
-membershipRouter.get('/', membershipController.getMemberships)
+// membershipRouter.get('/', membershipController.getMemberships)
 
 // membershipRouter.post('/membership_create', checkAuth, async (req, res) => {
 //   console.log(req.body, 'in membership stripe backend')

@@ -8,4 +8,4 @@ export const getMemberships = async (req, res) => {
     res.send(memberships)
   } catch (err) {}
 }
-export default { getMemberships };
+export default getMemberships ;

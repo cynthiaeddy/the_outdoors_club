@@ -42,7 +42,7 @@ export const ResetPassword = ({
     },
   })
 
-  const modalLoginOpen = ()=> {
+  const modalLoginOpen = () => {
     setIsModalLoginOpen(true)
   }
 
