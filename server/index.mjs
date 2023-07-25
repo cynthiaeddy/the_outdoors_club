@@ -9,7 +9,7 @@ import memberExtendRoutes from "./routes/extend-route.mjs";
 import memberPlanRoutes from "./routes/plan-route.mjs";
 import membershipRoutes from './routes/membership-route.mjs'
 import userRoutes from './routes/user-route.mjs'
-import passwordRoutes from './routes/password-routes.mjs'
+import passwordRoutes from './routes/password-route.mjs'
 
 
 dotenv.config();
@@ -37,6 +37,8 @@ app.use("/api/extend", memberExtendRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/plan", memberPlanRoutes);
 app.use("/api/membership", membershipRoutes);
+app.use("/api/password", passwordRoutes);
+
 
 mongoose.connect(process.env.MONGODB_URL).then(() => {
   console.log('connected to mongodb')

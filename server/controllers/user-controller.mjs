@@ -382,4 +382,4 @@ export const deleteUser = async (req, res) => {
     res.status(500).json({ err: error.message || 'error while deleting user' })
   }
 }
-export default { deleteUser };
+export default { deleteUser, getAllUsers, signup, login, checkUserAuth, getSingleUser, updateUser };
