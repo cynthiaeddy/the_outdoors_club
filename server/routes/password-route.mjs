@@ -6,6 +6,6 @@ import passwordController from '../controllers/password-controller.mjs'
 passwordRouter.post('/forgot-password', passwordController.forgotPassword)
 passwordRouter.get('/reset', passwordController.resetPassword)
 
-passwordRouter.put('/updatePasswordViaEmail', passwordController.updatePassword)
+passwordRouter.patch('/updatePasswordViaEmail', passwordController.updatePassword)
 
 export default passwordRouter

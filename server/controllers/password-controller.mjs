@@ -1,15 +1,6 @@
 import User from '../models/user.mjs'
-// import { fileURLToPath } from 'url';
-import path from 'path';
-
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-// require('dotenv').config({ path: './.env' })
-// import path from 'path'
 import dotenv from 'dotenv'
 dotenv.config({ path: './.env' });
-// dotenv.config({ path: path.join(__dirname, '.env') });
-// import 'dotenv/config`
 
 import nodemailer from 'nodemailer'
 import bcrypt from 'bcryptjs'
@@ -84,6 +75,7 @@ export const resetPassword = async (req, res) => {
     const user = await User.findOne({
       resetPasswordToken: req.query.resetPasswordToken,
     })
+    console.log(user, 'user in reset password')
     if (user == null) {
       console.error('password reset link is invalid or has expired')
       res.status(403).send('password reset link is invalid or has expired')
@@ -100,14 +92,13 @@ export const resetPassword = async (req, res) => {
 export const updatePassword = async (req, res) => {
   try {
     const user = await User.findOne({
-      email: req.body.email,
-      resetPasswordToken: req.body.resetPasswordToken,
-      resetPasswordExpire: { $gt: Date.now() },
+      email: req.body.email
     })
-    if (user == null) {
+
+    if (user === null) {
       console.error('password reset link is invalid or has expired')
       res.status(403).send('password reset link is invalid or has expired')
-    } else if (user != null) {
+    } else if (user !== null) {
       const hashedPassword = await bcrypt.hash(req.body.password, 10)
       const fieldsToUpdate = {
         password: hashedPassword,

@@ -71,12 +71,12 @@ export const ResetPassword = ({
 
   const updatePassword = async (data) => {
     try {
-      const resp = await axios.put(`${process.env.REACT_APP_API_URL}/api/password/updatePasswordViaEmail`, {
+      const resp = await axios.patch(`${process.env.REACT_APP_API_URL}/api/password/updatePasswordViaEmail`, {
         email,
         password: data.password,
         resetPasswordToken: token,
       })
-
+console.log(resp,'resp in reset password',)
       if (resp.data.message === 'password updated') {
         setError(false)
         modalLoginOpen()

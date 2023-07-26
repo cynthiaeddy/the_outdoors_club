@@ -13,16 +13,12 @@ import { UserAccount } from './components/UserAccount/UserAccount'
 import { UserAccountMobile } from './components/UserAccount/UserAccountMobile'
 import { ForgotPassword } from './components/ForgotPassword/ForgotPassword'
 import { ResetPassword } from './pages/ResetPassword/ResetPassword'
-
-
-
-
-
+import { StripeSuccess } from './pages/Stripe/StripeSuccess'
+import { Home } from './pages/Home/Home'
 
 import { UserContext } from './context'
 import ScrollToHashElement from './helpers/ScrollToHashElement'
 
-import { Home } from './pages/Home/Home'
 
 
 const App = () => {
@@ -58,7 +54,7 @@ const App = () => {
         path='/forgot-password'
         element={
           <ForgotPassword
-            modalLoginClose={function (): void {
+            modalLoginClose={function () {
               throw new Error('Function not implemented.')
             }}
           />
@@ -98,7 +94,7 @@ const App = () => {
           }
         />
       <Route path='/edit' element={<EditUser isMobile={isMobile} />} />
-       {/* <Route path='/success' element={<StripeSuccess />} /> */}
+       <Route path='/success' element={<StripeSuccess />} />
     </Route>
     </Routes>
   )
