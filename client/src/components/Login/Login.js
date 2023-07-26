@@ -80,11 +80,14 @@ export const Login = (props) => {
     props.modalLoginClose()
     navigate('/')
   }
-  // console.log(user,'in login, user')
+  const onError = (FieldErrors) => {
+    console.log(FieldErrors, 'FieldErrors')
+
+  }
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className='Login_form'>
+      <form onSubmit={handleSubmit(onSubmit, onError)} className='Login_form'>
         <button
           type='button'
           onClick={props.modalLoginClose}
@@ -109,7 +112,9 @@ export const Login = (props) => {
               name='email'
               className='Signup_input'
             />
-            <h6 className='Signup-error'>{errors.email?.message}</h6>
+             {errors.email && (
+              <h6 className='Signup-error'>{errors.email?.message}</h6>
+            )}
           </div>
           <div className='fifty left'>
             <h5>
@@ -130,6 +135,7 @@ export const Login = (props) => {
             {errors.password && (
               <h6 className='Signup-error'>{errors.password?.message}</h6>
             )}
+
             <button
               type='button'
               className='Signup_input-button'
@@ -142,7 +148,6 @@ export const Login = (props) => {
           <button type='submit' className='Login_submit-button'>
             <h4 className='cta-button'>log In</h4>
           </button>
-
           <h6 className='Signup-error'>{errorMsg}</h6>
         </div>
         <button

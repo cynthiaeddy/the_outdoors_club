@@ -1,7 +1,6 @@
 import { validationResult } from 'express-validator'
 import User from '../models/user.mjs'
 import MemberPlan from '../models/memberPlan.mjs'
-
 import bcrypt from 'bcryptjs'
 import JWT from 'jsonwebtoken'
 
