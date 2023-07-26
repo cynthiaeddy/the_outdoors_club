@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './Footer.css'
-// import { ModalAboutUs } from '../Modals/ModalAboutUs'
+import { ModalAboutUs } from '../Modals/ModalAboutUs'
 
 export const Footer = () => {
   const [isModalAboutUsOpen, setIsModalAboutUsOpen] = useState(false)
@@ -40,10 +40,10 @@ export const Footer = () => {
           </a>
         </div>
       </div>
-      {/* <ModalAboutUs
+      <ModalAboutUs
         isOpen={isModalAboutUsOpen}
         modalAboutUsClose={modalAboutUsClose}
-      /> */}
+      />
     </>
   )
 }
