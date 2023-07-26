@@ -52,42 +52,39 @@ export const Login = (props) => {
     )
     if (resp.errors.length) {
       setErrorMsg(resp.errors[0].msg)
+    } else {
+
+      setUser({
+        data: {
+          firstName: resp.data.user.firstName,
+          lastName: resp.data.user.lastName,
+          id: resp.data.user.id,
+          email: resp.data.user.email,
+          role: resp.data.user.role,
+          address: resp.data.user.address,
+          city: resp.data.user.city,
+          state: resp.data.user.state,
+          zipcode: resp.data.user.zipcode,
+          phoneNo: resp.data.user.phoneNo,
+          plan: resp.data.user.plan,
+          newsletter: resp.data.user.newsletter,
+          volunteer: resp.data.user.volunteer,
+          agreeToTerms: resp.data.user.agreeToTerms,
+          notes: resp.data.user.notes,
+        },
+        loading: false,
+        error: null,
+      })
+      localStorage.setItem('token', resp.data.token)
+      axios.defaults.headers.common['authorization'] = `Bearer ${resp.data.token}`
+      props.modalLoginClose()
+      navigate('/')
     }
-
-    setUser({
-      data: {
-        firstName: resp.data.user.firstName,
-        lastName: resp.data.user.lastName,
-        id: resp.data.user.id,
-        email: resp.data.user.email,
-        role: resp.data.user.role,
-        address: resp.data.user.address,
-        city: resp.data.user.city,
-        state: resp.data.user.state,
-        zipcode: resp.data.user.zipcode,
-        phoneNo: resp.data.user.phoneNo,
-        plan: resp.data.user.plan,
-        newsletter: resp.data.user.newsletter,
-        volunteer: resp.data.user.volunteer,
-        agreeToTerms: resp.data.user.agreeToTerms,
-        notes: resp.data.user.notes,
-      },
-      loading: false,
-      error: null,
-    })
-    localStorage.setItem('token', resp.data.token)
-    axios.defaults.headers.common['authorization'] = `Bearer ${resp.data.token}`
-    props.modalLoginClose()
-    navigate('/')
-  }
-  const onError = (FieldErrors) => {
-    console.log(FieldErrors, 'FieldErrors')
-
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit, onError)} className='Login_form'>
+      <form onSubmit={handleSubmit(onSubmit)} className='Login_form'>
         <button
           type='button'
           onClick={props.modalLoginClose}
