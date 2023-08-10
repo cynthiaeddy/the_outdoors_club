@@ -1,5 +1,5 @@
 .FaqsContainer {
-  grid-column: 10/15;
+  grid-column: 9/15;
   background: white;
   height: fit-content;
   margin-left: 1rem;
@@ -45,8 +45,8 @@ h2.accordion-item-title {
   background-color: #fff;
   border: 0;
   padding: 1.5rem 2rem;
-  font-size: 1.5rem;
-  font-weight: 400;
+  font-size: 1.55rem;
+  font-weight: 500;
   cursor: pointer;
   text-align: left;
   flex-direction: column;

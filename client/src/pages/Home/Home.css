@@ -4,6 +4,7 @@
 
 .ComponentContainer.home {
   margin-top: 5rem;
+  max-width: 1250px;
 }
 
 .Home_about-text {

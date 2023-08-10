@@ -13,6 +13,9 @@ import { states } from '../../constants/states'
 import TestimonialData from '../../components/Testimonials/TestimonialData'
 import { ModalLogin } from '../../components/Modals/ModalLogin'
 import { ModalTerms } from '../../components/Modals/ModalTerms'
+
+import { ModalDuplicateEmail } from '../../components/Modals/ModalDuplicateEmail'
+
 import './Signup.css'
 import '../../components/Testimonials/Testimonials.css'
 
@@ -25,6 +28,9 @@ export const Signup = ({ isMobile = true }) => {
   const [agreeToTerms, setAgreeToTerms] = useState(false)
   const [state, setState] = useState('AK')
   const [showTestimonials, setshowTestimonials] = useState(false)
+  const [emailUseError, setEmaiUseError] = useState('')
+
+
 
   const [currentIdx, setCurrentIdx] = useState(-1)
   const btnOnClick = (idx) => {
@@ -67,6 +73,8 @@ export const Signup = ({ isMobile = true }) => {
 
   const [isModalLoginOpen, setIsModalLoginOpen] = useState(false)
   const [isModalTermsOpen, setIsModalTermsOpen] = useState(false)
+  const [errorMessage, setErrorMessage] =useState('')
+
 
   const modalLoginOpen = ()=> {
     setIsModalLoginOpen(true)
@@ -97,40 +105,51 @@ export const Signup = ({ isMobile = true }) => {
       zipcode: data.zipcode,
       notes: '',
     }
-    const { data: resp } = await axios.post(
-      `${process.env.REACT_APP_API_URL}/api/user/signup`,
-      userSignup,
-      {
-        headers: {
-          'Content-Type': 'application/json',
+
+    try {
+      const { data: resp } = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/user/signup`,
+        userSignup,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+
+      setUser({
+        data: {
+          firstName: resp.data.user.firstName,
+          lastName: resp.data.user.lastName,
+          id: resp.data.user.id,
+          email: resp.data.user.email,
+          role: resp.data.user.role,
+          address: resp.data.user.address,
+          city: resp.data.user.city,
+          state: resp.data.user.state,
+          zipcode: resp.data.user.zipcode,
+          phoneNo: resp.data.user.phoneNo,
+          plan: resp.data.user.plan,
+          newsletter: resp.data.user.newsletter,
+          volunteer: resp.data.user.volunteer,
+          agreeToTerms: resp.data.user.agreeToTerms,
+          notes: resp.data.user.notes,
         },
+        loading: false,
+        error: null,
+      })
+      localStorage.setItem('token', resp.data.token)
+      axios.defaults.headers.common['authorization'] = `Bearer ${resp.data.token}`
+      navigate('/')
+    }catch (error) {
+      if (error.response && error.response.data) {
+        setErrorMessage(error.response.data);
+
+      } else {
+        console.log(error);
       }
-    )
-    setUser({
-      data: {
-        firstName: resp.data.user.firstName,
-        lastName: resp.data.user.lastName,
-        id: resp.data.user.id,
-        email: resp.data.user.email,
-        role: resp.data.user.role,
-        address: resp.data.user.address,
-        city: resp.data.user.city,
-        state: resp.data.user.state,
-        zipcode: resp.data.user.zipcode,
-        phoneNo: resp.data.user.phoneNo,
-        plan: resp.data.user.plan,
-        newsletter: resp.data.user.newsletter,
-        volunteer: resp.data.user.volunteer,
-        agreeToTerms: resp.data.user.agreeToTerms,
-        notes: resp.data.user.notes,
-      },
-      loading: false,
-      error: null,
-    })
-    localStorage.setItem('token', resp.data.token)
-    axios.defaults.headers.common['authorization'] = `Bearer ${resp.data.token}`
-    navigate('/')
-  }
+    }
+}
   const handleRegion = (e) => {
     setState(e.target.value)
   }
@@ -201,7 +220,7 @@ export const Signup = ({ isMobile = true }) => {
         <div className='SignupContainer'>
           <h3 className='Main_hed signup'>Sign Up</h3>
           <h5 className='Signup-question'>
-            Already a member? Please{' '}
+          Already have an online profile/account? Please{' '}
             <span>
               <button
                 type='button'
@@ -314,7 +333,7 @@ export const Signup = ({ isMobile = true }) => {
                 <input
                   {...register('confirmPassword', {
                     required: true,
-                    validate: (val: string) => {
+                    validate: (val) => {
                       if (watch('password') !== val) {
                         return 'Your passwords do no match'
                       }
@@ -461,14 +480,14 @@ export const Signup = ({ isMobile = true }) => {
             >
               {isHovering && !agreeToTerms &&(
 
-                  <h5 className='tandc-clause'>please read and agree to Terms and Conditions </h5>)}
+                <h5 className='tandc-clause'>Please read and agree to Terms and Conditions. </h5>)}
 
               <h4 className={`cta-button ${!agreeToTerms ? 'disabled-signup' : ''}`}>Sign Up</h4>
             </button>
           </form>
         </div>
       </div>
-
+      {errorMessage.length > 0 ? <ModalDuplicateEmail setErrorMessage={setErrorMessage } /> : null}
       <ModalLogin isOpen={isModalLoginOpen} modalLoginClose={modalLoginClose} />
       <ModalTerms isOpen={isModalTermsOpen} modalTermsClose={modalTermsClose} />
     </section>

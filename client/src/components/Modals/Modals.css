@@ -32,7 +32,7 @@
   background: none;
 }
 
-.ModalDelete, .ModalAboutUs {
+.ModalDelete, .ModalAboutUs, .ModalEmail {
   padding: 3rem;
 }
 

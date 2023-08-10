@@ -5,16 +5,20 @@ import bcrypt from 'bcryptjs'
 import JWT from 'jsonwebtoken'
 
 export const signup = async (req, res) => {
-  const validationErrors = validationResult(req)
-  if (!validationErrors.isEmpty()) {
-    const errors = validationErrors.array().map(error => {
-      return {
-        msg: error.msg,
-      }
-    })
+  // console.log('in signup backend')
+  // const validationErrors = validationResult(req)
+  // console.log(validationErrors,  'validationErrors in signup backend')
 
-    return res.json({ errors, data: null })
-  }
+  // if (!validationErrors.isEmpty()) {
+  //   const errors = validationErrors.array().map(error => {
+  //     return {
+  //       msg: error.msg,
+  //     }
+  //   })
+  //   console.log(errors, 'errors,in signup backend')
+
+  //   return res.json({ errors, data: null })
+  // }
 
   const {
     firstName,
@@ -35,17 +39,9 @@ export const signup = async (req, res) => {
   } = req.body
 
   const user = await User.findOne({ email })
+  console.log(user, 'user,in signup backend')
+  if (user) return res.status(400).send("User already registered.")
 
-  if (user) {
-    return res.json({
-      errors: [
-        {
-          msg: 'Email already in use',
-        },
-      ],
-      data: null,
-    })
-  }
 
   const hashedPassword = await bcrypt.hash(password, 10)
 
