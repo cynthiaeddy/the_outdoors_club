@@ -32,10 +32,42 @@
   background: none;
 }
 
-.ModalDelete {
+.ModalDelete, .ModalAboutUs {
   padding: 3rem;
 }
 
 .cta-button.delete {
   margin: 10px;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .ModalContainer.AboutUs {
+    width: 60%
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .ModalContainer.AboutUs {
+    width: 75%
+  }
+  .ModalAboutUs {
+    padding: 1rem;
+    padding-bottom: 2rem
+  }
+  h3.Home_about-text {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ModalContainer.AboutUs {
+  width: 95%
+}
+  .ModalAboutUs {
+    padding: 1rem;
+    padding-bottom: 2rem
+  }
+  h3.Home_about-text {
+    font-size: 1.5rem;
+  }
 }

@@ -4,7 +4,7 @@ import { UserContext } from '../../context'
 import { Link, useLocation } from 'react-router-dom'
 import './UserAccount.css'
 import '../../pages/Signup/Signup.css'
-// import { EditUser } from '../../pages/EditUser/EditUser'
+import { EditUser } from '../../pages/EditUser/EditUser'
 
 export const UserAccountMobile = () => {
   const location = useLocation()
@@ -148,7 +148,7 @@ export const UserAccountMobile = () => {
           </div>
         ) : null}
       </div>
-      {/* <EditUser isMobile={true} /> */}
+      <EditUser isMobile={true} />
     </section>
   )
 }

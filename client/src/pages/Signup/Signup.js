@@ -31,6 +31,16 @@ export const Signup = ({ isMobile = true }) => {
     setCurrentIdx(currentValue => (currentValue !== idx ? idx : -1))
     setshowTestimonials(!showTestimonials)
   }
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
+
   const navigate = useNavigate()
 
   const {
@@ -445,8 +455,15 @@ export const Signup = ({ isMobile = true }) => {
             <button
               type='submit'
               disabled={!agreeToTerms}
-              className='Signup_submit-button'>
-              <h4 className='cta-button'>Sign Up</h4>
+              className='Signup_submit-button'
+              onMouseOver={handleMouseOver}
+              onMouseOut={handleMouseOut}
+            >
+              {isHovering && !agreeToTerms &&(
+
+                  <h5 className='tandc-clause'>please read and agree to Terms and Conditions </h5>)}
+
+              <h4 className={`cta-button ${!agreeToTerms ? 'disabled-signup' : ''}`}>Sign Up</h4>
             </button>
           </form>
         </div>

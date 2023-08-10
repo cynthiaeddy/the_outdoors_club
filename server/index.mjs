@@ -12,6 +12,12 @@ import userRoutes from './routes/user-route.mjs'
 import passwordRoutes from './routes/password-route.mjs'
 
 
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
 dotenv.config();
 
 const PORT = process.env.PORT || 5050;

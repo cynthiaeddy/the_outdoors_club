@@ -60,7 +60,7 @@ a:hover.Footer_text,
 @media screen and (max-width: 480px) {
   .FooterContainer {
     padding: 2rem;
-    margin-top: 2rem
+    margin-top: 2rem;
   }
   .Footer_text {
     line-height: 1.2;

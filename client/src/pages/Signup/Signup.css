@@ -147,6 +147,9 @@ h5.Signup-question.password.open {
   border: none;
   cursor: pointer;
 }
+.Signup_submit-button.disable {
+  color: grey!important
+}
 .Login_submit-button {
   margin-top: 2rem;
 }
@@ -176,6 +179,14 @@ button.Signup_input-button {
 }
 .cta-button.reset {
   margin-top: 1rem;
+}
+.cta-button.disabled-signup {
+  color:rgb(177, 177, 177)
+}
+h5.tandc-clause {
+  color: black;
+  margin: 0;
+  font-weight: 200;
 }
 
 .Signup_radioButtons {

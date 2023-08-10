@@ -12,8 +12,8 @@ export const ModalAboutUs = ({
   }
   return (
     <div className='ModalWrapper'>
-      <div className='ModalContainer'>
-        <div className='ModalDelete'>
+      <div className='ModalContainer AboutUs'>
+        <div className='ModalAboutUs'>
           <button
             type='button'
             onClick={modalAboutUsClose}

@@ -27,16 +27,17 @@ export const forgotPassword = async (req, res) => {
       })
 
       const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
+        host: 'smtp.mail.yahoo.com',
         port: 465,
-        // secure: true,
+        service: 'yahoo',
+        secure: false,
         auth: {
           user: process.env.EMAIL_ADDRESS,
           pass: process.env.EMAIL_PASSWORD,
         },
-        tls: {
-          rejectUnauthorized: false,
-        },
+        // tls: {
+        //   rejectUnauthorized: false,
+        // },
       })
 
       const mailOptions = {
