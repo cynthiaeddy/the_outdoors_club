@@ -89,6 +89,13 @@ export const UserAccount = ({ modalUserAcctClose }) => {
     modalUserAcctClose()
     navigate('/edit')
   }
+
+
+
+  const handleMemberUser = () => {
+    modalUserAcctClose()
+    navigate('/#membership')
+  }
   return (
     <section className='UserAcctContainer'>
       <button
@@ -132,6 +139,13 @@ export const UserAccount = ({ modalUserAcctClose }) => {
         <h5>
           Edit your profile?{' '}
           <button onClick={() => handleEditUser()} className='cta-button'>
+            click here
+          </button>{' '}
+        </h5>
+        <br />
+        <h5>
+          Become a member!{' '}
+          <button onClick={() => handleMemberUser()} className='cta-button'>
             click here
           </button>{' '}
         </h5>

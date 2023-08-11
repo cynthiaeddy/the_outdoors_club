@@ -203,7 +203,7 @@ img.logo {
   }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (min-width: 769px) and (max-width: 1299px) {
   span.Main_hed,
   .Main_hed {
     font-size: 6.7rem;
