@@ -28,8 +28,6 @@ export const Signup = ({ isMobile = true }) => {
   const [agreeToTerms, setAgreeToTerms] = useState(false)
   const [state, setState] = useState('AK')
   const [showTestimonials, setshowTestimonials] = useState(false)
-  const [emailUseError, setEmaiUseError] = useState('')
-
 
 
   const [currentIdx, setCurrentIdx] = useState(-1)
@@ -226,7 +224,7 @@ export const Signup = ({ isMobile = true }) => {
                 type='button'
                 onClick={modalLoginOpen}
                 className='cta-button'>
-                <h5>Log In</h5>
+                <h5>Log In Here</h5>
               </button>
             </span>
           </h5>

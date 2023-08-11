@@ -18,6 +18,7 @@ export const Navbar =  ({ isMobile = true }) => {
   const admin = state.data?.role === 'admin'
   const leader = state.data?.role === 'leader'
   const userRole = state.data?.role === 'user'
+  const userName = state.data?.firstName
 
   const [isModalLoginOpen, setIsModalLoginOpen] = useState(false)
 
@@ -43,7 +44,8 @@ export const Navbar =  ({ isMobile = true }) => {
     localStorage.removeItem('token')
     navigate('/')
   }
-  console.log(state.data?.role,'state.data?.role in navbar,')
+  console.log(state.data?.role, 'state.data?.role in navbar,')
+  console.log(state.data?.firstName, 'state.data in navbar')
 
   return (
     <>
@@ -85,11 +87,16 @@ export const Navbar =  ({ isMobile = true }) => {
             )}
 
             {user ? (
+              <>
               <li className='nav-item'>
                 <button className='nav-links' onClick={logout}>
                   sign out
                 </button>
+                </li>
+                <li className='nav-links'>
+                  hi {userName}!
               </li>
+              </>
             ) : (
               <>
                 <li className='nav-item'>
