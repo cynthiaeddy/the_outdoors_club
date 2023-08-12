@@ -5,20 +5,6 @@ import bcrypt from 'bcryptjs'
 import JWT from 'jsonwebtoken'
 
 export const signup = async (req, res) => {
-  // console.log('in signup backend')
-  // const validationErrors = validationResult(req)
-  // console.log(validationErrors,  'validationErrors in signup backend')
-
-  // if (!validationErrors.isEmpty()) {
-  //   const errors = validationErrors.array().map(error => {
-  //     return {
-  //       msg: error.msg,
-  //     }
-  //   })
-  //   console.log(errors, 'errors,in signup backend')
-
-  //   return res.json({ errors, data: null })
-  // }
 
   const {
     firstName,
@@ -206,6 +192,7 @@ export const getSingleUser = async (req, res) => {
 
 export const updateUser = async (req, res) => {
   const filter = { _id: req.params.id }
+  console.log(filter,'in edit user backend, filter')
 
   const {
     firstName,
@@ -213,18 +200,17 @@ export const updateUser = async (req, res) => {
     email,
     password,
     confirmPassword,
-    role,
     address,
     city,
     state,
     zipcode,
     phoneNo,
-    plan,
     newsletter,
     volunteer,
     notes,
+    role
   } = req.body
-
+  console.log(password,'in edit user backend, password')
   try {
     if (password) {
       //password is not empty
@@ -250,7 +236,6 @@ export const updateUser = async (req, res) => {
         city,
         state,
         zipcode,
-        plan,
         newsletter,
         volunteer,
         notes,
@@ -311,7 +296,6 @@ export const updateUser = async (req, res) => {
         city,
         state,
         zipcode,
-        plan,
         newsletter,
         volunteer,
         notes,

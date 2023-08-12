@@ -80,23 +80,18 @@ export const Navbar =  ({ isMobile = true }) => {
               <>
                 <li className='nav-item'>
                   <button onClick={modalUserAcctOpen} className='nav-links'>
-                    Account
+                  {userName}'s Account
                   </button>
                 </li>
               </>
             )}
 
             {user ? (
-              <>
               <li className='nav-item'>
                 <button className='nav-links' onClick={logout}>
                   sign out
                 </button>
                 </li>
-                <li className='nav-links'>
-                  hi {userName}!
-              </li>
-              </>
             ) : (
               <>
                 <li className='nav-item'>

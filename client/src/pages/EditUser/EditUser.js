@@ -50,6 +50,7 @@ export const EditUser = ({ isMobile = true }) => {
       volunteer: user.data?.volunteer,
       newsletter: user.data?.newsletter,
       notes: user.data?.notes,
+      role: user.data?.role,
     },
   })
 
@@ -63,6 +64,7 @@ export const EditUser = ({ isMobile = true }) => {
       lastName: data.lastName,
       email: data.email,
       password: data.password,
+      confirmPassword: data.confirmPassword,
       phoneNo: data.phoneNo,
       city: data.city,
       address: data.address,
@@ -71,6 +73,8 @@ export const EditUser = ({ isMobile = true }) => {
       newsletter: data.newsletter,
       state,
       notes: data.notes,
+      role: data.role,
+
     }
     console.log(userEdit, 'userEdit in edit user')
     const { data: resp } = await axios.patch(
