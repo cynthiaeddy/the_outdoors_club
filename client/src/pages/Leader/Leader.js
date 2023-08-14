@@ -99,13 +99,9 @@ export const Leader = () => {
                 <th rowSpan={2}>Last Name</th>
                 <th rowSpan={2}>Phone</th>
                 <th rowSpan={2}>Email</th>
-
-                <th colSpan={1} scope='colgroup'>
+                <th colSpan={2} >
                   Membership
                 </th>
-              </tr>
-              <tr>
-                <th scope='col'>Active</th>
               </tr>
             </thead>
 
