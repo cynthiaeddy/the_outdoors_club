@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import './Footer.css'
 import { ModalAboutUs } from '../Modals/ModalAboutUs'
+import { ModalContactUs } from '../Modals/ModalContactUs'
 
 export const Footer = () => {
   const [isModalAboutUsOpen, setIsModalAboutUsOpen] = useState(false)
+  const [isModalContactUsOpen, setIsModalContacyUsOpen] = useState(false)
 
   const modalAboutUsClose = () => {
     setIsModalAboutUsOpen(false)
@@ -12,17 +14,22 @@ export const Footer = () => {
     setIsModalAboutUsOpen(true)
   }
 
+  const modalContactUsClose = () => {
+    setIsModalContacyUsOpen(false)
+  }
+  const modalContactUsOpen = () => {
+    setIsModalContacyUsOpen(true)
+  }
+
   return (
     <>
       <div
         className='
   FooterContainer'>
         <div className='Footer_links'>
-          <h3 className='Footer_text'>
-            <a href='mailto:outdoorsclubny@yahoo.com' className='Footer_text'>
-              Contact Us
-            </a>
-          </h3>
+        <button className='Footer_text button' onClick={modalContactUsOpen}>
+            Contact Us
+          </button>{' '}
           <button className='Footer_text button' onClick={modalAboutUsOpen}>
             About Us
           </button>{' '}
@@ -40,6 +47,10 @@ export const Footer = () => {
           </a>
         </div>
       </div>
+      <ModalContactUs
+        isOpen={isModalContactUsOpen}
+        modalContactUsClose={modalContactUsClose}
+      />
       <ModalAboutUs
         isOpen={isModalAboutUsOpen}
         modalAboutUsClose={modalAboutUsClose}

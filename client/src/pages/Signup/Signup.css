@@ -94,6 +94,15 @@ select.Signup_input.state {
   width: 50%;
 }
 
+.Signup_input.message {
+  margin-top: 0
+}
+
+
+h5.message {
+  padding-bottom: 0rem
+}
+
 .Signup_password-wrapper {
   position: relative;
 }
@@ -112,6 +121,7 @@ select.Signup_input.state {
 .Signup_tandc {
   margin-top: 1rem;
 }
+
 
 /* ///////fonts//////// */
 
