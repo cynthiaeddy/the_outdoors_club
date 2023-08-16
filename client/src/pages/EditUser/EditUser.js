@@ -398,7 +398,7 @@ export const EditUser = ({ isMobile = true }) => {
               </div>
             </h5>
             <button type='submit' className='Signup_submit-button'>
-              <h4 className='cta-button'>Submit</h4>
+              <h4 className='cta-button'>Save</h4>
             </button>
           </form>
         </div>

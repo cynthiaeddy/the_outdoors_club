@@ -36,13 +36,10 @@ export const ContactUs = props => {
       console.log(resp, 'resp')
       props.modalContactUsClose()
 
-    } catch {}
-
-
+    } catch (err) {
+      console.log(err)
+    }
 }
-
-
-
 
 
   return (

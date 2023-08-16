@@ -359,7 +359,8 @@ export const Admin = () => {
                 <th rowSpan={2}>Email</th>
                 <th rowSpan={2}>Newsletter</th>
                 <th rowSpan={2}>Role</th>
-                <th rowSpan={2}>Volunteer</th>
+                <th rowSpan={2}>Volunteer <br/>
+                  Interest</th>
                 <th rowSpan={2}>Notes</th>
                 <th colSpan={8} scope='colgroup'>
                   Membership
