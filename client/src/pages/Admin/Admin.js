@@ -370,12 +370,12 @@ export const Admin = () => {
               <tr>
                 <th scope='col' className='col-second'>Plan</th>
                 <th scope='col' className='col-second'>Duration</th>
-                <th scope='col'>Start Date</th>
-                <th scope='col'>End Date</th>
-                <th scope='col'>Active</th>
-                <th scope='col'>Paid</th>
-                <th scope='col'>Type</th>
-                <th scope='col'>Source</th>
+                <th scope='col' className='col-second'>Start Date</th>
+                <th scope='col' className='col-second'>End Date</th>
+                <th scope='col'className='col-second'>Active</th>
+                <th scope='col'className='col-second'>Paid</th>
+                <th scope='col'className='col-second'>Type</th>
+                <th scope='col'className='col-second'>Source</th>
               </tr>
             </thead>
 
