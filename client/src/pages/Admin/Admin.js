@@ -292,7 +292,19 @@ export const Admin = () => {
       userId: '',
     })
   }
-
+  const requestSearchFirst = (searchValue) => {
+    const filteredRows = users.filter(row => {
+      return row.firstName
+        .toString()
+        .toLowerCase()
+        .includes(searchValue.toString().toLowerCase())
+    })
+    if (searchValue.length < 1) {
+      setUsers(users)
+    } else {
+      setUsers(filteredRows)
+    }
+  }
   const requestSearch = (searchValue) => {
     const filteredRows = users.filter(row => {
       return row.lastName
@@ -334,7 +346,21 @@ export const Admin = () => {
             name='search-form'
             id='search-form'
             className='search-input'
-            placeholder='Search for...'
+            placeholder='Search for first name'
+            onChange={e => requestSearchFirst(e.target.value)}
+          />
+
+          <button className='search-only' onClick={fetchDataAgain}>
+            Reset{' '}
+          </button>
+        </label>
+        <label htmlFor='search-form' className='search-form'>
+          <input
+            type='search'
+            name='search-form'
+            id='search-form'
+            className='search-input'
+            placeholder='Search for last name'
             onChange={e => requestSearch(e.target.value)}
           />
 
@@ -345,7 +371,7 @@ export const Admin = () => {
       </div>
       <div className='AdminContainer'>
         <form onSubmit={handleEditFormSubmit} className='Admin_form'>
-          <table className='Admin_table' id='Admin_table'>
+          <table className='Admin_table admin' id='Admin_table'>
             <colgroup span={4}></colgroup>
             <thead className='Admin_table-hed'>
               <tr>

@@ -147,6 +147,7 @@ tr.Admin-tr {
   border: 1px solid rgba(0, 0, 0, 0.5);
   padding: 1rem;
   background: white;
+  margin: 0 1rem;
 }
 .search-only {
   background: none;
@@ -226,19 +227,28 @@ tr.Admin-tr {
     display: block;
   }
   .Admin-search {
-    margin-top: 22rem;
-    padding: 2rem 0rem 4rem 0rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .Admin-search>.search-form {
+    width: 75%;
+    margin: auto;
+    margin-top: 2rem;
+  }
+  .Admin-search>.search-form:first-child {
+    margin-top: 0
+
   }
   .AdminContainer {
-    margin-top: 10rem;
+    margin-top: 18rem;
   }
-  .ComponentContainer.admin {
-    margin: 0 2rem;
-  }
-  .Admin_table {
-    margin-top: 20rem;
-  }
+
   .Admin_table.leader {
     margin-top: 0rem;
   }
+  th.col-second {
+    z-index: 1;
+  }
+
+
 }

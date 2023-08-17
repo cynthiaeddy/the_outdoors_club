@@ -10,6 +10,7 @@ import memberPlanRoutes from "./routes/plan-route.mjs";
 import membershipRoutes from './routes/membership-route.mjs'
 import userRoutes from './routes/user-route.mjs'
 import passwordRoutes from './routes/password-route.mjs'
+import contactUsRoutes from './routes/contact-us-route.mjs'
 
 
 import { fileURLToPath } from 'url';
@@ -44,6 +45,9 @@ app.use("/api/user", userRoutes);
 app.use("/api/plan", memberPlanRoutes);
 app.use("/api/membership", membershipRoutes);
 app.use("/api/password", passwordRoutes);
+app.use("/api/contact", contactUsRoutes);
+
+
 
 
 mongoose.connect(process.env.MONGODB_URL).then(() => {

@@ -31,6 +31,19 @@ export const Leader = () => {
     }
     fetchData()
   }, [])
+  const requestSearchFirst = (searchValue) => {
+    const filteredRows = users.filter(row => {
+      return row.firstName
+        .toString()
+        .toLowerCase()
+        .includes(searchValue.toString().toLowerCase())
+    })
+    if (searchValue.length < 1) {
+      setUsers(users)
+    } else {
+      setUsers(filteredRows)
+    }
+  }
   const requestSearch = (searchValue) => {
     const filteredRows = users.filter(row => {
       return row.lastName
@@ -74,13 +87,27 @@ export const Leader = () => {
         </a>
       </div>
       <div className='Admin-search '>
+      <label htmlFor='search-form' className='search-form'>
+          <input
+            type='search'
+            name='search-form'
+            id='search-form'
+            className='search-input'
+            placeholder='Search for first name'
+            onChange={e => requestSearchFirst(e.target.value)}
+          />
+
+          <button className='search-only' onClick={fetchDataAgain}>
+            Reset{' '}
+          </button>
+        </label>
         <label htmlFor='search-form' className='search-form'>
           <input
             type='search'
             name='search-form'
             id='search-form'
             className='search-input'
-            placeholder='Search for...'
+            placeholder='Search for last name'
             onChange={e => requestSearch(e.target.value)}
           />
 
@@ -89,7 +116,7 @@ export const Leader = () => {
           </button>
         </label>
       </div>
-      <div className='AdminContainer '>
+      <div className='AdminContainer leader '>
         <form className='Admin_form'>
           <table className='Admin_table leader'>
             <colgroup span={4}></colgroup>
