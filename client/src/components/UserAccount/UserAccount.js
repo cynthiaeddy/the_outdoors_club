@@ -142,13 +142,6 @@ export const UserAccount = ({ modalUserAcctClose }) => {
             click here
           </button>{' '}
         </h5>
-        <br />
-        <h5>
-          Become a member!{' '}
-          <button onClick={() => handleMemberUser()} className='cta-button'>
-            click here
-          </button>{' '}
-        </h5>
       </div>
       {plan.length ? (
         <div className='UserAcct-edit'>
@@ -164,7 +157,12 @@ export const UserAccount = ({ modalUserAcctClose }) => {
             Please allow 2 weeks after payment for your account to be updated
           </h5>
         </div>
-      ) : null}
+      ) : <h5>
+      Become a member!{' '}
+      <button onClick={() => handleMemberUser()} className='cta-button'>
+        click here
+      </button>{' '}
+    </h5> }
     </section>
   )
 }

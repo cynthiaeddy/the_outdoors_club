@@ -36,13 +36,17 @@ export const Footer = () => {
           <h3 className='Footer_text'>
             <a
               href='https://www.meetup.com/outdoorsclubny'
+              target='_blank'
+              rel="noopener noreferrer"
               className='Footer_text'>
               Meetup Link
+
             </a>
           </h3>
         </div>
         <div className='Footer_me'>
-          <a href={'https://cynthiaeddy.netlify.app/'}>
+          <a href={'https://cynthiaeddy.netlify.app/'} target='_blank'
+              rel="noopener noreferrer">
             <h6>Built and Designed by Cynthia Eddy</h6>
           </a>
         </div>

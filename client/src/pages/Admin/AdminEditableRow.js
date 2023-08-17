@@ -47,6 +47,7 @@ export const AdminEditableRow = (props) => {
         <input
           type='state'
           name='state'
+          length={2}
           placeholder='State '
           className='Admin-input edit'
           value={props.editFormData.state}
@@ -57,6 +58,7 @@ export const AdminEditableRow = (props) => {
         <input
           type='zipcode'
           name='zipcode'
+          length={5}
           placeholder='Zipcode '
           className='Admin-input edit'
           value={props.editFormData.zipcode}
@@ -68,6 +70,7 @@ export const AdminEditableRow = (props) => {
           type='phoneNo'
           name='phoneNo'
           placeholder='Phone'
+          length={10}
           className='Admin-input edit'
           value={props.editFormData.phoneNo}
           onChange={props.handleEditFormChange}

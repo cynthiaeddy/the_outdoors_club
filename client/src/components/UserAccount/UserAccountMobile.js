@@ -1,13 +1,15 @@
 import axios from 'axios'
 import { useState, useContext, useEffect } from 'react'
 import { UserContext } from '../../context'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate  } from 'react-router-dom'
 import './UserAccount.css'
 import '../../pages/Signup/Signup.css'
 import { EditUser } from '../../pages/EditUser/EditUser'
 
 export const UserAccountMobile = () => {
   const location = useLocation()
+  const navigate = useNavigate()
+
 
   const handleLoading = () => {
     setLoading(false)
@@ -91,6 +93,9 @@ export const UserAccountMobile = () => {
       console.log(err)
     }
   }
+  const handleMemberUser = () => {
+    navigate('/#membership')
+  }
 
   return (
     <section className=''>
@@ -146,7 +151,12 @@ export const UserAccountMobile = () => {
               Please allow 2 weeks after payment for your account to be updated
             </h5>
           </div>
-        ) : null}
+        ) : <h5>
+        Become a member!{' '}
+        <button onClick={() => handleMemberUser()} className='cta-button'>
+          click here
+        </button>{' '}
+      </h5> }
       </div>
       <EditUser isMobile={true} />
     </section>

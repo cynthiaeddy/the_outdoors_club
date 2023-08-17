@@ -106,7 +106,9 @@ export const NavbarMobile = ({
               <NavLink
                 to='https://www.meetup.com/outdoorsclubny'
                 className='nav-links'
-                onClick={toggleMenuNav}>
+                onClick={toggleMenuNav}
+                target='_blank'
+                rel="noopener noreferrer">
                 meetup link
               </NavLink>
             </li>

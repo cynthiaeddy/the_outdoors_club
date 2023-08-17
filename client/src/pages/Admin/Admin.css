@@ -249,6 +249,9 @@ tr.Admin-tr {
   th.col-second {
     z-index: 1;
   }
-
+  .ComponentContainer.admin {
+    margin-left: 2rem;
+    margin-right: 2rem
+  }
 
 }

@@ -113,7 +113,9 @@ export const Navbar =  ({ isMobile = true }) => {
             <li className='nav-item'>
               <NavLink
                 to='https://www.meetup.com/outdoorsclubny'
-                className='nav-links'>
+                className='nav-links'
+                target='_blank'
+                rel="noopener noreferrer">
                 meetup link
               </NavLink>
             </li>
