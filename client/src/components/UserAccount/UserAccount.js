@@ -1,10 +1,10 @@
 import axios from 'axios'
 import { useState, useContext, useEffect } from 'react'
-import { UserContext } from '../../context'
 import { useNavigate } from 'react-router-dom'
-import './UserAccount.css'
 import { GrClose } from 'react-icons/gr'
 
+import { UserContext } from '../../context'
+import './UserAccount.css'
 
 
 export const UserAccount = ({ modalUserAcctClose }) => {
@@ -27,7 +27,6 @@ export const UserAccount = ({ modalUserAcctClose }) => {
     getUser()
   }, [])
 
-  console.log(userId, plan, 'userId, in user account')
 
   const handleUpdateMembership = () => {
     modalUserAcctClose()
@@ -63,7 +62,6 @@ export const UserAccount = ({ modalUserAcctClose }) => {
     const endDate = twoYearsFromNow.setFullYear(
       twoYearsFromNow.getFullYear() + 2
     )
-
     try {
       const fieldsToUpdate = {
         _id: plan[0].plan[0]._id,
@@ -75,7 +73,6 @@ export const UserAccount = ({ modalUserAcctClose }) => {
         source: plan[0].plan[0].source,
         endDate: endDate,
       }
-
       await axios.patch(
         `${process.env.REACT_APP_API_URL}/api/plan/date/${plan[0]._id}`,
         fieldsToUpdate
@@ -89,8 +86,6 @@ export const UserAccount = ({ modalUserAcctClose }) => {
     modalUserAcctClose()
     navigate('/edit')
   }
-
-
 
   const handleMemberUser = () => {
     modalUserAcctClose()

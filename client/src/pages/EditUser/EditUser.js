@@ -2,18 +2,16 @@ import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
+import { Carousel } from 'react-responsive-carousel'
+import { useForm } from 'react-hook-form'
+
 import { UserContext } from '../../context'
 import { states } from '../../constants/states'
-import { Carousel } from 'react-responsive-carousel'
-
 import { TestimonialItem } from '../../components/Testimonials/TestimonialItem'
-
-import '../Signup/Signup.css'
-import '../../components/Testimonials/Testimonials.css'
-
 import TestimonialDataEdit from '../../components/Testimonials/TestimonialDataEdit'
-import { useForm } from 'react-hook-form'
 import { MemberExtend } from '../../components/MemberExtend/MemberExtend'
+import '../../components/Testimonials/Testimonials.css'
+import '../Signup/Signup.css'
 
 
 export const EditUser = ({ isMobile = true }) => {
@@ -76,7 +74,6 @@ export const EditUser = ({ isMobile = true }) => {
       role: data.role,
 
     }
-    console.log(userEdit, 'userEdit in edit user')
     const { data: resp } = await axios.patch(
       `${process.env.REACT_APP_API_URL}/api/user/${userId}`,
       userEdit,
@@ -116,9 +113,7 @@ export const EditUser = ({ isMobile = true }) => {
     setShowPassword(!showPassword)
   }
   return (
-    // <section className='SignupWrapper'>
-          <>
-
+     <>
       <div className='ComponentContainer signup edit-user'>
         <section className='TestimonialContainer'>
           <h3 className='Main_hed'>Testimonials</h3>
@@ -189,7 +184,6 @@ export const EditUser = ({ isMobile = true }) => {
                   {...register('firstName', { required: 'This is required' })}
                   name='firstName'
                   className='Signup_input '
-                  autoComplete="new-password"
                 />
 
                 <h6 className='Signup-error'>{errors.firstName?.message}</h6>
@@ -203,7 +197,6 @@ export const EditUser = ({ isMobile = true }) => {
                   {...register('lastName', { required: 'This is required' })}
                   name='lastName'
                   className='Signup_input '
-                  autoComplete="new-password"
                 />
                 <h6 className='Signup-error'>{errors.lastName?.message}</h6>
               </div>
@@ -225,7 +218,6 @@ export const EditUser = ({ isMobile = true }) => {
                   })}
                   name='email'
                   className='Signup_input'
-                  autoComplete="new-password"
                 />
                 <h6 className='Signup-error'>{errors.email?.message}</h6>
               </div>
@@ -244,7 +236,6 @@ export const EditUser = ({ isMobile = true }) => {
                   })}
                   name='phoneNo'
                   className='Signup_input'
-                  autoComplete="new-password"
                 />
                 <h6 className='Signup-error'>{errors.phoneNo?.message}</h6>
               </div>
@@ -262,8 +253,6 @@ export const EditUser = ({ isMobile = true }) => {
                   name='password'
                   className='Signup_input'
                   type={showPassword ? 'text' : 'password'}
-                  autoComplete="new-password"
-
                 />
 
                 <h6 className='Signup-error'>
@@ -294,8 +283,6 @@ export const EditUser = ({ isMobile = true }) => {
                   name='confirmPassword'
                   className='Signup_input'
                   type={showPassword ? 'text' : 'password'}
-                  autoComplete="new-password"
-
                 />
                 <h6 className='Signup-error'>
                   {errors.confirmPassword?.message}
@@ -328,8 +315,6 @@ export const EditUser = ({ isMobile = true }) => {
               })}
               name='address'
               className='Signup_input'
-              autoComplete="new-password"
-
             />
             <div className='wrap-input'>
               <div className='fifty left'>
@@ -342,8 +327,6 @@ export const EditUser = ({ isMobile = true }) => {
                   })}
                   name='city'
                   className='Signup_input'
-                  autoComplete="new-password"
-
                 />
               </div>
               <div className='fifty '>
@@ -379,8 +362,6 @@ export const EditUser = ({ isMobile = true }) => {
                   })}
                   name='zipcode'
                   className='Signup_input'
-                  autoComplete="new-password"
-
                 />
                 <h6 className='Signup-error'>{errors.zipcode?.message}</h6>
               </div>

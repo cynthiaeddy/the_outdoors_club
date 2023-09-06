@@ -1,7 +1,5 @@
 import './MenuButton.css'
 
-
-
 export const MenuButton= ({ isOpen }) => {
   return (
     <>

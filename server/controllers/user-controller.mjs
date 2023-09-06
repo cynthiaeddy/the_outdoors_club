@@ -1,4 +1,3 @@
-import { validationResult } from 'express-validator'
 import User from '../models/user.mjs'
 import MemberPlan from '../models/memberPlan.mjs'
 import bcrypt from 'bcryptjs'
@@ -25,7 +24,6 @@ export const signup = async (req, res) => {
   } = req.body
 
   const user = await User.findOne({ email })
-  console.log(user, 'user,in signup backend')
   if (user) return res.status(400).send("User already registered.")
 
 
@@ -53,7 +51,8 @@ export const signup = async (req, res) => {
     { email: newUser.email },
     process.env.JWT_SECRET,
     {
-      expiresIn: 360000,
+      expiresIn: 3600,
+      // one hour
     }
   )
 
@@ -118,7 +117,7 @@ export const login = async (req, res)=> {
     { email: user.email },
     process.env.JWT_SECRET,
     {
-      expiresIn: 3600000,
+      expiresIn: 3600,
     }
   )
   res.json({
@@ -249,7 +248,7 @@ export const updateUser = async (req, res) => {
           { email: existingUser.email },
           process.env.JWT_SECRET,
           {
-            expiresIn: 3600000,
+            expiresIn: 3600,
           }
         )
         res.status(200).json({
@@ -308,7 +307,7 @@ export const updateUser = async (req, res) => {
           { email: existingUser.email },
           process.env.JWT_SECRET,
           {
-            expiresIn: 3600000,
+            expiresIn: 3600,
           }
         )
         res.status(200).json({

@@ -1,8 +1,6 @@
 import './Modals.css'
 import { GrClose } from 'react-icons/gr'
 
-
-
 export const ModalDuplicateEmail = ({
   isOpen = true,
   setErrorMessage

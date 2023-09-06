@@ -1,12 +1,12 @@
 import { useState, useContext } from 'react'
-import './Navbar.css'
 import { NavLink, useNavigate } from 'react-router-dom'
+
 import outdoors_logo from '../../assets/outdoors_logo.png'
 import { UserContext } from '../../context'
-
 import { ModalLogin } from '../Modals/ModalLogin'
 import { ModalAccount } from '../Modals/ModalAccount'
 import { NavbarMobile } from './NavbarMobile'
+import './Navbar.css'
 
 
 export const Navbar =  ({ isMobile = true }) => {

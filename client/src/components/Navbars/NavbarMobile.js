@@ -4,8 +4,6 @@ import { MenuButton } from './MenuButton'
 import outdoors_logo from '../../assets/outdoors_logo.png'
 import './NavbarMobile.css'
 
-
-
 export const NavbarMobile = ({
   user,
   admin,

@@ -11,7 +11,6 @@ const UserProvider = ({ children }) => {
     error: null,
   })
 
-
   const token = localStorage.getItem('token')
 
   if (token) {
@@ -19,7 +18,6 @@ const UserProvider = ({ children }) => {
   }
 
   const fetchUser = async () => {
-    // console.log('in fetch user, context')
 
     const { data: resp } = await axios.get(
       `${process.env.REACT_APP_API_URL}/api/user/me`

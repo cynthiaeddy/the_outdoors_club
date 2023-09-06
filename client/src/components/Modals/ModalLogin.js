@@ -3,7 +3,6 @@ import { Login } from '../Login/Login'
 import './Modals.css'
 
 
-
 export const ModalLogin = ({
   isOpen = true,
   modalLoginClose,

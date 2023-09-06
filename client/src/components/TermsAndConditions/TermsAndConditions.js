@@ -2,7 +2,6 @@ import { GrClose } from 'react-icons/gr'
 import './TermsandConditions.css'
 
 
-
 export const TermsAndConditions = ({
   modalTermsClose,
 }) => {

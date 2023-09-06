@@ -218,8 +218,6 @@ tr.Admin-tr {
     margin-top: 11rem;
   }
   .ComponentContainer.admin {height: 85vh}
-
-  /* .Admin_form {height:unset} */
 }
 
 @media screen and (max-width: 480px) {

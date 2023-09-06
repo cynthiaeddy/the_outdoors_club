@@ -1,15 +1,15 @@
 import axios from 'axios'
 import { useState, useContext, useEffect } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+
 import { UserContext } from '../../context'
-import { Link, useLocation, useNavigate  } from 'react-router-dom'
+import { EditUser } from '../../pages/EditUser/EditUser'
 import './UserAccount.css'
 import '../../pages/Signup/Signup.css'
-import { EditUser } from '../../pages/EditUser/EditUser'
 
 export const UserAccountMobile = () => {
   const location = useLocation()
   const navigate = useNavigate()
-
 
   const handleLoading = () => {
     setLoading(false)

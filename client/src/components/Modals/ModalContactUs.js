@@ -2,8 +2,6 @@ import React from 'react'
 import { ContactUs } from '../ContactUs/ContactUs'
 import './Modals.css'
 
-
-
 export const ModalContactUs = ({
   isOpen = true,
   modalContactUsClose,
