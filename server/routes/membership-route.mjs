@@ -5,13 +5,11 @@ dotenv.config({ path: './.env' });
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
 })
+const membershipRouter = express.Router()
 
 import { checkAuth } from '../middleware/checkAuth.mjs'
 import MemberPlan from '../models/memberPlan.mjs'
 import User from '../models/user.mjs'
-
-const membershipRouter = express.Router()
-
 import membershipController from '../controllers/membership-controller.mjs'
 
 membershipRouter.get('/', membershipController.getMemberships)
@@ -56,12 +54,9 @@ membershipRouter.post('/membership_create', checkAuth, async (req, res) => {
       customer: customer.id,
 
       success_url:
-        // 'http://localhost:3000/order/success?session_id={CHECKOUT_SESSION_ID}',
-        // 'http://yoursite.com/order/success?session_id={CHECKOUT_SESSION_ID}',
-        // other options...,
-        `http://localhost:3001/success`,
+        `${process.env.FRONTEND_URL}/success`,
 
-      cancel_url: `http://localhost:3001`,
+      cancel_url: `${process.env.FRONTEND_URL}`,
     },
     { apiKey: process.env.STRIPE_SECRET_KEY }
   )

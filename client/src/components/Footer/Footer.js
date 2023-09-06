@@ -23,9 +23,7 @@ export const Footer = () => {
 
   return (
     <>
-      <div
-        className='
-  FooterContainer'>
+      <div className='FooterContainer'>
         <div className='Footer_links'>
         <button className='Footer_text button' onClick={modalContactUsOpen}>
             Contact Us
@@ -40,7 +38,6 @@ export const Footer = () => {
               rel="noopener noreferrer"
               className='Footer_text'>
               Meetup Link
-
             </a>
           </h3>
         </div>

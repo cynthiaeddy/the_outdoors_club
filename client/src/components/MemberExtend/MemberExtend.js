@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
-import { UserContext } from '../../context'
 import { useLocation } from 'react-router-dom'
+import { UserContext } from '../../context'
 
 import '../../pages/Signup/Signup.css'
 import './MemberExtend.css'

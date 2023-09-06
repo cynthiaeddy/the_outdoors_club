@@ -3,7 +3,7 @@ import axios from 'axios'
 import './MemberPlan.css'
 import { UserContext } from '../../context'
 import { useNavigate } from 'react-router-dom'
-// import { ModalLogin } from '../Modals/ModalLogin'
+import { ModalLogin } from '../Modals/ModalLogin'
 
 export const MemberPlan = () => {
   const navigate = useNavigate()
@@ -37,13 +37,6 @@ export const MemberPlan = () => {
     setIsModalLoginOpen(false)
   }
 
-  // console.log(
-  //   state.data?.plan,
-  //   state.data?.plan.length,
-  //   'state.data?.plan, in memberplan'
-  // )
-
-  // console.log(plans,typeof plans,'plans, typeof plans,')
 
   const createSession = async (plan) => {
     if (state && user) {
@@ -117,7 +110,7 @@ export const MemberPlan = () => {
               )
             })}
       </div>
-      {/* <ModalLogin isOpen={isModalLoginOpen} modalLoginClose={modalLoginClose} /> */}
+      <ModalLogin isOpen={isModalLoginOpen} modalLoginClose={modalLoginClose} />
     </section>
   )
 }

@@ -1,12 +1,9 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-
-import '../../pages/Signup/Signup.css'
-
 import axios from 'axios'
 
-
+import '../../pages/Signup/Signup.css'
 
 export const ForgotPassword = ({
   modalLoginClose,
@@ -41,7 +38,6 @@ export const ForgotPassword = ({
     }
     try {
       const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/password/forgot-password`, email)
-      // const response = await axios.post('/api/password/forgot-password', email)
       if (response.data === 'recovery email sent') {
         setshowError(false)
         setshowNullError(false)

@@ -1,11 +1,11 @@
 import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { UserContext } from '../../context'
-import '../../pages/Signup/Signup.css'
 import { useForm } from 'react-hook-form'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
+import { UserContext } from '../../context'
 import { ForgotPassword } from '../ForgotPassword/ForgotPassword'
+import '../../pages/Signup/Signup.css'
 
 export const LoginMobile = () => {
   const {

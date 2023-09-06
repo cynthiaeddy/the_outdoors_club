@@ -12,7 +12,6 @@ export const ContactUs = props => {
   const [message, setMessage] = useState("");
 
 
-  console.log(user, 'user in contact us')
   const {
     register,
     handleSubmit,
@@ -35,7 +34,6 @@ export const ContactUs = props => {
       const { data: resp } = await axios.post(`${process.env.REACT_APP_API_URL}/api/contact/send`, contactInfo)
       console.log(resp, 'resp')
       props.modalContactUsClose()
-
     } catch (err) {
       console.log(err)
     }
@@ -62,7 +60,6 @@ export const ContactUs = props => {
                   {...register('firstName', { required: 'This is required' })}
                   name='firstName'
                   className='Signup_input '
-                  autoComplete="new-password"
                 />
 
                 <h6 className='Signup-error'>{errors.firstName?.message}</h6>
@@ -75,8 +72,7 @@ export const ContactUs = props => {
                   type='lastName'
                   {...register('lastName', { required: 'This is required' })}
                   name='lastName'
-                  className='Signup_input '
-                  autoComplete="new-password"
+                  className='Signup_input'
                 />
                 <h6 className='Signup-error'>{errors.lastName?.message}</h6>
               </div>
@@ -92,7 +88,6 @@ export const ContactUs = props => {
               })}
               name='email'
               className='Signup_input'
-              autoComplete="new-password"
             />
               <h6 className='Signup-error'>{errors.email?.message}</h6>
 
