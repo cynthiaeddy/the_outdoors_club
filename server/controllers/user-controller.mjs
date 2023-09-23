@@ -120,6 +120,7 @@ export const login = async (req, res)=> {
       expiresIn: 3600,
     }
   )
+
   res.json({
     errors: [],
     data: {

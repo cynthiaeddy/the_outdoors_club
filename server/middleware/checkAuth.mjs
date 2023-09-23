@@ -13,7 +13,8 @@ export const checkAuth = async (
           msg: 'unauthorized',
         },
       ],
-    })
+    }) && res.json({error: 'im expired or no token'})
+
   }
   token = token.split(' ')[1]
 
