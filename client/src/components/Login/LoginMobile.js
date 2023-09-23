@@ -33,6 +33,12 @@ export const LoginMobile = () => {
     setShowForgotPassword(!showForgotPassword)
   }
 
+  const logout = () => {
+    console.log(user,'in logout, frontend, user')
+    localStorage.removeItem('token')
+    navigate('/')
+  }
+
   const onSubmit = async (data) => {
     const userLogin = {
       email: data.email,
@@ -77,6 +83,7 @@ export const LoginMobile = () => {
       axios.defaults.headers.common['authorization'] = `Bearer ${resp.data.token}`
       navigate('/')
     }
+
   }
 
   return (

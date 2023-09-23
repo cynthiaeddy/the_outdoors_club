@@ -9,7 +9,7 @@ import { NavbarMobile } from './NavbarMobile'
 import './Navbar.css'
 
 
-export const Navbar =  ({ isMobile = true }) => {
+export const Navbar = ({ isMobile = true }) => {
   const [state, setState] = useContext(UserContext)
 
   const navigate = useNavigate()
@@ -28,8 +28,9 @@ export const Navbar =  ({ isMobile = true }) => {
     setIsModalLoginOpen(false)
   }
 
-  const modalLoginOpen = ()=> {
+  const modalLoginOpen = () => {
     setIsModalLoginOpen(true)
+
   }
 
   const modalUserAcctClose = ()=> {
@@ -37,6 +38,11 @@ export const Navbar =  ({ isMobile = true }) => {
   }
   const modalUserAcctOpen = () => {
     setIsModalUserAcctOpen(true)
+    const timer = setTimeout(() => {
+      console.log('This will run after 1 second!')
+      setIsModalUserAcctOpen(false)
+    }, 3000);
+    return () => clearTimeout(timer)
   }
 
   const logout = () => {

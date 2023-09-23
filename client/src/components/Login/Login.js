@@ -34,6 +34,13 @@ export const Login = (props) => {
     setShowForgotPassword(!showForgotPassword)
   }
 
+  const logout = () => {
+    console.log(user,'in logout, frontend, user')
+    localStorage.removeItem('token')
+    props.modalLoginClose()
+    navigate('/')
+  }
+
   const onSubmit = async (data) => {
     const userLogin = {
       email: data.email,
@@ -80,6 +87,11 @@ export const Login = (props) => {
       props.modalLoginClose()
       navigate('/')
     }
+    const timer = setTimeout(() => {
+      console.log('This will run after 1 second!')
+      logout()
+    }, 2000);
+    return () => clearTimeout(timer);
   }
 
   return (

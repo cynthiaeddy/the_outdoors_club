@@ -1,27 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react'
-import {useHistory} from 'react-router-dom'
 import axios from 'axios'
 
 const UserContext = createContext([{ data: null, loading: true, error: null }, () => { }])
 
-
-
-// const authLink = setContext(async () => {
-//   const history = useHistory()
-//   let token = localStorage.getItem('JWT_Token')
-//   const { exp } = jwtDecode(token)
-//   const expirationTime = (exp * 1000) - 60000
-//   if (Date.now() >= expirationTime) {
-//     localStorage.clear();
-//     history.push('/login');
-//   }
-//   return {
-//     // you can set your headers directly here based on the old token
-//     headers: {
-//       // ...
-//     }
-//   }
-// })
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState({
