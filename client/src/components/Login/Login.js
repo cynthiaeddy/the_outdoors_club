@@ -27,6 +27,7 @@ export const Login = (props) => {
   const [showPassword, setShowPassword] = useState(false)
   const [showForgotPassword, setShowForgotPassword] = useState(false)
 
+
   const toggleShow = () => {
     setShowPassword(!showPassword)
   }
@@ -90,7 +91,7 @@ export const Login = (props) => {
     const timer = setTimeout(() => {
       console.log('This will run after 1 second!')
       logout()
-    }, 2000);
+    }, 12000);
     return () => clearTimeout(timer);
   }
 

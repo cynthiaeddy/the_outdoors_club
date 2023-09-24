@@ -5,7 +5,17 @@ import { UserAccount } from '../UserAccount/UserAccount'
 export const ModalAccount = ({
   isOpen = true,
   modalUserAcctClose,
+  time,
 }) => {
+
+
+  console.log(time, Date.now(),Date.now() - time >= 12000, 'in modal account, time, date')
+  if (Date.now() - time >= 12000) {
+    time = 0
+    modalUserAcctClose()
+
+  }
+  console.log(time, 'time after if statement')
   // if isOpen is false, dont render anything
   if (!isOpen) {
     return null

@@ -52,6 +52,8 @@ export const signup = async (req, res) => {
     process.env.JWT_SECRET,
     {
       expiresIn: 1800,
+      // expiresIn: 1800,
+
       // 1/2 hour
     }
   )
@@ -117,7 +119,7 @@ export const login = async (req, res)=> {
     { email: user.email },
     process.env.JWT_SECRET,
     {
-      expiresIn: 1800,
+      expiresIn: 120,
     }
   )
 

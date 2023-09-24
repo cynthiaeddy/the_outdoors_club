@@ -20,6 +20,9 @@ export const Navbar = ({ isMobile = true }) => {
   const userRole = state.data?.role === 'user'
   const userName = state.data?.firstName
 
+  const [time, setTime] = useState(0)
+  console.log(time, 'time in login line 24')
+
   const [isModalLoginOpen, setIsModalLoginOpen] = useState(false)
 
   const [isModalUserAcctOpen, setIsModalUserAcctOpen] = useState(false)
@@ -29,20 +32,17 @@ export const Navbar = ({ isMobile = true }) => {
   }
 
   const modalLoginOpen = () => {
+    setTime(Date.now())
     setIsModalLoginOpen(true)
 
   }
 
   const modalUserAcctClose = ()=> {
     setIsModalUserAcctOpen(false)
+    // navigate('/')
   }
   const modalUserAcctOpen = () => {
     setIsModalUserAcctOpen(true)
-    const timer = setTimeout(() => {
-      console.log('This will run after 1 second!')
-      setIsModalUserAcctOpen(false)
-    }, 3000);
-    return () => clearTimeout(timer)
   }
 
   const logout = () => {
@@ -52,6 +52,7 @@ export const Navbar = ({ isMobile = true }) => {
   }
   console.log(state.data?.role, 'state.data?.role in navbar,')
   console.log(state.data?.firstName, 'state.data in navbar')
+  console.log(time, 'time line 59')
 
   return (
     <>
@@ -139,6 +140,7 @@ export const Navbar = ({ isMobile = true }) => {
       <ModalAccount
         isOpen={isModalUserAcctOpen}
         modalUserAcctClose={modalUserAcctClose}
+        time={time}
       />
       <ModalLogin isOpen={isModalLoginOpen} modalLoginClose={modalLoginClose} />
     </>
