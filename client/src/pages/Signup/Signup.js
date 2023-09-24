@@ -22,7 +22,7 @@ import '../../components/Testimonials/Testimonials.css'
 
 
 
-export const Signup = ({ isMobile = true }) => {
+export const Signup = ({ isMobile = true, setTimeSignup }) => {
   const [user, setUser] = useContext(UserContext)
   const [showPassword, setShowPassword] = useState(false)
   const [agreeToTerms, setAgreeToTerms] = useState(false)
@@ -146,6 +146,11 @@ export const Signup = ({ isMobile = true }) => {
       } else {
         console.log(error);
       }
+      setTimeSignup(Date.now())
+      // const timer = setTimeout(() => {
+      //   logout()
+      // }, 12000);
+      // return () => clearTimeout(timer);
     }
 }
   const handleRegion = (e) => {

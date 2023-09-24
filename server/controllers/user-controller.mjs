@@ -119,7 +119,7 @@ export const login = async (req, res)=> {
     { email: user.email },
     process.env.JWT_SECRET,
     {
-      expiresIn: 120,
+      expiresIn: 1800,
     }
   )
 

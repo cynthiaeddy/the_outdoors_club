@@ -41,10 +41,13 @@ const App = () => {
     }
   }, [])
 
+  const [timeSignup, setTimeSignup] = useState(0)
+  console.log(timeSignup,'timeSignup in app.js')
+
   let routes
   routes = (
     <Routes>
-      <Route path='/signup' element={<Signup isMobile={isMobile} />} />
+      <Route path='/signup' element={<Signup isMobile={isMobile} setTimeSignup={setTimeSignup } />} />
       <Route path='/signin' element={<LoginMobile />} />
 
       <Route path='/' element={<Home isMobile={isMobile} />} />
@@ -101,7 +104,7 @@ const App = () => {
   return (
     <>
       <main className='AppContainer'>
-        <Navbar isMobile={isMobile} />
+      <Navbar isMobile={isMobile} timeSignup={timeSignup} setTimeSignup={setTimeSignup } />
         <ScrollToHashElement />
         {routes}
         <Footer isMobile={isMobile}/>
