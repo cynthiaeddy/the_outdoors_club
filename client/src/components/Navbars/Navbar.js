@@ -21,7 +21,6 @@ export const Navbar = ({ isMobile = true }) => {
   const userName = state.data?.firstName
 
   const [time, setTime] = useState(0)
-  console.log(time, 'time in login line 24')
 
   const [isModalLoginOpen, setIsModalLoginOpen] = useState(false)
 
@@ -39,7 +38,7 @@ export const Navbar = ({ isMobile = true }) => {
 
   const modalUserAcctClose = ()=> {
     setIsModalUserAcctOpen(false)
-    // navigate('/')
+    setTime(0)
   }
   const modalUserAcctOpen = () => {
     setIsModalUserAcctOpen(true)

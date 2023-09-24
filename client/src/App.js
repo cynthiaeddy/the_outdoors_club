@@ -104,7 +104,7 @@ const App = () => {
         <Navbar isMobile={isMobile} />
         <ScrollToHashElement />
         {routes}
-        <Footer />
+        <Footer isMobile={isMobile}/>
       </main>
     </>
   )
