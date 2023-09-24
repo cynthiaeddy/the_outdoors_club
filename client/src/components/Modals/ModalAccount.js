@@ -5,12 +5,14 @@ import { UserAccount } from '../UserAccount/UserAccount'
 export const ModalAccount = ({
   isOpen = true,
   modalUserAcctClose,
+  modalUserAcctCloseSignup,
+  timeSignup,
   time,
 }) => {
 
 
 
-  console.log(time, Date.now(),Date.now() - time >= 12000, 'in modal account, time, date')
+  console.log(time, timeSignup,Date.now(),Date.now() - time >= 12000, 'in modal account, time, timeSignup,date')
   useEffect(() => {
     if (Date.now() - time >= 12000) {
       modalUserAcctClose()

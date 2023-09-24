@@ -9,7 +9,7 @@ import { NavbarMobile } from './NavbarMobile'
 import './Navbar.css'
 
 
-export const Navbar = ({ isMobile = true }) => {
+export const Navbar = ({ isMobile = true, timeSignup, setTimeSignup }) => {
   const [state, setState] = useContext(UserContext)
 
   const navigate = useNavigate()
@@ -34,6 +34,11 @@ export const Navbar = ({ isMobile = true }) => {
     setTime(Date.now())
     setIsModalLoginOpen(true)
 
+  }
+
+  const modalUserAcctCloseSignup = ()=> {
+    setIsModalUserAcctOpen(false)
+    setTimeSignup(0)
   }
 
   const modalUserAcctClose = ()=> {
@@ -139,6 +144,8 @@ export const Navbar = ({ isMobile = true }) => {
       <ModalAccount
         isOpen={isModalUserAcctOpen}
         modalUserAcctClose={modalUserAcctClose}
+        modalUserAcctCloseSignup={modalUserAcctCloseSignup}
+        timeSignup={timeSignup}
         time={time}
       />
       <ModalLogin isOpen={isModalLoginOpen} modalLoginClose={modalLoginClose} />
