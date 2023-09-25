@@ -42,7 +42,7 @@ export const ContactUs = props => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)} className='Login_form'>
+      <form onSubmit={handleSubmit(onSubmit)} className='Login_form contact'>
         <button
           type='button'
           onClick={props.modalContactUsClose}

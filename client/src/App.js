@@ -49,7 +49,7 @@ const App = () => {
   let routes
   routes = (
     <Routes>
-      <Route path='/signup' element={<Signup isMobile={isMobile} setTimeSignup={setTimeSignup } />} />
+      <Route path='/signup' element={<Signup isMobile={isMobile} setTimeSignup={setTimeSignup} />} />
       <Route path='/signin' element={<LoginMobile  />}  />
 
       <Route path='/' element={<Home isMobile={isMobile} />} />

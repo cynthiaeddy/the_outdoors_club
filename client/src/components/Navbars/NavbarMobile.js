@@ -15,7 +15,6 @@ export const NavbarMobile = ({
   const [dropdown, setDropdown] = useState(false)
   const [click, setClick] = useState(false)
 
-  const [time, setTime] = useState(0)
 
 
   const toggleMenu = () => {

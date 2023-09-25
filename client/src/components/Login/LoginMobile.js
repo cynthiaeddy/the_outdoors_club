@@ -26,8 +26,6 @@ export const LoginMobile = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [showForgotPassword, setShowForgotPassword] = useState(false)
 
-  const [time, setTime] = useState(0)
-
 
   const toggleShow = () => {
     setShowPassword(!showPassword)
@@ -86,7 +84,6 @@ export const LoginMobile = () => {
       axios.defaults.headers.common['authorization'] = `Bearer ${resp.data.token}`
       navigate('/')
 
-      setTime(Date.now())
       const timer = setTimeout(() => {
         logout()
       }, 12000);
