@@ -37,7 +37,7 @@ export const Navbar = ({ isMobile = true, timeSignup, setTimeSignup }) => {
   }
 
   const modalUserAcctCloseSignup = () => {
-    console.log(timeSignup, 'in modal userw acct closes,timeSignup')
+    console.log(timeSignup, 'in modal user acct closes,timeSignup')
     setIsModalUserAcctOpen(false)
     setTimeSignup(0)
   }
@@ -58,6 +58,7 @@ export const Navbar = ({ isMobile = true, timeSignup, setTimeSignup }) => {
   console.log(state.data?.role, 'state.data?.role in navbar,')
   console.log(state.data?.firstName, 'state.data in navbar')
   console.log(time, 'time line 59')
+  console.log(timeSignup, 'timeSignup in navbar line 61')
 
   return (
     <>

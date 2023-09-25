@@ -87,6 +87,12 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
     setIsModalTermsOpen(false)
   }
 
+  const logout = () => {
+    console.log(user,'in logout, frontend signup, user')
+    localStorage.removeItem('token')
+    navigate('/')
+  }
+
   const onSubmit = async (data) => {
     const userSignup = {
       state,
@@ -146,12 +152,12 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
       } else {
         console.log(error);
       }
-      setTimeSignup(Date.now())
-      // const timer = setTimeout(() => {
-      //   logout()
-      // }, 12000);
-      // return () => clearTimeout(timer);
     }
+    setTimeSignup(Date.now())
+    const timer = setTimeout(() => {
+      logout()
+    }, 12000);
+    return () => clearTimeout(timer);
 }
   const handleRegion = (e) => {
     setState(e.target.value)
