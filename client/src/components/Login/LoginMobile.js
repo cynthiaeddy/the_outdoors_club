@@ -86,7 +86,7 @@ export const LoginMobile = () => {
 
       const timer = setTimeout(() => {
         logout()
-      }, 12000);
+      }, 1000*60*30);
       return () => clearTimeout(timer);
     }
 

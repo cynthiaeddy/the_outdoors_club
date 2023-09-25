@@ -91,7 +91,7 @@ export const Login = (props) => {
     const timer = setTimeout(() => {
       console.log('This will run after 1 second!')
       logout()
-    }, 12000);
+    }, 1000*60*30);
     return () => clearTimeout(timer);
   }
 
