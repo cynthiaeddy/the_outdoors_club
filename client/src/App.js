@@ -42,13 +42,15 @@ const App = () => {
   }, [])
 
   const [timeSignup, setTimeSignup] = useState(0)
-  console.log(timeSignup,'timeSignup in app.js')
+
+
+  console.log(timeSignup, 'timeSignup, mobileTime in app.js')
 
   let routes
   routes = (
     <Routes>
       <Route path='/signup' element={<Signup isMobile={isMobile} setTimeSignup={setTimeSignup } />} />
-      <Route path='/signin' element={<LoginMobile />} />
+      <Route path='/signin' element={<LoginMobile  />}  />
 
       <Route path='/' element={<Home isMobile={isMobile} />} />
 
