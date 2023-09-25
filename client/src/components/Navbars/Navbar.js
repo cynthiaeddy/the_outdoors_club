@@ -36,7 +36,8 @@ export const Navbar = ({ isMobile = true, timeSignup, setTimeSignup }) => {
 
   }
 
-  const modalUserAcctCloseSignup = ()=> {
+  const modalUserAcctCloseSignup = () => {
+    console.log(timeSignup, 'in modal userw acct closes,timeSignup')
     setIsModalUserAcctOpen(false)
     setTimeSignup(0)
   }

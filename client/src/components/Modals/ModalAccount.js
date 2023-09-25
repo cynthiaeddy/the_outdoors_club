@@ -17,10 +17,10 @@ export const ModalAccount = ({
       if (Date.now() - time >= 12000) {
         modalUserAcctClose()
       }
-    } else if (time < timeSignup) {
-      if (Date.now() - timeSignup >= 12000) {
-        modalUserAcctCloseSignup()
-      }
+    // } else if (time < timeSignup) {
+    //   if (Date.now() - timeSignup >= 12000) {
+    //     modalUserAcctCloseSignup()
+    //   }
     }
   },)
 
