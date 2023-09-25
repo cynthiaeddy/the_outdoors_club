@@ -88,7 +88,6 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
   }
 
   const logout = () => {
-    console.log(user,'in logout, frontend signup, user')
     localStorage.removeItem('token')
     navigate('/')
   }

@@ -195,7 +195,6 @@ export const getSingleUser = async (req, res) => {
 
 export const updateUser = async (req, res) => {
   const filter = { _id: req.params.id }
-  console.log(filter,'in edit user backend, filter')
 
   const {
     firstName,
@@ -213,7 +212,6 @@ export const updateUser = async (req, res) => {
     notes,
     role
   } = req.body
-  console.log(password,'in edit user backend, password')
   try {
     if (password) {
       //password is not empty

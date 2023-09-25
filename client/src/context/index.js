@@ -46,7 +46,6 @@ const UserProvider = ({ children }) => {
         error: null,
       })
     } else if (resp.data && resp.data.errors.length) {
-          console.log('in fetch user, context')
 
       setUser({
         data: null,

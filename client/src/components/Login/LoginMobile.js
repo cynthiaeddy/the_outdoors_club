@@ -35,7 +35,6 @@ export const LoginMobile = () => {
   }
 
   const logout = () => {
-    console.log(user,'in logout, frontend mobile, user')
     localStorage.removeItem('token')
     navigate('/')
   }

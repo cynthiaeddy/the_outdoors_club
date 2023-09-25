@@ -74,7 +74,6 @@ export const resetPassword = async (req, res) => {
     const user = await User.findOne({
       resetPasswordToken: req.query.resetPasswordToken,
     })
-    console.log(user, 'user in reset password')
     if (user == null) {
       console.error('password reset link is invalid or has expired')
       res.status(403).send('password reset link is invalid or has expired')

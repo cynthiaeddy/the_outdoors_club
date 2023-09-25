@@ -36,7 +36,6 @@ export const Login = (props) => {
   }
 
   const logout = () => {
-    console.log(user,'in logout, frontend, user')
     localStorage.removeItem('token')
     props.modalLoginClose()
     navigate('/')
@@ -89,7 +88,6 @@ export const Login = (props) => {
       navigate('/')
     }
     const timer = setTimeout(() => {
-      console.log('This will run after 1 second!')
       logout()
     }, 1000*60*30);
     return () => clearTimeout(timer);
