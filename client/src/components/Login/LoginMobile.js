@@ -26,6 +26,9 @@ export const LoginMobile = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [showForgotPassword, setShowForgotPassword] = useState(false)
 
+  const [time, setTime] = useState(0)
+
+
   const toggleShow = () => {
     setShowPassword(!showPassword)
   }
@@ -34,7 +37,7 @@ export const LoginMobile = () => {
   }
 
   const logout = () => {
-    console.log(user,'in logout, frontend, user')
+    console.log(user,'in logout, frontend mobile, user')
     localStorage.removeItem('token')
     navigate('/')
   }
@@ -82,6 +85,12 @@ export const LoginMobile = () => {
       localStorage.setItem('token', resp.data.token)
       axios.defaults.headers.common['authorization'] = `Bearer ${resp.data.token}`
       navigate('/')
+
+      setTime(Date.now())
+      const timer = setTimeout(() => {
+        logout()
+      }, 12000);
+      return () => clearTimeout(timer);
     }
 
   }
