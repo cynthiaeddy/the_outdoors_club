@@ -10,15 +10,19 @@ export const ModalAccount = ({
   time,
 }) => {
 
-
-
-  console.log(time, timeSignup,Date.now(),Date.now() - time >= 12000, 'in modal account, time, timeSignup,date')
+  console.log(time, timeSignup, Date.now(), Date.now() - time >= 12000, 'in modal account, time, timeSignup,date')
+  console.log(time > timeSignup, 'time > timeSignup')
   useEffect(() => {
-    if (Date.now() - time >= 12000) {
-      modalUserAcctClose()
+    if (time > timeSignup) {
+      if (Date.now() - time >= 12000) {
+        modalUserAcctClose()
+      }
+    } else if (time < timeSignup) {
+      if (Date.now() - timeSignup >= 12000) {
+        modalUserAcctCloseSignup()
+      }
     }
   },)
-
 
   // if isOpen is false, dont render anything
   if (!isOpen) {
