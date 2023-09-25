@@ -10,8 +10,6 @@ export const ModalAccount = ({
   time,
 }) => {
 
-  console.log(time, timeSignup, Date.now(), Date.now() - time >= 12000, 'in modal account, time, timeSignup,date')
-  console.log(time > timeSignup, 'time > timeSignup')
   useEffect(() => {
     if (time > timeSignup) {
       if (Date.now() - time >= 12000) {
