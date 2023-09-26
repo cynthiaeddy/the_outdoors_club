@@ -12,12 +12,12 @@ export const ModalAccount = ({
 
   useEffect(() => {
     if (time > timeSignup) {
-      if (Date.now() - time >= 1000*60*30) {
+      if (Date.now() - time >= 180000060*30) {
         modalUserAcctClose()
       }
     }
     if (time < timeSignup) {
-      if (Date.now() - timeSignup >= 1000*60*30) {
+      if (Date.now() - timeSignup >= 180000060*30) {
         modalUserAcctCloseSignup()
       }
     }
