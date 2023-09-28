@@ -89,7 +89,7 @@ export const Login = (props) => {
     }
     const timer = setTimeout(() => {
       logout()
-    }, 1000 * 60 * 60);
+    }, 1000*60*60);
     return () => clearTimeout(timer);
   }
 
