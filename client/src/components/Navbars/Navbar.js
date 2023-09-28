@@ -9,7 +9,7 @@ import { NavbarMobile } from './NavbarMobile'
 import './Navbar.css'
 
 
-export const Navbar =  ({ isMobile = true }) => {
+export const Navbar = ({ isMobile = true, timeSignup, setTimeSignup }) => {
   const [state, setState] = useContext(UserContext)
 
   const navigate = useNavigate()
@@ -20,6 +20,8 @@ export const Navbar =  ({ isMobile = true }) => {
   const userRole = state.data?.role === 'user'
   const userName = state.data?.firstName
 
+  const [time, setTime] = useState(0)
+
   const [isModalLoginOpen, setIsModalLoginOpen] = useState(false)
 
   const [isModalUserAcctOpen, setIsModalUserAcctOpen] = useState(false)
@@ -28,12 +30,20 @@ export const Navbar =  ({ isMobile = true }) => {
     setIsModalLoginOpen(false)
   }
 
-  const modalLoginOpen = ()=> {
+  const modalLoginOpen = () => {
+    setTime(Date.now())
     setIsModalLoginOpen(true)
+
+  }
+
+  const modalUserAcctCloseSignup = () => {
+    setIsModalUserAcctOpen(false)
+    setTimeSignup(0)
   }
 
   const modalUserAcctClose = ()=> {
     setIsModalUserAcctOpen(false)
+    setTime(0)
   }
   const modalUserAcctOpen = () => {
     setIsModalUserAcctOpen(true)
@@ -44,8 +54,6 @@ export const Navbar =  ({ isMobile = true }) => {
     localStorage.removeItem('token')
     navigate('/')
   }
-  console.log(state.data?.role, 'state.data?.role in navbar,')
-  console.log(state.data?.firstName, 'state.data in navbar')
 
   return (
     <>
@@ -133,6 +141,9 @@ export const Navbar =  ({ isMobile = true }) => {
       <ModalAccount
         isOpen={isModalUserAcctOpen}
         modalUserAcctClose={modalUserAcctClose}
+        modalUserAcctCloseSignup={modalUserAcctCloseSignup}
+        timeSignup={timeSignup}
+        time={time}
       />
       <ModalLogin isOpen={isModalLoginOpen} modalLoginClose={modalLoginClose} />
     </>

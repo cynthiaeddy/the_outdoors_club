@@ -15,7 +15,6 @@ import membershipController from '../controllers/membership-controller.mjs'
 membershipRouter.get('/', membershipController.getMemberships)
 
 membershipRouter.post('/membership_create', checkAuth, async (req, res) => {
-  console.log(req.body, 'in membership stripe backend')
   const { plan, userId, email } = req.body
 
   const customer = await stripe.customers.create(
@@ -80,7 +79,6 @@ const createMemberPlan = async (customer, data) => {
     userFind.plan.push(memberPlanSaved)
     await userFind.save()
 
-    console.log(memberPlanSaved, userFind, 'memberPlanSaved, userFind')
     /////////send email verification from stripe here///////
   } catch (err) {
     console.log(err)

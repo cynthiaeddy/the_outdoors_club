@@ -1,5 +1,6 @@
 import { Faq } from './Faq'
 import membership from '../../assets/OC_membership.pdf'
+import { NavLink } from 'react-router-dom'
 import './Faq.css'
 
 function FaqData() {
@@ -103,14 +104,13 @@ function FaqData() {
     },
 
     {
-      question: ' HERE NEEDS EDIT HERE NEEDS EDIT  How do I become a member?',
+      question: 'How do I become a member?',
       answer: (
         <div>
           <p>
-            There are three ways to pay membership dues. HERE NEEDS EDIT HERE
-            NEEDS EDIT <br />
-            You can visit the Outdoors Club website (link below) and paying dues
-            via sign up above. <br /> You can print the{' '}
+            There are three ways to pay membership dues. <br />
+            You can <NavLink to={'/signup'} className='Faqs-ahref'>sign up here,</NavLink> then proceed to the membership panel on the home page.
+            <br /> You can print the{' '}
             <a href={membership} download className='Faqs-ahref'>
               membership form,{' '}
             </a>
@@ -151,15 +151,15 @@ function FaqData() {
     },
     {
       question:
-        ' NEEDS EDIT HERE  NEEDS EDIT HERE How do I notify The Outdoors Club that my contact information (email, phone, address) has changed? How do I change how I receive my newsletter (USPS mail or email)? How do I find out when my membership expires?',
+        'How do I notify The Outdoors Club that my contact information (email, phone, address) has changed? How do I change how I receive my newsletter (USPS mail or email)? How do I find out when my membership expires?',
       answer: (
         <div>
           <p>
-            Send an email to{' '}
+            After you log in, you can click on your Account in the Navigation Bar. That will tell you when your membership expires. There is an Edit your Profile link to update all your personal information. Or you can send an email to{' '}
             <a href='mailto:outdoorsclubny@yahoo.com' className='Faqs-ahref'>
               outdoorsclubny@yahoo.com
             </a>{' '}
-            Or you can write to us at: Outdoors Club Inc. P. O. Box 227 - Lenox
+            Lastly you can write to us at: Outdoors Club Inc. P. O. Box 227 - Lenox
             Hill Station New York, NY 10021-0014
           </p>
         </div>
@@ -170,11 +170,11 @@ function FaqData() {
       answer: (
         <div>
           <p>
-            Send an email to{' '}
+            You can click on the Contact Us link at the bottom of the page. Or send an email to{' '}
             <a href='mailto:outdoorsclubny@yahoo.com' className='Faqs-ahref'>
               outdoorsclubny@yahoo.com
             </a>{' '}
-            Or you can write to us at: Outdoors Club Inc. P. O. Box 227 - Lenox
+            Lastly you can write to us at: Outdoors Club Inc. P. O. Box 227 - Lenox
             Hill Station New York, NY 10021-0014
           </p>
         </div>

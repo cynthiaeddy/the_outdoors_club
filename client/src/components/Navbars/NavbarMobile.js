@@ -15,6 +15,8 @@ export const NavbarMobile = ({
   const [dropdown, setDropdown] = useState(false)
   const [click, setClick] = useState(false)
 
+
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
     setDropdown(!dropdown)
@@ -105,8 +107,7 @@ export const NavbarMobile = ({
                 to='https://www.meetup.com/outdoorsclubny'
                 className='nav-links'
                 onClick={toggleMenuNav}
-                target='_blank'
-                rel="noopener noreferrer">
+              >
                 meetup link
               </NavLink>
             </li>

@@ -14,7 +14,7 @@ export const ModalContactUs = ({
   // if isOpen is true, render the modal
   return (
     <div className='ModalWrapper'>
-      <div className='ModalContainer'>
+      <div className='ModalContainer contact'>
         <ContactUs modalContactUsClose={modalContactUsClose} />
       </div>
     </div>

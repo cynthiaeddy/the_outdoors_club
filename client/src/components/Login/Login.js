@@ -27,11 +27,18 @@ export const Login = (props) => {
   const [showPassword, setShowPassword] = useState(false)
   const [showForgotPassword, setShowForgotPassword] = useState(false)
 
+
   const toggleShow = () => {
     setShowPassword(!showPassword)
   }
   const toggleShowForgotPassword = () => {
     setShowForgotPassword(!showForgotPassword)
+  }
+
+  const logout = () => {
+    localStorage.removeItem('token')
+    props.modalLoginClose()
+    navigate('/')
   }
 
   const onSubmit = async (data) => {
@@ -80,6 +87,10 @@ export const Login = (props) => {
       props.modalLoginClose()
       navigate('/')
     }
+    const timer = setTimeout(() => {
+      logout()
+    }, 1000 * 60 * 60);
+    return () => clearTimeout(timer);
   }
 
   return (

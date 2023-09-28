@@ -5,7 +5,7 @@ import './StripeSuccess.css'
 export const StripeSuccess = () => {
   const [user, setUser] = useContext(UserContext)
   return (
-    <section className='ComponentContainer '>
+    <section className='ComponentContainer  stripe'>
       <div className='SuccessContainer'>
         <h3 className='Main_hed '>hi {user.data?.firstName}!</h3>
         <h4 className='Success-body'>

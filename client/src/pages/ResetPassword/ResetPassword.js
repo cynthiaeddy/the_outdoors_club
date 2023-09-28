@@ -76,7 +76,6 @@ export const ResetPassword = ({
         password: data.password,
         resetPasswordToken: token,
       })
-console.log(resp,'resp in reset password',)
       if (resp.data.message === 'password updated') {
         setError(false)
         modalLoginOpen()

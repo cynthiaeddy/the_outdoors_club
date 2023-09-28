@@ -31,3 +31,7 @@
 .UserAcct-edit {
   margin: 2rem;
 }
+.UserAcct-edit:last-child{
+  margin-bottom: 0
+
+}

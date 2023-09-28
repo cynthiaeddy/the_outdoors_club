@@ -296,6 +296,8 @@ h5.tandc-clause {
     display: block;
     margin: auto;
     margin-top: 15rem;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
   }
   .ComponentContainer.signup {
     margin-top: 14rem;
@@ -360,6 +362,9 @@ h5.tandc-clause {
   }
   .Login_form {
     padding-top: 0;
+  }
+  .Login_form.contact {
+    padding-top: 2rem;
   }
   .SignupContainer.account {
     width: calc(100% - 50px);

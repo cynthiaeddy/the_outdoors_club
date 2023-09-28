@@ -26,11 +26,17 @@ export const LoginMobile = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [showForgotPassword, setShowForgotPassword] = useState(false)
 
+
   const toggleShow = () => {
     setShowPassword(!showPassword)
   }
   const toggleShowForgotPassword = () => {
     setShowForgotPassword(!showForgotPassword)
+  }
+
+  const logout = () => {
+    localStorage.removeItem('token')
+    navigate('/')
   }
 
   const onSubmit = async (data) => {
@@ -76,7 +82,13 @@ export const LoginMobile = () => {
       localStorage.setItem('token', resp.data.token)
       axios.defaults.headers.common['authorization'] = `Bearer ${resp.data.token}`
       navigate('/')
+
+      const timer = setTimeout(() => {
+        logout()
+      }, 1000 * 60 * 60);
+      return () => clearTimeout(timer);
     }
+
   }
 
   return (
