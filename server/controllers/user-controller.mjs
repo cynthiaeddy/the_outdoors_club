@@ -51,8 +51,8 @@ export const signup = async (req, res) => {
     { email: newUser.email },
     process.env.JWT_SECRET,
     {
-      expiresIn: 1800,
-      // expiresIn: 1800,
+      expiresIn: 3600,
+      // expiresIn: 3600,
 
       // 1/2 hour
     }
@@ -119,7 +119,7 @@ export const login = async (req, res)=> {
     { email: user.email },
     process.env.JWT_SECRET,
     {
-      expiresIn: 1800,
+      expiresIn: 3600,
     }
   )
 
@@ -250,7 +250,7 @@ export const updateUser = async (req, res) => {
           { email: existingUser.email },
           process.env.JWT_SECRET,
           {
-            expiresIn: 1800,
+            expiresIn: 3600,
           }
         )
         res.status(200).json({
@@ -309,7 +309,7 @@ export const updateUser = async (req, res) => {
           { email: existingUser.email },
           process.env.JWT_SECRET,
           {
-            expiresIn: 1800,
+            expiresIn: 3600,
           }
         )
         res.status(200).json({

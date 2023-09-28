@@ -155,7 +155,7 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
     setTimeSignup(Date.now())
     const timer = setTimeout(() => {
       logout()
-    }, 1800000);
+    }, 1000 * 60 * 60);
     return () => clearTimeout(timer);
 }
   const handleRegion = (e) => {
