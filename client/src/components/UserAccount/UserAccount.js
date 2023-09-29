@@ -7,7 +7,7 @@ import { UserContext } from '../../context'
 import './UserAccount.css'
 
 
-export const UserAccount = ({ modalUserAcctClose }) => {
+export const UserAccount = ({ modalUserAcctClose}) => {
   const navigate = useNavigate()
 
   const [state, setState] = useContext(UserContext)

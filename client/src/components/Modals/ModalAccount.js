@@ -1,26 +1,19 @@
-import {useEffect } from 'react'
+import { useEffect } from 'react'
 import './Modals.css'
 import { UserAccount } from '../UserAccount/UserAccount'
 
 export const ModalAccount = ({
   isOpen = true,
   modalUserAcctClose,
-  modalUserAcctCloseSignup,
-  timeSignup,
-  time,
+
 }) => {
 
+  const user = localStorage.getItem('token')
+
   useEffect(() => {
-    if (time > timeSignup) {
-      if (Date.now() - time >= 1000*60*60) {
+      if (!user){
         modalUserAcctClose()
       }
-    }
-    if (time < timeSignup) {
-      if (Date.now() - timeSignup >= 1000*60*60) {
-        modalUserAcctCloseSignup()
-      }
-    }
   },)
 
   // if isOpen is false, dont render anything
