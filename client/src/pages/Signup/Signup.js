@@ -154,7 +154,7 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
         console.log(error);
       }
     }
-    setTimeSignup(Date.now())
+
     const timer = setTimeout(() => {
       logout()
     }, 12000);

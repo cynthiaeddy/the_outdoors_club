@@ -8,7 +8,7 @@ import { UserContext } from '../../context'
 import { ForgotPassword } from '../ForgotPassword/ForgotPassword'
 import '../../pages/Signup/Signup.css'
 
-export const Login = ({modalLoginClose,modalUserAcctClose}) => {
+export const Login = ({modalLoginClose}) => {
   const {
     register,
     handleSubmit,
@@ -38,7 +38,6 @@ export const Login = ({modalLoginClose,modalUserAcctClose}) => {
   const logout = () => {
     localStorage.removeItem('token')
     modalLoginClose()
-    modalUserAcctClose()
     navigate('/')
   }
 

@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-
 import './Modals.css'
 import { UserAccount } from '../UserAccount/UserAccount'
 
@@ -10,7 +9,6 @@ export const ModalAccount = ({
 }) => {
 
   const user = localStorage.getItem('token')
-  console.log(user, 'user in modal account')
 
   useEffect(() => {
       if (!user){

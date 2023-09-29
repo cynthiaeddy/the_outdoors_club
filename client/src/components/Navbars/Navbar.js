@@ -36,7 +36,7 @@ export const Navbar = ({ isMobile = true, timeSignup, setTimeSignup }) => {
 
   const modalUserAcctCloseSignup = () => {
     setIsModalUserAcctOpen(false)
-    setTimeSignup(0)
+
   }
 
   const modalUserAcctClose = ()=> {
@@ -139,7 +139,6 @@ export const Navbar = ({ isMobile = true, timeSignup, setTimeSignup }) => {
         isOpen={isModalUserAcctOpen}
         modalUserAcctClose={modalUserAcctClose}
         modalUserAcctCloseSignup={modalUserAcctCloseSignup}
-        timeSignup={timeSignup}
       />
       <ModalLogin isOpen={isModalLoginOpen} modalLoginClose={modalLoginClose}   modalUserAcctClose={modalUserAcctClose}/>
     </>
