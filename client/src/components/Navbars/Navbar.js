@@ -145,7 +145,7 @@ export const Navbar = ({ isMobile = true, timeSignup, setTimeSignup }) => {
         timeSignup={timeSignup}
         time={time}
       />
-      <ModalLogin isOpen={isModalLoginOpen} modalLoginClose={modalLoginClose} />
+      <ModalLogin isOpen={isModalLoginOpen} modalLoginClose={modalLoginClose}   modalUserAcctClose={modalUserAcctClose}/>
     </>
   )
 }

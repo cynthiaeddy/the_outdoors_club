@@ -90,11 +90,9 @@ const App = () => {
             isMobile ? (
               <UserAccountMobile />
       ) : (
-     <UserAccount
-                modalUserAcctClose={function () {
-                  throw new Error('Function not implemented.')
-                }}
-              />
+     <UserAccount modalUserAcctClose={function () {
+      throw new Error('Function not implemented.')
+    }}/>
             )
           }
         />

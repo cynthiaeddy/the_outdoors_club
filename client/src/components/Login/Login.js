@@ -8,7 +8,7 @@ import { UserContext } from '../../context'
 import { ForgotPassword } from '../ForgotPassword/ForgotPassword'
 import '../../pages/Signup/Signup.css'
 
-export const Login = (props) => {
+export const Login = ({modalLoginClose,modalUserAcctClose}) => {
   const {
     register,
     handleSubmit,
@@ -37,7 +37,8 @@ export const Login = (props) => {
 
   const logout = () => {
     localStorage.removeItem('token')
-    props.modalLoginClose()
+    modalLoginClose()
+    modalUserAcctClose()
     navigate('/')
   }
 
@@ -84,12 +85,12 @@ export const Login = (props) => {
       })
       localStorage.setItem('token', resp.data.token)
       axios.defaults.headers.common['authorization'] = `Bearer ${resp.data.token}`
-      props.modalLoginClose()
+      modalLoginClose()
       navigate('/')
     }
     const timer = setTimeout(() => {
       logout()
-    }, 1000*60*60);
+    }, 12000);
     return () => clearTimeout(timer);
   }
 
@@ -98,7 +99,7 @@ export const Login = (props) => {
       <form onSubmit={handleSubmit(onSubmit)} className='Login_form'>
         <button
           type='button'
-          onClick={props.modalLoginClose}
+          onClick={modalLoginClose}
           className='ModalContainer-button'>
           <GrClose />
         </button>
@@ -166,7 +167,7 @@ export const Login = (props) => {
         </button>
       </form>
       {showForgotPassword ? (
-        <ForgotPassword modalLoginClose={props.modalLoginClose} />
+        <ForgotPassword modalLoginClose={modalLoginClose} />
       ) : null}
     </>
   )

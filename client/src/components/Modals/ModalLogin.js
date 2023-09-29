@@ -6,6 +6,7 @@ import './Modals.css'
 export const ModalLogin = ({
   isOpen = true,
   modalLoginClose,
+  modalUserAcctClose
 }) => {
   // if isOpen is false, dont render anything
   if (!isOpen) {
@@ -16,7 +17,7 @@ export const ModalLogin = ({
   return (
     <div className='ModalWrapper'>
       <div className='ModalContainer'>
-        <Login modalLoginClose={modalLoginClose} />
+        <Login modalLoginClose={modalLoginClose} modalUserAcctClose={ modalUserAcctClose} />
       </div>
     </div>
   )
