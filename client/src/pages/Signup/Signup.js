@@ -71,6 +71,8 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
 
   const [isModalLoginOpen, setIsModalLoginOpen] = useState(false)
   const [isModalTermsOpen, setIsModalTermsOpen] = useState(false)
+
+
   const [errorMessage, setErrorMessage] =useState('')
 
 
@@ -155,7 +157,7 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
     setTimeSignup(Date.now())
     const timer = setTimeout(() => {
       logout()
-    }, 1000*60*60);
+    }, 12000);
     return () => clearTimeout(timer);
 }
   const handleRegion = (e) => {
