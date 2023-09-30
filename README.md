@@ -1,6 +1,9 @@
 # the_outdoors_club
 
 
+## Instructions
+To run this app:
+
 Clone this repo.
 
 Create a .env file in the server folder with MONGO_URL, JWT_SECRET, STRIPE_PUBLISHABLE_KEY, STRIPE_SECRET_KEY, STRIPE_WEB_HOOK, EMAIL_HOST, EMAIL_ADDRESS, EMAIL_PASSWORD and FRONTEND_URL fields.
