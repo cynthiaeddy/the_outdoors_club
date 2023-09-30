@@ -17,3 +17,7 @@ Run npm install and npm start. You may be asked if you would like to run the pro
 Your browser will automatically launch the app to its home page.
 
 You can shut down both servers by typing Control C in the terminal window where they are running.
+
+## Built with
+• MERN stack <br/>
+• Deployed on Digital Ocean
