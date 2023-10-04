@@ -267,12 +267,12 @@ export const Admin = () => {
     })
   }
   const handleDeleteTrue = async () => {
-    if (isModalDeleteOpen.isOpen && isModalDeleteOpen.userId)
-      console.log('true')
-    const newUsers = [...users]
-    const index = users.findIndex(user => user._id === isModalDeleteOpen.userId)
-    newUsers.splice(index, 1)
-    setUsers(newUsers)
+    if (isModalDeleteOpen.isOpen && isModalDeleteOpen.userId) {
+      const newUsers = [...users]
+      const index = users.findIndex(user => user._id === isModalDeleteOpen.userId)
+      newUsers.splice(index, 1)
+      setUsers(newUsers)
+    }
     try {
       await axios.delete(`${process.env.REACT_APP_API_URL}/api/user/${isModalDeleteOpen.userId}`)
     } catch (err) {
