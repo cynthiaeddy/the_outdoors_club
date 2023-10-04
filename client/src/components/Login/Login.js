@@ -89,7 +89,7 @@ export const Login = ({modalLoginClose}) => {
     }
     const timer = setTimeout(() => {
       logout()
-    }, 1800000);
+    }, 1000*60*30);
     return () => clearTimeout(timer);
   }
 

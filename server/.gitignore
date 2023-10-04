@@ -14,7 +14,6 @@
 # Misc
 **/.vscode
 .vscode/settings.json
-.prettierrc.json
 .DS_Store
 
 # Environment variable (dotenv ) files\.env
