@@ -10,7 +10,7 @@ export const NavbarMobile = ({
   leader,
   userRole,
   logout,
-}) => {
+ ) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [dropdown, setDropdown] = useState(false)
   const [click, setClick] = useState(false)

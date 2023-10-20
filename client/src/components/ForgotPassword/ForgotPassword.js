@@ -5,12 +5,10 @@ import axios from 'axios'
 
 import '../../pages/Signup/Signup.css'
 
-export const ForgotPassword = ({
-  modalLoginClose,
-}) => {
+export const ForgotPassword = ({ modalLoginClose }) => {
   const navigate = useNavigate()
-  const [showError, setshowError] = useState(false)
-  const [showNullError, setshowNullError] = useState(false)
+  const [, setshowError] = useState(false)
+  const [, setshowNullError] = useState(false)
   const [messageFromServer, setmessageFromServer] = useState('')
   const {
     register,
@@ -37,7 +35,10 @@ export const ForgotPassword = ({
       setshowNullError(true)
     }
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/password/forgot-password`, email)
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/password/forgot-password`,
+        email,
+      )
       if (response.data === 'recovery email sent') {
         setshowError(false)
         setshowNullError(false)

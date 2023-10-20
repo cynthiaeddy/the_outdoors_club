@@ -1,10 +1,7 @@
 import './Modals.css'
 import { GrClose } from 'react-icons/gr'
 
-export const ModalAboutUs = ({
-  isOpen = true,
-  modalAboutUsClose,
-}) => {
+export const ModalAboutUs = ({ isOpen = true, modalAboutUsClose }) => {
   if (!isOpen) {
     return null
   }
@@ -15,7 +12,8 @@ export const ModalAboutUs = ({
           <button
             type='button'
             onClick={modalAboutUsClose}
-            className='ModalContainer-button'>
+            className='ModalContainer-button'
+          >
             <GrClose />
           </button>
           <h3 className='Home_about-text'>

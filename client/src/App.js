@@ -19,8 +19,6 @@ import { Home } from './pages/Home/Home'
 import { UserContext } from './context'
 import ScrollToHashElement from './helpers/ScrollToHashElement'
 
-
-
 const App = () => {
   const [state] = useContext(UserContext)
 
@@ -41,15 +39,11 @@ const App = () => {
     }
   }, [])
 
-
-
-
-
   let routes
   routes = (
     <Routes>
-      <Route path='/signup' element={<Signup isMobile={isMobile}  />} />
-      <Route path='/signin' element={<LoginMobile  />}  />
+      <Route path='/signup' element={<Signup isMobile={isMobile} />} />
+      <Route path='/signin' element={<LoginMobile />} />
 
       <Route path='/' element={<Home isMobile={isMobile} />} />
 
@@ -69,44 +63,47 @@ const App = () => {
         element={<ResetPassword isMobile={isMobile} />}
       />
 
-       <Route
-        element={
-          <ProtectedRoute isAllowed={!!user && user.role === 'admin'} />
-        }>
+      <Route
+        element={<ProtectedRoute isAllowed={!!user && user.role === 'admin'} />}
+      >
         <Route path='/admin' element={<Admin />} />
       </Route>
       <Route
         element={
           <ProtectedRoute isAllowed={!!user && user.role === 'leader'} />
-        }>
+        }
+      >
         <Route path='/leader' element={<Leader />} />
       </Route>
       <Route
-        element={<ProtectedRoute isAllowed={!!user && user.role === 'user'} />}>
+        element={<ProtectedRoute isAllowed={!!user && user.role === 'user'} />}
+      >
         <Route
           path='/account'
           element={
             isMobile ? (
               <UserAccountMobile />
-      ) : (
-     <UserAccount modalUserAcctClose={function () {
-      throw new Error('Function not implemented.')
-    }}/>
+            ) : (
+              <UserAccount
+                modalUserAcctClose={function () {
+                  throw new Error('Function not implemented.')
+                }}
+              />
             )
           }
         />
-      <Route path='/edit' element={<EditUser isMobile={isMobile} />} />
-       <Route path='/success' element={<StripeSuccess />} />
-    </Route>
+        <Route path='/edit' element={<EditUser isMobile={isMobile} />} />
+        <Route path='/success' element={<StripeSuccess />} />
+      </Route>
     </Routes>
   )
   return (
     <>
       <main className='AppContainer'>
-      <Navbar isMobile={isMobile } />
+        <Navbar isMobile={isMobile} />
         <ScrollToHashElement />
         {routes}
-        <Footer isMobile={isMobile}/>
+        <Footer isMobile={isMobile} />
       </main>
     </>
   )

@@ -11,14 +11,11 @@ import '../../components/Testimonials/Testimonials.css'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
-
-export const ResetPassword = ({
-  isMobile = true,
-}) => {
+export const ResetPassword = ({ isMobile = true }) => {
   const [showTestimonials, setshowTestimonials] = useState(false)
   const [currentIdx, setCurrentIdx] = useState(-1)
   const btnOnClick = (idx) => {
-    setCurrentIdx(currentValue => (currentValue !== idx ? idx : -1))
+    setCurrentIdx((currentValue) => (currentValue !== idx ? idx : -1))
     setshowTestimonials(!showTestimonials)
   }
   const [isModalLoginOpen, setIsModalLoginOpen] = useState(false)
@@ -53,11 +50,14 @@ export const ResetPassword = ({
   useEffect(() => {
     const getToken = async () => {
       try {
-        const resp = await axios.get(`${process.env.REACT_APP_API_URL}/api/password/reset`, {
-          params: {
-            resetPasswordToken: token,
+        const resp = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/password/reset`,
+          {
+            params: {
+              resetPasswordToken: token,
+            },
           },
-        })
+        )
         if (resp.data.message === 'password reset link a-ok') {
           setEmail(resp.data.email)
           setError(false)
@@ -71,11 +71,14 @@ export const ResetPassword = ({
 
   const updatePassword = async (data) => {
     try {
-      const resp = await axios.patch(`${process.env.REACT_APP_API_URL}/api/password/updatePasswordViaEmail`, {
-        email,
-        password: data.password,
-        resetPasswordToken: token,
-      })
+      const resp = await axios.patch(
+        `${process.env.REACT_APP_API_URL}/api/password/updatePasswordViaEmail`,
+        {
+          email,
+          password: data.password,
+          resetPasswordToken: token,
+        },
+      )
       if (resp.data.message === 'password updated') {
         setError(false)
         modalLoginOpen()
@@ -101,7 +104,8 @@ export const ResetPassword = ({
           <div
             className={`carousel-wrapper edit-user ${
               !isMobile ? '' : ' mobile'
-            }`}>
+            }`}
+          >
             {isMobile ? (
               <Carousel
                 className='carousel-style edit'
@@ -112,7 +116,8 @@ export const ResetPassword = ({
                 transitionTime={1000}
                 showIndicators={true}
                 showStatus={false}
-                showArrows={false}>
+                showArrows={false}
+              >
                 {TestimonialDataEdit.map((foto, idx) => (
                   <TestimonialItem
                     key={idx}
@@ -134,7 +139,8 @@ export const ResetPassword = ({
                 centerMode
                 centerSlidePercentage={50}
                 showStatus={false}
-                showArrows={true}>
+                showArrows={true}
+              >
                 {TestimonialDataEdit.map((foto, idx) => (
                   <TestimonialItem
                     key={idx}
@@ -170,7 +176,8 @@ export const ResetPassword = ({
                 <button
                   type='button'
                   className='Signup_input-button'
-                  onClick={toggleShow}>
+                  onClick={toggleShow}
+                >
                   {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
                 </button>
               </div>

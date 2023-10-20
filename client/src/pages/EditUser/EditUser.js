@@ -13,12 +13,11 @@ import { MemberExtend } from '../../components/MemberExtend/MemberExtend'
 import '../../components/Testimonials/Testimonials.css'
 import '../Signup/Signup.css'
 
-
 export const EditUser = ({ isMobile = true }) => {
   const [showTestimonials, setshowTestimonials] = useState(false)
   const [currentIdx, setCurrentIdx] = useState(-1)
   const btnOnClick = (idx) => {
-    setCurrentIdx(currentValue => (currentValue !== idx ? idx : -1))
+    setCurrentIdx((currentValue) => (currentValue !== idx ? idx : -1))
     setshowTestimonials(!showTestimonials)
   }
 
@@ -72,7 +71,6 @@ export const EditUser = ({ isMobile = true }) => {
       state,
       notes: data.notes,
       role: data.role,
-
     }
     const { data: resp } = await axios.patch(
       `${process.env.REACT_APP_API_URL}/api/user/${userId}`,
@@ -81,7 +79,7 @@ export const EditUser = ({ isMobile = true }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-      }
+      },
     )
     setUser({
       data: {
@@ -113,7 +111,7 @@ export const EditUser = ({ isMobile = true }) => {
     setShowPassword(!showPassword)
   }
   return (
-     <>
+    <>
       <div className='ComponentContainer signup edit-user'>
         <section className='TestimonialContainer'>
           <h3 className='Main_hed'>Testimonials</h3>
@@ -123,7 +121,8 @@ export const EditUser = ({ isMobile = true }) => {
           <div
             className={`carousel-wrapper edit-user ${
               !isMobile ? '' : ' mobile'
-            }`}>
+            }`}
+          >
             {isMobile ? (
               <Carousel
                 className='carousel-style edit'
@@ -134,7 +133,8 @@ export const EditUser = ({ isMobile = true }) => {
                 transitionTime={1000}
                 showIndicators={true}
                 showStatus={false}
-                showArrows={false}>
+                showArrows={false}
+              >
                 {TestimonialDataEdit.map((foto, idx) => (
                   <TestimonialItem
                     key={idx}
@@ -156,7 +156,8 @@ export const EditUser = ({ isMobile = true }) => {
                 centerMode
                 centerSlidePercentage={50}
                 showStatus={false}
-                showArrows={true}>
+                showArrows={true}
+              >
                 {TestimonialDataEdit.map((foto, idx) => (
                   <TestimonialItem
                     key={idx}
@@ -263,7 +264,8 @@ export const EditUser = ({ isMobile = true }) => {
                 <button
                   type='button'
                   className='Signup_input-button'
-                  onClick={toggleShow}>
+                  onClick={toggleShow}
+                >
                   {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
                 </button>
               </div>
@@ -338,8 +340,9 @@ export const EditUser = ({ isMobile = true }) => {
                   onChange={handleRegion}
                   className='Signup_input'
                   name='state'
-                  value={state}>
-                  {states.map(state => (
+                  value={state}
+                >
+                  {states.map((state) => (
                     <option key={`${state}_${state.value}`} value={state.value}>
                       {state.label}
                     </option>

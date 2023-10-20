@@ -23,19 +23,21 @@ export const MemberExtend = () => {
   }, [location])
 
   const [plans, setPlans] = useState([])
-  const [userPlan, setUserPlan] = useState([])
-  const [state, setState] = useContext(UserContext)
+  const [, setUserPlan] = useState([])
+  const [state] = useContext(UserContext)
   const [loading, setLoading] = useState(false)
-  const [title, setTitle] = useState('')
-  const [endDate, setEndDate] = useState('')
-  const [stripeId, setStripeId] = useState('')
+  const [, setTitle] = useState('')
+  const [, setEndDate] = useState('')
+  const [, setStripeId] = useState('')
 
   useEffect(() => {
     const getUserPlan = async () => {
       try {
         setLoading(true)
 
-        const resp = await axios.get(`${process.env.REACT_APP_API_URL}/api/plan/${state.data?.plan[0]}`)
+        const resp = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/plan/${state.data?.plan[0]}`,
+        )
         setUserPlan(resp.data.plan)
         setTitle(resp.data.plan[0].title)
         setEndDate(resp.data.plan[0].endDate)
@@ -52,7 +54,9 @@ export const MemberExtend = () => {
     const fetchPlans = async () => {
       try {
         setLoading(true)
-        const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/extend`)
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/extend`,
+        )
         setPlans(data)
         setLoading(false)
       } catch (err) {
@@ -77,10 +81,11 @@ export const MemberExtend = () => {
                 <div className='MemberPlan-card extension' key={pl._id}>
                   <button
                     className='cta-button'
-                    onClick={e => {
+                    onClick={(e) => {
                       e.preventDefault()
                       window.location.href = pl.url
-                    }}>
+                    }}
+                  >
                     <div className='MemberPlan-price extension'>
                       ${pl.amount}
                     </div>

@@ -21,7 +21,7 @@ export const Leader = () => {
       try {
         setLoading(true)
         const result = await axios.get(
-          `${process.env.REACT_APP_API_URL}/api/user`
+          `${process.env.REACT_APP_API_URL}/api/user`,
         )
         setUsers(result.data)
         setLoading(false)
@@ -32,7 +32,7 @@ export const Leader = () => {
     fetchData()
   }, [])
   const requestSearchFirst = (searchValue) => {
-    const filteredRows = users.filter(row => {
+    const filteredRows = users.filter((row) => {
       return row.firstName
         .toString()
         .toLowerCase()
@@ -45,7 +45,7 @@ export const Leader = () => {
     }
   }
   const requestSearch = (searchValue) => {
-    const filteredRows = users.filter(row => {
+    const filteredRows = users.filter((row) => {
       return row.lastName
         .toString()
         .toLowerCase()
@@ -61,7 +61,7 @@ export const Leader = () => {
     try {
       setLoading(true)
       const result = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/user`
+        `${process.env.REACT_APP_API_URL}/api/user`,
       )
       setUsers(result.data)
       setLoading(false)
@@ -87,14 +87,14 @@ export const Leader = () => {
         </a>
       </div>
       <div className='Admin-search '>
-      <label htmlFor='search-form' className='search-form'>
+        <label htmlFor='search-form' className='search-form'>
           <input
             type='search'
             name='search-form'
             id='search-form'
             className='search-input'
             placeholder='Search for first name'
-            onChange={e => requestSearchFirst(e.target.value)}
+            onChange={(e) => requestSearchFirst(e.target.value)}
           />
 
           <button className='search-only' onClick={fetchDataAgain}>
@@ -108,7 +108,7 @@ export const Leader = () => {
             id='search-form'
             className='search-input'
             placeholder='Search for last name'
-            onChange={e => requestSearch(e.target.value)}
+            onChange={(e) => requestSearch(e.target.value)}
           />
 
           <button className='search-only' onClick={fetchDataAgain}>
@@ -126,16 +126,14 @@ export const Leader = () => {
                 <th rowSpan={2}>Last Name</th>
                 <th rowSpan={2}>Phone</th>
                 <th rowSpan={2}>Email</th>
-                <th colSpan={2} >
-                  Membership
-                </th>
+                <th colSpan={2}>Membership</th>
               </tr>
             </thead>
 
             <tbody>
               {!loading &&
                 users
-                  .filter(u => u.role === 'user')
+                  .filter((u) => u.role === 'user')
                   .sort((a, b) => a.lastName.localeCompare(b.lastName))
                   .map((user, idx) => (
                     <Fragment key={idx}>

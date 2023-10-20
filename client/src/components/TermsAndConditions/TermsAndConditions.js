@@ -1,16 +1,14 @@
 import { GrClose } from 'react-icons/gr'
 import './TermsandConditions.css'
 
-
-export const TermsAndConditions = ({
-  modalTermsClose,
-}) => {
+export const TermsAndConditions = ({ modalTermsClose }) => {
   return (
     <section className='TandCWrapper'>
       <button
         type='button'
         onClick={modalTermsClose}
-        className='TandCWrapper-button'>
+        className='TandCWrapper-button'
+      >
         <GrClose />
       </button>
       <div className='TandCContainer'>

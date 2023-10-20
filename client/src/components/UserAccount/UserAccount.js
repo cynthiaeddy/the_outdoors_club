@@ -6,11 +6,10 @@ import { GrClose } from 'react-icons/gr'
 import { UserContext } from '../../context'
 import './UserAccount.css'
 
-
-export const UserAccount = ({ modalUserAcctClose}) => {
+export const UserAccount = ({ modalUserAcctClose }) => {
   const navigate = useNavigate()
 
-  const [state, setState] = useContext(UserContext)
+  const [state] = useContext(UserContext)
   const userId = state.data?.id
   const [plan, setPlan] = useState([])
   const [loading, setLoading] = useState(false)
@@ -19,14 +18,13 @@ export const UserAccount = ({ modalUserAcctClose}) => {
     const getUser = async () => {
       setLoading(true)
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/user/${userId}`
+        `${process.env.REACT_APP_API_URL}/api/user/${userId}`,
       )
       setPlan(data.plan)
       setLoading(false)
     }
     getUser()
   }, [])
-
 
   const handleUpdateMembership = () => {
     modalUserAcctClose()
@@ -56,11 +54,10 @@ export const UserAccount = ({ modalUserAcctClose}) => {
     return endDate
   }
 
-
   const updateUserEndDate = async (date) => {
     const twoYearsFromNow = new Date(date)
     const endDate = twoYearsFromNow.setFullYear(
-      twoYearsFromNow.getFullYear() + 2
+      twoYearsFromNow.getFullYear() + 2,
     )
     try {
       const fieldsToUpdate = {
@@ -75,7 +72,7 @@ export const UserAccount = ({ modalUserAcctClose}) => {
       }
       await axios.patch(
         `${process.env.REACT_APP_API_URL}/api/plan/date/${plan[0]._id}`,
-        fieldsToUpdate
+        fieldsToUpdate,
       )
     } catch (err) {
       console.log(err)
@@ -96,7 +93,8 @@ export const UserAccount = ({ modalUserAcctClose}) => {
       <button
         type='button'
         onClick={modalUserAcctClose}
-        className='UserAcct-button '>
+        className='UserAcct-button '
+      >
         <GrClose />
       </button>
       <h3 className='Main_hed modal'>hi {state.data?.firstName}!</h3>
@@ -144,7 +142,8 @@ export const UserAccount = ({ modalUserAcctClose}) => {
             Extend your membership?{' '}
             <button
               onClick={() => handleUpdateMembership()}
-              className='cta-button'>
+              className='cta-button'
+            >
               click here
             </button>{' '}
           </h5>
@@ -152,12 +151,14 @@ export const UserAccount = ({ modalUserAcctClose}) => {
             Please allow 2 weeks after payment for your account to be updated
           </h5>
         </div>
-      ) : <h5>
-      Become a member!{' '}
-      <button onClick={() => handleMemberUser()} className='cta-button'>
-        click here
-      </button>{' '}
-    </h5> }
+      ) : (
+        <h5>
+          Become a member!{' '}
+          <button onClick={() => handleMemberUser()} className='cta-button'>
+            click here
+          </button>{' '}
+        </h5>
+      )}
     </section>
   )
 }

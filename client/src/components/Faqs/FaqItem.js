@@ -2,11 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { getRefValue } from '../../lib/hooks'
 import './Faq.css'
 
-export const FaqItem = ({
-  data,
-  isOpen,
-  btnOnClick,
-}) => {
+export const FaqItem = ({ data, isOpen, btnOnClick }) => {
   const contentRef = useRef(null)
   const [height, setHeight] = useState(0)
 

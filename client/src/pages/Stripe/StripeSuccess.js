@@ -3,7 +3,7 @@ import { UserContext } from '../../context'
 import './StripeSuccess.css'
 
 export const StripeSuccess = () => {
-  const [user, setUser] = useContext(UserContext)
+  const [user] = useContext(UserContext)
   return (
     <section className='ComponentContainer  stripe'>
       <div className='SuccessContainer'>

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Faq } from './Faq'
 import membership from '../../assets/OC_membership.pdf'
 import { NavLink } from 'react-router-dom'
@@ -16,10 +17,11 @@ function FaqData() {
             <button
               type='button'
               className='Faqs-href'
-              onClick={e => {
+              onClick={(e) => {
                 e.preventDefault()
                 window.location.href = 'https://www.meetup.com/outdoorsclubny'
-              }}>
+              }}
+            >
               Outdoors Club
             </button>{' '}
             Meetup page click on “join the group” button. If you are not a dues-
@@ -109,7 +111,11 @@ function FaqData() {
         <div>
           <p>
             There are three ways to pay membership dues. <br />
-            You can <NavLink to={'/signup'} className='Faqs-ahref'>sign up here,</NavLink> then proceed to the membership panel on the home page.
+            You can{' '}
+            <NavLink to={'/signup'} className='Faqs-ahref'>
+              sign up here,
+            </NavLink>{' '}
+            then proceed to the membership panel on the home page.
             <br /> You can print the{' '}
             <a href={membership} download className='Faqs-ahref'>
               membership form,{' '}
@@ -136,7 +142,8 @@ function FaqData() {
             switched off receiving them. Go to this link:{' '}
             <a
               href='https://groups.google.com/my-groups'
-              className='Faqs-ahref'>
+              className='Faqs-ahref'
+            >
               https://groups.google.com/my-groups
             </a>
           </p>
@@ -155,12 +162,15 @@ function FaqData() {
       answer: (
         <div>
           <p>
-            After you log in, you can click on your Account in the Navigation Bar. That will tell you when your membership expires. There is an Edit your Profile link to update all your personal information. Or you can send an email to{' '}
+            After you log in, you can click on your Account in the Navigation
+            Bar. That will tell you when your membership expires. There is an
+            Edit your Profile link to update all your personal information. Or
+            you can send an email to{' '}
             <a href='mailto:outdoorsclubny@yahoo.com' className='Faqs-ahref'>
               outdoorsclubny@yahoo.com
             </a>{' '}
-            Lastly you can write to us at: Outdoors Club Inc. P. O. Box 227 - Lenox
-            Hill Station New York, NY 10021-0014
+            Lastly you can write to us at: Outdoors Club Inc. P. O. Box 227 -
+            Lenox Hill Station New York, NY 10021-0014
           </p>
         </div>
       ),
@@ -170,12 +180,13 @@ function FaqData() {
       answer: (
         <div>
           <p>
-            You can click on the Contact Us link at the bottom of the page. Or send an email to{' '}
+            You can click on the Contact Us link at the bottom of the page. Or
+            send an email to{' '}
             <a href='mailto:outdoorsclubny@yahoo.com' className='Faqs-ahref'>
               outdoorsclubny@yahoo.com
             </a>{' '}
-            Lastly you can write to us at: Outdoors Club Inc. P. O. Box 227 - Lenox
-            Hill Station New York, NY 10021-0014
+            Lastly you can write to us at: Outdoors Club Inc. P. O. Box 227 -
+            Lenox Hill Station New York, NY 10021-0014
           </p>
         </div>
       ),

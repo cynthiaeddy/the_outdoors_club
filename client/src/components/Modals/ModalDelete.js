@@ -1,10 +1,7 @@
 import './Modals.css'
 import { GrClose } from 'react-icons/gr'
 
-export const ModalDelete = ({
-  handleDeleteTrue,
-  handleDeleteFalse,
-}) => {
+export const ModalDelete = ({ handleDeleteTrue, handleDeleteFalse }) => {
   return (
     <div className='ModalWrapper'>
       <div className='ModalContainer'>
@@ -12,7 +9,8 @@ export const ModalDelete = ({
           <button
             type='button'
             onClick={handleDeleteFalse}
-            className='ModalContainer-button'>
+            className='ModalContainer-button'
+          >
             <GrClose />
           </button>
           <h3>You sure you wanna delete?</h3>

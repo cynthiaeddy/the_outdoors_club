@@ -1,8 +1,10 @@
 import React, { createContext, useEffect, useState } from 'react'
 import axios from 'axios'
 
-const UserContext = createContext([{ data: null, loading: true, error: null }, () => { }])
-
+const UserContext = createContext([
+  { data: null, loading: true, error: null },
+  () => {},
+])
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState({
@@ -18,9 +20,8 @@ const UserProvider = ({ children }) => {
   }
 
   const fetchUser = async () => {
-
     const { data: resp } = await axios.get(
-      `${process.env.REACT_APP_API_URL}/api/user/me`
+      `${process.env.REACT_APP_API_URL}/api/user/me`,
     )
 
     if (resp.data && resp.data.user) {
@@ -46,7 +47,6 @@ const UserProvider = ({ children }) => {
         error: null,
       })
     } else if (resp.data && resp.data.errors.length) {
-
       setUser({
         data: null,
         loading: false,

@@ -7,19 +7,18 @@ import { ModalLogin } from '../Modals/ModalLogin'
 
 export const MemberPlan = () => {
   const navigate = useNavigate()
-  const [plans, setPlans]  = useState([])
+  const [plans, setPlans] = useState([])
   const [loading, setLoading] = useState(true)
-  const [state, setState] = useContext(UserContext)
+  const [state] = useContext(UserContext)
   const [isModalLoginOpen, setIsModalLoginOpen] = useState(false)
 
   const user = localStorage.getItem('token')
-
 
   useEffect(() => {
     setLoading(true)
     const fetchPlans = async () => {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/membership`
+        `${process.env.REACT_APP_API_URL}/api/membership`,
       )
       setPlans(data)
       setLoading(false)
@@ -30,13 +29,12 @@ export const MemberPlan = () => {
   const navigateSignUp = () => {
     navigate('/signup')
   }
-  const modalLoginOpen = ()=> {
+  const modalLoginOpen = () => {
     setIsModalLoginOpen(true)
   }
   const modalLoginClose = () => {
     setIsModalLoginOpen(false)
   }
-
 
   const createSession = async (plan) => {
     if (state && user) {
@@ -46,7 +44,7 @@ export const MemberPlan = () => {
           plan,
           userId: state.data?.id,
           email: state.data?.email,
-        }
+        },
       )
       window.location.href = data.url
     } else {
@@ -58,18 +56,18 @@ export const MemberPlan = () => {
       <h3 className='Main_hed'>Memberships</h3>
 
       {!user ? (
-          <h5>
-            Please{' '}
-            <button className='cta-button' onClick={modalLoginOpen}>
-              {' '}
-              log in
-            </button>{' '}
-            or{' '}
-            <button className='cta-button' onClick={navigateSignUp}>
-              {' '}
-              sign up
-            </button>
-          </h5>
+        <h5>
+          Please{' '}
+          <button className='cta-button' onClick={modalLoginOpen}>
+            {' '}
+            log in
+          </button>{' '}
+          or{' '}
+          <button className='cta-button' onClick={navigateSignUp}>
+            {' '}
+            sign up
+          </button>
+        </h5>
       ) : null}
       <div className='MemberPlan-cardContainer'>
         {!loading && !state.data?.plan.length
@@ -79,7 +77,8 @@ export const MemberPlan = () => {
                   <div className='MemberPlan-card'>
                     <button
                       className='cta-button'
-                      onClick={() => createSession(plan)}>
+                      onClick={() => createSession(plan)}
+                    >
                       <h3>
                         <br />
                         {plan.title}
@@ -92,7 +91,8 @@ export const MemberPlan = () => {
                 </Fragment>
               )
             })
-          : !loading && plans.map((plan) => {
+          : !loading &&
+            plans.map((plan) => {
               return (
                 <Fragment key={plan._id}>
                   <div className='MemberPlan-card'>

@@ -2,11 +2,7 @@ import React from 'react'
 import './Modals.css'
 import { TermsAndConditions } from '../TermsAndConditions/TermsAndConditions'
 
-
-export const ModalTerms = ({
-  isOpen = true,
-  modalTermsClose,
-}) => {
+export const ModalTerms = ({ isOpen = true, modalTermsClose }) => {
   // if isOpen is false, dont render anything
   if (!isOpen) {
     return null

@@ -1,6 +1,6 @@
 import './MenuButton.css'
 
-export const MenuButton= ({ isOpen }) => {
+export const MenuButton = ({ isOpen }) => {
   return (
     <>
       <div className='menu-button'>

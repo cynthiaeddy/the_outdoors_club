@@ -31,7 +31,7 @@ export const UserAccountMobile = () => {
     }
   }, [location])
 
-  const [state, setState] = useContext(UserContext)
+  const [state] = useContext(UserContext)
   const userId = state.data?.id
   const [plan, setPlan] = useState([])
   const [loading, setLoading] = useState(false)
@@ -40,7 +40,7 @@ export const UserAccountMobile = () => {
     const getUser = async () => {
       setLoading(true)
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/user/${userId}`
+        `${process.env.REACT_APP_API_URL}/api/user/${userId}`,
       )
       setPlan(data.plan)
       setLoading(false)
@@ -73,7 +73,7 @@ export const UserAccountMobile = () => {
   const updateUserEndDate = async (date) => {
     const twoYearsFromNow = new Date(date)
     const endDate = twoYearsFromNow.setFullYear(
-      twoYearsFromNow.getFullYear() + 2
+      twoYearsFromNow.getFullYear() + 2,
     )
 
     try {
@@ -88,7 +88,10 @@ export const UserAccountMobile = () => {
         endDate: endDate,
       }
 
-      await axios.patch(`${process.env.REACT_APP_API_URL}/api/plan/date/${plan[0]._id}`, fieldsToUpdate)
+      await axios.patch(
+        `${process.env.REACT_APP_API_URL}/api/plan/date/${plan[0]._id}`,
+        fieldsToUpdate,
+      )
     } catch (err) {
       console.log(err)
     }
@@ -100,7 +103,9 @@ export const UserAccountMobile = () => {
   return (
     <section className=''>
       <div className='SignupContainer account'>
-        {!loading && <h3 className='Main_hed modal'>hi {state.data?.firstName}!</h3>}
+        {!loading && (
+          <h3 className='Main_hed modal'>hi {state.data?.firstName}!</h3>
+        )}
         {!loading &&
           plan.map((pl) => {
             return (
@@ -151,12 +156,14 @@ export const UserAccountMobile = () => {
               Please allow 2 weeks after payment for your account to be updated
             </h5>
           </div>
-        ) : <h5>
-        Become a member!{' '}
-        <button onClick={() => handleMemberUser()} className='cta-button'>
-          click here
-        </button>{' '}
-      </h5> }
+        ) : (
+          <h5>
+            Become a member!{' '}
+            <button onClick={() => handleMemberUser()} className='cta-button'>
+              click here
+            </button>{' '}
+          </h5>
+        )}
       </div>
       <EditUser isMobile={true} />
     </section>

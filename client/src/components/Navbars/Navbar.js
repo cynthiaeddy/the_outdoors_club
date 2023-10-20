@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState, useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 
@@ -8,8 +9,7 @@ import { ModalAccount } from '../Modals/ModalAccount'
 import { NavbarMobile } from './NavbarMobile'
 import './Navbar.css'
 
-
-export const Navbar = ({ isMobile = true, timeSignup, setTimeSignup }) => {
+export const Navbar = ({ isMobile = true }) => {
   const [state, setState] = useContext(UserContext)
 
   const navigate = useNavigate()
@@ -19,7 +19,6 @@ export const Navbar = ({ isMobile = true, timeSignup, setTimeSignup }) => {
   const leader = state.data?.role === 'leader'
   const userRole = state.data?.role === 'user'
   const userName = state.data?.firstName
-
 
   const [isModalLoginOpen, setIsModalLoginOpen] = useState(false)
 
@@ -31,10 +30,9 @@ export const Navbar = ({ isMobile = true, timeSignup, setTimeSignup }) => {
 
   const modalLoginOpen = () => {
     setIsModalLoginOpen(true)
-
   }
 
-  const modalUserAcctClose = ()=> {
+  const modalUserAcctClose = () => {
     setIsModalUserAcctOpen(false)
   }
   const modalUserAcctOpen = () => {
@@ -80,7 +78,7 @@ export const Navbar = ({ isMobile = true, timeSignup, setTimeSignup }) => {
               <>
                 <li className='nav-item'>
                   <button onClick={modalUserAcctOpen} className='nav-links'>
-                  {userName}'s Account
+                    {userName}'s Account
                   </button>
                 </li>
               </>
@@ -91,14 +89,15 @@ export const Navbar = ({ isMobile = true, timeSignup, setTimeSignup }) => {
                 <button className='nav-links' onClick={logout}>
                   sign out
                 </button>
-                </li>
+              </li>
             ) : (
               <>
                 <li className='nav-item'>
                   <button
                     type='button'
                     onClick={modalLoginOpen}
-                    className='nav-links'>
+                    className='nav-links'
+                  >
                     log In
                   </button>
                 </li>
@@ -115,7 +114,8 @@ export const Navbar = ({ isMobile = true, timeSignup, setTimeSignup }) => {
                 to='https://www.meetup.com/outdoorsclubny'
                 className='nav-links'
                 target='_blank'
-                rel="noopener noreferrer">
+                rel='noopener noreferrer'
+              >
                 meetup link
               </NavLink>
             </li>
@@ -133,9 +133,12 @@ export const Navbar = ({ isMobile = true, timeSignup, setTimeSignup }) => {
       <ModalAccount
         isOpen={isModalUserAcctOpen}
         modalUserAcctClose={modalUserAcctClose}
-
       />
-      <ModalLogin isOpen={isModalLoginOpen} modalLoginClose={modalLoginClose}   modalUserAcctClose={modalUserAcctClose}/>
+      <ModalLogin
+        isOpen={isModalLoginOpen}
+        modalLoginClose={modalLoginClose}
+        modalUserAcctClose={modalUserAcctClose}
+      />
     </>
   )
 }

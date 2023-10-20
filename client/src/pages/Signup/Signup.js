@@ -19,9 +19,6 @@ import { ModalDuplicateEmail } from '../../components/Modals/ModalDuplicateEmail
 import './Signup.css'
 import '../../components/Testimonials/Testimonials.css'
 
-
-
-
 export const Signup = ({ isMobile = true, setTimeSignup }) => {
   const [user, setUser] = useContext(UserContext)
   const [showPassword, setShowPassword] = useState(false)
@@ -29,21 +26,20 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
   const [state, setState] = useState('AK')
   const [showTestimonials, setshowTestimonials] = useState(false)
 
-
   const [currentIdx, setCurrentIdx] = useState(-1)
   const btnOnClick = (idx) => {
-    setCurrentIdx(currentValue => (currentValue !== idx ? idx : -1))
+    setCurrentIdx((currentValue) => (currentValue !== idx ? idx : -1))
     setshowTestimonials(!showTestimonials)
   }
-  const [isHovering, setIsHovering] = useState(false);
+  const [isHovering, setIsHovering] = useState(false)
 
   const handleMouseOver = () => {
-    setIsHovering(true);
-  };
+    setIsHovering(true)
+  }
 
   const handleMouseOut = () => {
-    setIsHovering(false);
-  };
+    setIsHovering(false)
+  }
 
   const navigate = useNavigate()
 
@@ -72,14 +68,12 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
   const [isModalLoginOpen, setIsModalLoginOpen] = useState(false)
   const [isModalTermsOpen, setIsModalTermsOpen] = useState(false)
 
+  const [errorMessage, setErrorMessage] = useState('')
 
-  const [errorMessage, setErrorMessage] =useState('')
-
-
-  const modalLoginOpen = ()=> {
+  const modalLoginOpen = () => {
     setIsModalLoginOpen(true)
   }
-  const modalLoginClose = ()=> {
+  const modalLoginClose = () => {
     setIsModalLoginOpen(false)
   }
   const modalTermsOpen = () => {
@@ -119,7 +113,7 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
           headers: {
             'Content-Type': 'application/json',
           },
-        }
+        },
       )
 
       setUser({
@@ -144,22 +138,26 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
         error: null,
       })
       localStorage.setItem('token', resp.data.token)
-      axios.defaults.headers.common['authorization'] = `Bearer ${resp.data.token}`
+      axios.defaults.headers.common[
+        'authorization'
+      ] = `Bearer ${resp.data.token}`
       navigate('/')
-    }catch (error) {
+    } catch (error) {
       if (error.response && error.response.data) {
-        setErrorMessage(error.response.data);
-
+        setErrorMessage(error.response.data)
       } else {
-        console.log(error);
+        console.log(error)
       }
     }
 
-    const timer = setTimeout(() => {
-      logout()
-    }, 1000*60*30);
-    return () => clearTimeout(timer);
-}
+    const timer = setTimeout(
+      () => {
+        logout()
+      },
+      1000 * 60 * 20,
+    )
+    return () => clearTimeout(timer)
+  }
   const handleRegion = (e) => {
     setState(e.target.value)
   }
@@ -179,7 +177,8 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
           <div
             className={`carousel-wrapper edit-user ${
               !isMobile ? '' : ' mobile'
-            }`}>
+            }`}
+          >
             {isMobile ? (
               <Carousel
                 className='carousel-style edit'
@@ -190,7 +189,8 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
                 transitionTime={1000}
                 showIndicators={true}
                 showStatus={false}
-                showArrows={false}>
+                showArrows={false}
+              >
                 {TestimonialData.map((foto, idx) => (
                   <TestimonialItem
                     key={idx}
@@ -212,7 +212,8 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
                 centerMode
                 centerSlidePercentage={50}
                 showStatus={false}
-                showArrows={true}>
+                showArrows={true}
+              >
                 {TestimonialData.map((foto, idx) => (
                   <TestimonialItem
                     key={idx}
@@ -230,12 +231,13 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
         <div className='SignupContainer'>
           <h3 className='Main_hed signup'>Sign Up</h3>
           <h5 className='Signup-question'>
-          Already have an online profile/account? Please{' '}
+            Already have an online profile/account? Please{' '}
             <span>
               <button
                 type='button'
                 onClick={modalLoginOpen}
-                className='cta-button'>
+                className='cta-button'
+              >
                 <h5>Log In Here</h5>
               </button>
             </span>
@@ -252,7 +254,7 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
                   {...register('firstName', { required: 'This is required' })}
                   name='firstName'
                   className='Signup_input '
-                  autoComplete="off"
+                  autoComplete='off'
                 />
 
                 <h6 className='Signup-error'>{errors.firstName?.message}</h6>
@@ -266,7 +268,7 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
                   {...register('lastName', { required: 'This is required' })}
                   name='lastName'
                   className='Signup_input '
-                  autoComplete="off"
+                  autoComplete='off'
                 />
                 <h6 className='Signup-error'>{errors.lastName?.message}</h6>
               </div>
@@ -288,7 +290,7 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
                   })}
                   name='email'
                   className='Signup_input'
-                  autoComplete="off"
+                  autoComplete='off'
                 />
                 <h6 className='Signup-error'>{errors.email?.message}</h6>
               </div>
@@ -307,7 +309,7 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
                   })}
                   name='phoneNo'
                   className='Signup_input'
-                  autoComplete="off"
+                  autoComplete='off'
                 />
 
                 <h6 className='Signup-error'>{errors.phoneNo?.message}</h6>
@@ -326,13 +328,14 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
                   name='password'
                   className='Signup_input'
                   type={showPassword ? 'text' : 'password'}
-                  autoComplete="off"
+                  autoComplete='off'
                 />
                 <h6 className='Signup-error'>{errors.password?.message}</h6>
                 <button
                   type='button'
                   className='Signup_input-button'
-                  onClick={toggleShow}>
+                  onClick={toggleShow}
+                >
                   {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
                 </button>
               </div>
@@ -352,7 +355,7 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
                   name='confirmPassword'
                   className='Signup_input'
                   type={showPassword ? 'text' : 'password'}
-                  autoComplete="off"
+                  autoComplete='off'
                 />
                 <h6 className='Signup-error'>
                   {errors.confirmPassword?.message}
@@ -396,7 +399,7 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
               })}
               name='address'
               className='Signup_input'
-              autoComplete="off"
+              autoComplete='off'
             />
 
             <div className='wrap-input'>
@@ -410,7 +413,7 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
                   })}
                   name='city'
                   className='Signup_input'
-                  autoComplete="off"
+                  autoComplete='off'
                 />
               </div>
               <div className='fifty '>
@@ -420,8 +423,9 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
                 <select
                   onChange={handleRegion}
                   className='Signup_input state'
-                  name='state'>
-                  {states.map(state => (
+                  name='state'
+                >
+                  {states.map((state) => (
                     <option key={`${state}_${state.value}`} value={state.value}>
                       {state.label}
                     </option>
@@ -444,7 +448,7 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
                   })}
                   name='zipcode'
                   className='Signup_input'
-                  autoComplete="off"
+                  autoComplete='off'
                 />
                 <h6 className='Signup-error'>{errors.zipcode?.message}</h6>
               </div>
@@ -468,14 +472,15 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
                   type='checkbox'
                   className='checkbox custom'
                   checked={agreeToTerms}
-                  onChange={e => setAgreeToTerms(e.target.checked)}
+                  onChange={(e) => setAgreeToTerms(e.target.checked)}
                 />
                 I have read and agree to{' '}
                 <span>
                   <button
                     type='button'
                     onClick={modalTermsOpen}
-                    className='cta-button terms custom'>
+                    className='cta-button terms custom'
+                  >
                     terms and conditions.
                   </button>
                 </span>
@@ -488,16 +493,26 @@ export const Signup = ({ isMobile = true, setTimeSignup }) => {
               onMouseOver={handleMouseOver}
               onMouseOut={handleMouseOut}
             >
-              {isHovering && !agreeToTerms &&(
+              {isHovering && !agreeToTerms && (
+                <h5 className='tandc-clause'>
+                  Please read and agree to Terms and Conditions.{' '}
+                </h5>
+              )}
 
-                <h5 className='tandc-clause'>Please read and agree to Terms and Conditions. </h5>)}
-
-              <h4 className={`cta-button ${!agreeToTerms ? 'disabled-signup' : ''}`}>Sign Up</h4>
+              <h4
+                className={`cta-button ${
+                  !agreeToTerms ? 'disabled-signup' : ''
+                }`}
+              >
+                Sign Up
+              </h4>
             </button>
           </form>
         </div>
       </div>
-      {errorMessage.length > 0 ? <ModalDuplicateEmail setErrorMessage={setErrorMessage } /> : null}
+      {errorMessage.length > 0 ? (
+        <ModalDuplicateEmail setErrorMessage={setErrorMessage} />
+      ) : null}
       <ModalLogin isOpen={isModalLoginOpen} modalLoginClose={modalLoginClose} />
       <ModalTerms isOpen={isModalTermsOpen} modalTermsClose={modalTermsClose} />
     </section>

@@ -2,10 +2,7 @@ import React from 'react'
 import { ContactUs } from '../ContactUs/ContactUs'
 import './Modals.css'
 
-export const ModalContactUs = ({
-  isOpen = true,
-  modalContactUsClose,
-}) => {
+export const ModalContactUs = ({ isOpen = true, modalContactUsClose }) => {
   // if isOpen is false, dont render anything
   if (!isOpen) {
     return null

@@ -1,10 +1,7 @@
 import './Modals.css'
 import { GrClose } from 'react-icons/gr'
 
-export const ModalDuplicateEmail = ({
-  isOpen = true,
-  setErrorMessage
-}) => {
+export const ModalDuplicateEmail = ({ isOpen = true, setErrorMessage }) => {
   if (!isOpen) {
     return null
   }
@@ -16,7 +13,8 @@ export const ModalDuplicateEmail = ({
           <button
             type='button'
             onClick={setErrorMessage}
-            className='ModalContainer-button'>
+            className='ModalContainer-button'
+          >
             <GrClose />
           </button>
           <h3>Email already in use.</h3>

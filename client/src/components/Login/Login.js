@@ -8,7 +8,7 @@ import { UserContext } from '../../context'
 import { ForgotPassword } from '../ForgotPassword/ForgotPassword'
 import '../../pages/Signup/Signup.css'
 
-export const Login = ({modalLoginClose}) => {
+export const Login = ({ modalLoginClose }) => {
   const {
     register,
     handleSubmit,
@@ -22,11 +22,10 @@ export const Login = ({modalLoginClose}) => {
   })
   const navigate = useNavigate()
 
-  const [user, setUser] = useContext(UserContext)
+  const [, setUser] = useContext(UserContext)
   const [errorMsg, setErrorMsg] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [showForgotPassword, setShowForgotPassword] = useState(false)
-
 
   const toggleShow = () => {
     setShowPassword(!showPassword)
@@ -55,12 +54,11 @@ export const Login = ({modalLoginClose}) => {
         headers: {
           'Content-Type': 'application/json',
         },
-      }
+      },
     )
     if (resp.errors.length) {
       setErrorMsg(resp.errors[0].msg)
     } else {
-
       setUser({
         data: {
           firstName: resp.data.user.firstName,
@@ -83,14 +81,19 @@ export const Login = ({modalLoginClose}) => {
         error: null,
       })
       localStorage.setItem('token', resp.data.token)
-      axios.defaults.headers.common['authorization'] = `Bearer ${resp.data.token}`
+      axios.defaults.headers.common[
+        'authorization'
+      ] = `Bearer ${resp.data.token}`
       modalLoginClose()
       navigate('/')
     }
-    const timer = setTimeout(() => {
-      logout()
-    }, 1000*60*30);
-    return () => clearTimeout(timer);
+    const timer = setTimeout(
+      () => {
+        logout()
+      },
+      1000 * 60 * 20,
+    )
+    return () => clearTimeout(timer)
   }
 
   return (
@@ -99,7 +102,8 @@ export const Login = ({modalLoginClose}) => {
         <button
           type='button'
           onClick={modalLoginClose}
-          className='ModalContainer-button'>
+          className='ModalContainer-button'
+        >
           <GrClose />
         </button>
         <div className='wrap-input'>
@@ -120,7 +124,7 @@ export const Login = ({modalLoginClose}) => {
               name='email'
               className='Signup_input'
             />
-             {errors.email && (
+            {errors.email && (
               <h6 className='Signup-error'>{errors.email?.message}</h6>
             )}
           </div>
@@ -147,7 +151,8 @@ export const Login = ({modalLoginClose}) => {
             <button
               type='button'
               className='Signup_input-button'
-              onClick={toggleShow}>
+              onClick={toggleShow}
+            >
               {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
             </button>
           </div>
@@ -161,7 +166,8 @@ export const Login = ({modalLoginClose}) => {
         <button
           type='button'
           className='cta-button forgot'
-          onClick={toggleShowForgotPassword}>
+          onClick={toggleShowForgotPassword}
+        >
           forgot password?
         </button>
       </form>

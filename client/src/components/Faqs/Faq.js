@@ -5,7 +5,7 @@ import './Faq.css'
 export const Faq = ({ items }) => {
   const [currentIdx, setCurrentIdx] = useState(-1)
   const btnOnClick = (idx) => {
-    setCurrentIdx(currentValue => (currentValue !== idx ? idx : -1))
+    setCurrentIdx((currentValue) => (currentValue !== idx ? idx : -1))
   }
 
   return (

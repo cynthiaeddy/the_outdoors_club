@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Carousel } from 'react-responsive-carousel'
 import { useLocation } from 'react-router-dom'
 import FaqData from '../../components/Faqs/FaqData'
@@ -6,8 +6,6 @@ import CarouselData from '../../components/Carousel/CarouselData'
 import { MemberPlan } from '../../components/MemberPlan/MemberPlan'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import './Home.css'
-
-
 
 export const Home = ({ isMobile = true }) => {
   const location = useLocation()

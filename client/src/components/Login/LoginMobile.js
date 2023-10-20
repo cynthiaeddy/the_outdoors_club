@@ -21,11 +21,10 @@ export const LoginMobile = () => {
   })
   const navigate = useNavigate()
 
-  const [user, setUser] = useContext(UserContext)
+  const [, setUser] = useContext(UserContext)
   const [errorMsg, setErrorMsg] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [showForgotPassword, setShowForgotPassword] = useState(false)
-
 
   const toggleShow = () => {
     setShowPassword(!showPassword)
@@ -35,6 +34,7 @@ export const LoginMobile = () => {
   }
 
   const logout = () => {
+    console.log('in logout')
     localStorage.removeItem('token')
     navigate('/')
   }
@@ -52,12 +52,11 @@ export const LoginMobile = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-      }
+      },
     )
     if (resp.errors.length) {
       setErrorMsg(resp.errors[0].msg)
     } else {
-
       setUser({
         data: {
           firstName: resp.data.user.firstName,
@@ -80,15 +79,19 @@ export const LoginMobile = () => {
         error: null,
       })
       localStorage.setItem('token', resp.data.token)
-      axios.defaults.headers.common['authorization'] = `Bearer ${resp.data.token}`
+      axios.defaults.headers.common[
+        'authorization'
+      ] = `Bearer ${resp.data.token}`
       navigate('/')
 
-      const timer = setTimeout(() => {
-        logout()
-      }, 1000*60*30);
-      return () => clearTimeout(timer);
+      const timer = setTimeout(
+        () => {
+          logout()
+        },
+        1000 * 60 * 20,
+      )
+      return () => clearTimeout(timer)
     }
-
   }
 
   return (
@@ -96,14 +99,13 @@ export const LoginMobile = () => {
       <div className='SignupContainer'>
         <h3 className='Main_hed signup'>Log In</h3>
 
-        <form onSubmit={handleSubmit(onSubmit)} className='Login_form' >
+        <form onSubmit={handleSubmit(onSubmit)} className='Login_form'>
           <div className='wrap-input'>
             <div className='fifty left'>
               <h5>
                 <label htmlFor='email'>Email</label>
               </h5>
               <input
-
                 type='email'
                 {...register('email', {
                   required: 'Please enter your email address',
@@ -140,7 +142,8 @@ export const LoginMobile = () => {
               <button
                 type='button'
                 className='Signup_input-button'
-                onClick={toggleShow}>
+                onClick={toggleShow}
+              >
                 {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
               </button>
             </div>
@@ -155,7 +158,8 @@ export const LoginMobile = () => {
           <button
             type='button'
             className='cta-button forgot'
-            onClick={toggleShowForgotPassword}>
+            onClick={toggleShowForgotPassword}
+          >
             forgot password?
           </button>
         </form>

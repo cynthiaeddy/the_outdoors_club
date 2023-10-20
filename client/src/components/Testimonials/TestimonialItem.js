@@ -1,11 +1,7 @@
 import './Testimonials.css'
 import { BsFillArrowRightCircleFill } from 'react-icons/bs'
 
-export const TestimonialItem = ({
-  data,
-  isOpen,
-  btnOnClick,
-}) => {
+export const TestimonialItem = ({ data, isOpen, btnOnClick }) => {
   return (
     <>
       <div className={`card ${isOpen ? 'flip' : 'no_flip'}`}>
@@ -18,7 +14,8 @@ export const TestimonialItem = ({
             </h4>
             <button
               className={`flipCard-button card ${isOpen ? 'flip' : 'no_flip'}`}
-              onClick={btnOnClick}>
+              onClick={btnOnClick}
+            >
               <BsFillArrowRightCircleFill />
             </button>
           </div>
@@ -32,7 +29,8 @@ export const TestimonialItem = ({
 
             <button
               className={`flipCard-button card ${isOpen ? 'flip' : 'no_flip'}`}
-              onClick={btnOnClick}>
+              onClick={btnOnClick}
+            >
               <BsFillArrowRightCircleFill />
             </button>
           </div>

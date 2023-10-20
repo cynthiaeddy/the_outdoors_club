@@ -62,7 +62,7 @@ export const Admin = () => {
       try {
         setLoading(true)
         const result = await axios.get(
-          `${process.env.REACT_APP_API_URL}/api/user`
+          `${process.env.REACT_APP_API_URL}/api/user`,
         )
         setUsers(result.data)
         setLoading(false)
@@ -73,16 +73,14 @@ export const Admin = () => {
     fetchData()
   }, [])
 
-  const getPlanAndHandleEditClick = async (
-    e,
-    user,
-    planId
-  ) => {
+  const getPlanAndHandleEditClick = async (e, user, planId) => {
     try {
       if (planId === undefined) {
         handleEditClickOnly(e, user)
       } else {
-        const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/plan/${planId}`)
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/plan/${planId}`,
+        )
 
         setUserPlan(data)
         handleEditClick(e, user, userPlan)
@@ -202,7 +200,7 @@ export const Admin = () => {
     }
 
     const planId = editedPlan._id
-    const user = users.find(user => user._id === editUserId)
+    const user = users.find((user) => user._id === editUserId)
     const userId = user._id
 
     addNewPlan(userId)
@@ -213,7 +211,10 @@ export const Admin = () => {
   const updateUser = async (e, userId, editedUser) => {
     e.preventDefault()
     try {
-      await axios.patch(`${process.env.REACT_APP_API_URL}/api/user/${userId}`, editedUser)
+      await axios.patch(
+        `${process.env.REACT_APP_API_URL}/api/user/${userId}`,
+        editedUser,
+      )
       fetchDataAgain()
     } catch (err) {
       console.log(err)
@@ -222,7 +223,10 @@ export const Admin = () => {
   const updatePlan = async (e, planId, editedPlan) => {
     e.preventDefault()
     try {
-      await axios.patch(`${process.env.REACT_APP_API_URL}/api/plan/${planId}`, editedPlan)
+      await axios.patch(
+        `${process.env.REACT_APP_API_URL}/api/plan/${planId}`,
+        editedPlan,
+      )
     } catch (err) {
       console.log(err)
     }
@@ -241,7 +245,10 @@ export const Admin = () => {
         userId,
       }
 
-      await axios.post(`${process.env.REACT_APP_API_URL}/api/plan/add`, fieldsToAdd)
+      await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/plan/add`,
+        fieldsToAdd,
+      )
     } catch (err) {
       console.log(err)
     }
@@ -251,7 +258,7 @@ export const Admin = () => {
     try {
       setLoading(true)
       const result = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/user`
+        `${process.env.REACT_APP_API_URL}/api/user`,
       )
       setUsers(result.data)
       setLoading(false)
@@ -269,12 +276,16 @@ export const Admin = () => {
   const handleDeleteTrue = async () => {
     if (isModalDeleteOpen.isOpen && isModalDeleteOpen.userId) {
       const newUsers = [...users]
-      const index = users.findIndex(user => user._id === isModalDeleteOpen.userId)
+      const index = users.findIndex(
+        (user) => user._id === isModalDeleteOpen.userId,
+      )
       newUsers.splice(index, 1)
       setUsers(newUsers)
     }
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL}/api/user/${isModalDeleteOpen.userId}`)
+      await axios.delete(
+        `${process.env.REACT_APP_API_URL}/api/user/${isModalDeleteOpen.userId}`,
+      )
     } catch (err) {
       console.log(err)
     }
@@ -291,7 +302,7 @@ export const Admin = () => {
     })
   }
   const requestSearchFirst = (searchValue) => {
-    const filteredRows = users.filter(row => {
+    const filteredRows = users.filter((row) => {
       return row.firstName
         .toString()
         .toLowerCase()
@@ -304,7 +315,7 @@ export const Admin = () => {
     }
   }
   const requestSearch = (searchValue) => {
-    const filteredRows = users.filter(row => {
+    const filteredRows = users.filter((row) => {
       return row.lastName
         .toString()
         .toLowerCase()
@@ -345,7 +356,7 @@ export const Admin = () => {
             id='search-form'
             className='search-input'
             placeholder='Search for first name'
-            onChange={e => requestSearchFirst(e.target.value)}
+            onChange={(e) => requestSearchFirst(e.target.value)}
           />
 
           <button className='search-only' onClick={fetchDataAgain}>
@@ -359,7 +370,7 @@ export const Admin = () => {
             id='search-form'
             className='search-input'
             placeholder='Search for last name'
-            onChange={e => requestSearch(e.target.value)}
+            onChange={(e) => requestSearch(e.target.value)}
           />
 
           <button className='search-only' onClick={fetchDataAgain}>
@@ -383,8 +394,10 @@ export const Admin = () => {
                 <th rowSpan={2}>Email</th>
                 <th rowSpan={2}>Newsletter</th>
                 <th rowSpan={2}>Role</th>
-                <th rowSpan={2}>Volunteer <br/>
-                  Interest</th>
+                <th rowSpan={2}>
+                  Volunteer <br />
+                  Interest
+                </th>
                 <th rowSpan={2}>Notes</th>
                 <th colSpan={8} scope='colgroup'>
                   Membership
@@ -392,14 +405,30 @@ export const Admin = () => {
                 <th rowSpan={2}>Actions</th>
               </tr>
               <tr>
-                <th scope='col' className='col-second'>Plan</th>
-                <th scope='col' className='col-second'>Duration</th>
-                <th scope='col' className='col-second'>Start Date</th>
-                <th scope='col' className='col-second'>End Date</th>
-                <th scope='col'className='col-second'>Active</th>
-                <th scope='col'className='col-second'>Paid</th>
-                <th scope='col'className='col-second'>Type</th>
-                <th scope='col'className='col-second'>Source</th>
+                <th scope='col' className='col-second'>
+                  Plan
+                </th>
+                <th scope='col' className='col-second'>
+                  Duration
+                </th>
+                <th scope='col' className='col-second'>
+                  Start Date
+                </th>
+                <th scope='col' className='col-second'>
+                  End Date
+                </th>
+                <th scope='col' className='col-second'>
+                  Active
+                </th>
+                <th scope='col' className='col-second'>
+                  Paid
+                </th>
+                <th scope='col' className='col-second'>
+                  Type
+                </th>
+                <th scope='col' className='col-second'>
+                  Source
+                </th>
               </tr>
             </thead>
 
@@ -410,7 +439,7 @@ export const Admin = () => {
                   .sort(
                     (a, b) =>
                       a.role.localeCompare(b.role) ||
-                      a.lastName.localeCompare(b.lastName)
+                      a.lastName.localeCompare(b.lastName),
                   )
 
                   .map((user, idx) => (
