@@ -34,7 +34,8 @@ export const Home = ({ isMobile = true }) => {
             transitionTime={1000}
             showIndicators={false}
             showStatus={false}
-            showArrows={true}>
+            showArrows={true}
+          >
             {CarouselData.map((data, index) => (
               <div key={index} className='carousel-img'>
                 <img src={data.img.props.src} alt={data.img.props.ariaLabel} />
@@ -53,7 +54,8 @@ export const Home = ({ isMobile = true }) => {
             centerMode
             centerSlidePercentage={65}
             showStatus={false}
-            showArrows={true}>
+            showArrows={true}
+          >
             {CarouselData.map((data, index) => (
               <div key={index} className='carousel-img'>
                 <img src={data.img.props.src} alt={data.img.props.src} />

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import './Admin.css'
 
 export const AdminEditableRow = (props) => {
@@ -300,7 +301,8 @@ export const AdminEditableRow = (props) => {
         <button
           type='button'
           className='cta-button Admin'
-          onClick={props.handleCancelClick}>
+          onClick={props.handleCancelClick}
+        >
           cancel
         </button>
       </td>

@@ -4,18 +4,10 @@ import { MenuButton } from './MenuButton'
 import outdoors_logo from '../../assets/outdoors_logo.png'
 import './NavbarMobile.css'
 
-export const NavbarMobile = ({
-  user,
-  admin,
-  leader,
-  userRole,
-  logout,
- ) => {
+export const NavbarMobile = ({ user, admin, leader, userRole, logout }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [dropdown, setDropdown] = useState(false)
   const [click, setClick] = useState(false)
-
-
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -49,7 +41,8 @@ export const NavbarMobile = ({
                 <NavLink
                   to='/leader'
                   className='nav-links'
-                  onClick={toggleMenuNav}>
+                  onClick={toggleMenuNav}
+                >
                   leader
                 </NavLink>
               </li>
@@ -59,7 +52,8 @@ export const NavbarMobile = ({
                 <NavLink
                   to='/admin'
                   className='nav-links'
-                  onClick={toggleMenuNav}>
+                  onClick={toggleMenuNav}
+                >
                   admin
                 </NavLink>
               </li>
@@ -70,7 +64,8 @@ export const NavbarMobile = ({
                   <NavLink
                     to='/account'
                     className='nav-links'
-                    onClick={toggleMenuNav}>
+                    onClick={toggleMenuNav}
+                  >
                     account
                   </NavLink>
                 </li>
@@ -88,7 +83,8 @@ export const NavbarMobile = ({
                   <NavLink
                     to='/signin'
                     className='nav-links log-in'
-                    onClick={toggleMenuNav}>
+                    onClick={toggleMenuNav}
+                  >
                     log in
                   </NavLink>
                 </li>
@@ -96,7 +92,8 @@ export const NavbarMobile = ({
                   <NavLink
                     to='/signup'
                     className='nav-links'
-                    onClick={toggleMenuNav}>
+                    onClick={toggleMenuNav}
+                  >
                     sign up
                   </NavLink>
                 </li>

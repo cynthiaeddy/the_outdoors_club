@@ -21,7 +21,7 @@ export const ResetPassword = ({ isMobile = true }) => {
   const [isModalLoginOpen, setIsModalLoginOpen] = useState(false)
 
   const [showPassword, setShowPassword] = useState(false)
-  const [error, setError] = useState(false)
+  const [, setError] = useState(false)
   const [email, setEmail] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
   let { token } = useParams()

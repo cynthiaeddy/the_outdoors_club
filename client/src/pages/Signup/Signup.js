@@ -19,8 +19,8 @@ import { ModalDuplicateEmail } from '../../components/Modals/ModalDuplicateEmail
 import './Signup.css'
 import '../../components/Testimonials/Testimonials.css'
 
-export const Signup = ({ isMobile = true, setTimeSignup }) => {
-  const [user, setUser] = useContext(UserContext)
+export const Signup = ({ isMobile = true }) => {
+  const [, setUser] = useContext(UserContext)
   const [showPassword, setShowPassword] = useState(false)
   const [agreeToTerms, setAgreeToTerms] = useState(false)
   const [state, setState] = useState('AK')

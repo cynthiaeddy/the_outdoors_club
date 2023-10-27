@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { GrClose } from 'react-icons/gr'
 import './TermsandConditions.css'
 

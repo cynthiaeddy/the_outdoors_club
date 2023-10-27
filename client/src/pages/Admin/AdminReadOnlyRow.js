@@ -49,15 +49,17 @@ export const AdminReadOnlyRow = (props) => {
         <button
           type='button'
           className='cta-button Admin'
-          onClick={e =>
+          onClick={(e) =>
             props.getPlanAndHandleEditClick(e, props.user, props.planId)
-          }>
+          }
+        >
           edit
         </button>{' '}
         <button
           type='button'
           className='cta-button Admin'
-          onClick={() => props.handleDelete(props.user._id)}>
+          onClick={() => props.handleDelete(props.user._id)}
+        >
           delete
         </button>
       </td>
