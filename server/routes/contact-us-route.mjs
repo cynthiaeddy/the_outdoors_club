@@ -8,6 +8,8 @@ const contactRouter = express.Router()
 contactRouter.post('/send', (req, res, next) => {
   const { firstName, lastName, email, subject, message } = req.body
 
+
+// following is for gmail
   // const transporter = nodemailer.createTransport({
   //   host: 'smtp.gmail.com',
   //   port: 465,

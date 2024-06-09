@@ -79,7 +79,7 @@ const createMemberPlan = async (customer, data) => {
     userFind.plan.push(memberPlanSaved)
     await userFind.save()
 
-    /////////send email verification from stripe here///////
+
   } catch (err) {
     console.log(err)
   }
@@ -95,7 +95,7 @@ membershipRouter.post(
     webhookSecret = process.env.STRIPE_WEB_HOOK
 
     if (webhookSecret) {
-      // Retrieve the event by verifying the signature using the raw body and secret.
+
       let event
       let signature = req.headers['stripe-signature']
 
@@ -120,7 +120,6 @@ membershipRouter.post(
         .retrieve(data.customer)
         .then(async (customer) => {
           try {
-            // CREATE ORDER
             createMemberPlan(customer, data)
           } catch (err) {
             console.log(err)
