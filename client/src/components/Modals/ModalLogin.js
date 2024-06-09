@@ -7,12 +7,10 @@ export const ModalLogin = ({
   modalLoginClose,
   modalUserAcctClose,
 }) => {
-  // if isOpen is false, dont render anything
   if (!isOpen) {
     return null
   }
 
-  // if isOpen is true, render the modal
   return (
     <div className='ModalWrapper'>
       <div className='ModalContainer'>
