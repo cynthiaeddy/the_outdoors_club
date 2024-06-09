@@ -8,18 +8,7 @@ const contactRouter = express.Router()
 contactRouter.post('/send', (req, res, next) => {
   const { firstName, lastName, email, subject, message } = req.body
 
-  // const transporter = nodemailer.createTransport({
-  //   host: 'smtp.gmail.com',
-  //   port: 465,
-  //   // secure: true,
-  //   auth: {
-  //     user: process.env.EMAIL,
-  //     pass: process.env.PASSWORD,
-  //   },
-  //   tls: {
-  //     rejectUnauthorized: false,
-  //   },
-  // })
+
   const transporter = nodemailer.createTransport({
     host: 'smtp.mail.yahoo.com',
     port: 465,
@@ -50,7 +39,7 @@ contactRouter.post('/send', (req, res, next) => {
     }
   })
 
-  // verify connection configuration
+
 transporter.verify(function(error, success) {
   if (error) {
     console.log(error);

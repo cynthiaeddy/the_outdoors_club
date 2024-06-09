@@ -6,7 +6,7 @@ import nodemailer from 'nodemailer'
 import bcrypt from 'bcryptjs'
 import crypto from 'crypto'
 
-// Password Reset Emails In Your React App Made Easy with Nodemailer//
+
 
 export const forgotPassword = async (req, res) => {
   const { email } = req.body
