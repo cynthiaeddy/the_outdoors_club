@@ -12,6 +12,8 @@ import userRoutes from './routes/user-route.mjs'
 import passwordRoutes from './routes/password-route.mjs'
 import contactUsRoutes from './routes/contact-us-route.mjs'
 
+dotenv.config({ path: './.env' });
+
 
 import { fileURLToPath } from 'url';
 
@@ -19,7 +21,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 
-dotenv.config();
+// dotenv.config();
 
 const PORT = process.env.PORT || 5050;
 const app = express();
