@@ -83,10 +83,10 @@ export const Signup = ({ isMobile = true }) => {
     setIsModalTermsOpen(false)
   }
 
-  const logout = () => {
-    localStorage.removeItem('token')
-    navigate('/')
-  }
+  // const logout = () => {
+  //   localStorage.removeItem('token')
+  //   navigate('/')
+  // }
 
   const onSubmit = async (data) => {
     const userSignup = {
@@ -150,13 +150,13 @@ export const Signup = ({ isMobile = true }) => {
       }
     }
 
-    const timer = setTimeout(
-      () => {
-        logout()
-      },
-      1000 * 60 * 20,
-    )
-    return () => clearTimeout(timer)
+    // const timer = setTimeout(
+    //   () => {
+    //     logout()
+    //   },
+    //   1000 * 60 * 20,
+    // )
+    // return () => clearTimeout(timer)
   }
   const handleRegion = (e) => {
     setState(e.target.value)
@@ -185,7 +185,7 @@ export const Signup = ({ isMobile = true }) => {
                 showThumbs={false}
                 infiniteLoop={true}
                 autoPlay
-                interval={3000}
+                interval={4000}
                 transitionTime={1000}
                 showIndicators={true}
                 showStatus={false}

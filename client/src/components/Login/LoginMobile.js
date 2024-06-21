@@ -33,11 +33,11 @@ export const LoginMobile = () => {
     setShowForgotPassword(!showForgotPassword)
   }
 
-  const logout = () => {
-    console.log('in logout')
-    localStorage.removeItem('token')
-    navigate('/')
-  }
+  // const logout = () => {
+  //   console.log('in logout')
+  //   localStorage.removeItem('token')
+  //   navigate('/')
+  // }
 
   const onSubmit = async (data) => {
     const userLogin = {
@@ -84,13 +84,13 @@ export const LoginMobile = () => {
       ] = `Bearer ${resp.data.token}`
       navigate('/')
 
-      const timer = setTimeout(
-        () => {
-          logout()
-        },
-        1000 * 60 * 20,
-      )
-      return () => clearTimeout(timer)
+      // const timer = setTimeout(
+      //   () => {
+      //     logout()
+      //   },
+      //   1000 * 60 * 20,
+      // )
+      // return () => clearTimeout(timer)
     }
   }
 

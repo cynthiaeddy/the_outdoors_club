@@ -34,11 +34,11 @@ export const Login = ({ modalLoginClose }) => {
     setShowForgotPassword(!showForgotPassword)
   }
 
-  const logout = () => {
-    localStorage.removeItem('token')
-    modalLoginClose()
-    navigate('/')
-  }
+  // const logout = () => {
+  //   localStorage.removeItem('token')
+  //   modalLoginClose()
+  //   navigate('/')
+  // }
 
   const onSubmit = async (data) => {
     const userLogin = {
@@ -87,14 +87,15 @@ export const Login = ({ modalLoginClose }) => {
       modalLoginClose()
       navigate('/')
     }
-    const timer = setTimeout(
-      () => {
-        logout()
-      },
-      1000 * 60 * 20,
-    )
-    return () => clearTimeout(timer)
   }
+  //   const timer = setTimeout(
+  //     () => {
+  //       logout()
+  //     },
+  //     1000 * 60 * 20,
+  //   )
+  //   return () => clearTimeout(timer)
+  // }
 
   return (
     <>

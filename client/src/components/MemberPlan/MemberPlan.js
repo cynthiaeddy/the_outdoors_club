@@ -38,15 +38,19 @@ export const MemberPlan = () => {
 
   const createSession = async (plan) => {
     if (state && user) {
-      const { data } = await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/membership/membership_create`,
-        {
-          plan,
-          userId: state.data?.id,
-          email: state.data?.email,
-        },
-      )
-      window.location.href = data.url
+      try {
+        const { data } = await axios.post(
+          `${process.env.REACT_APP_API_URL}/api/membership/membership_create`,
+          {
+            plan,
+            userId: state.data?.id,
+            email: state.data?.email,
+          },
+        )
+        window.location.href = data.url
+      } catch (err) {
+        console.log(err)
+      }
     } else {
       navigate('/signup')
     }

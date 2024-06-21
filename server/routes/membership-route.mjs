@@ -7,6 +7,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 })
 const membershipRouter = express.Router()
 
+
+
 import { checkAuth } from '../middleware/checkAuth.mjs'
 import MemberPlan from '../models/memberPlan.mjs'
 import User from '../models/user.mjs'
@@ -16,6 +18,7 @@ membershipRouter.get('/', membershipController.getMemberships)
 
 membershipRouter.post('/membership_create', checkAuth, async (req, res) => {
   const { plan, userId, email } = req.body
+  console.log('membership_create')
 
   const customer = await stripe.customers.create(
     {
@@ -61,10 +64,12 @@ membershipRouter.post('/membership_create', checkAuth, async (req, res) => {
   )
 
   res.send({ url: session.url })
+  // res.sendStatus(200)
 })
 
 const createMemberPlan = async (customer, data) => {
   const memberData = JSON.parse(customer.metadata.plan)
+
 
   const newMemberPlan = new MemberPlan({
     userId: customer.metadata.userId,
@@ -87,6 +92,7 @@ const createMemberPlan = async (customer, data) => {
 
 membershipRouter.post(
   '/webhook',
+
   express.json({ type: 'application/json' }),
   async (req, res) => {
     let eventType

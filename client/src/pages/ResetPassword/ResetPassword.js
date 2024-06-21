@@ -112,7 +112,7 @@ export const ResetPassword = ({ isMobile = true }) => {
                 showThumbs={false}
                 infiniteLoop={true}
                 autoPlay
-                interval={3000}
+                interval={4000}
                 transitionTime={1000}
                 showIndicators={true}
                 showStatus={false}
