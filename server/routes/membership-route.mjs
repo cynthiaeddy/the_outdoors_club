@@ -1,24 +1,24 @@
-import express from 'express'
-import Stripe from 'stripe'
-import dotenv from 'dotenv'
-dotenv.config({ path: './.env' });
+import express from "express"
+import Stripe from "stripe"
+import dotenv from "dotenv"
+dotenv.config({ path: "./.env" });
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2022-11-15',
+  apiVersion: "2022-11-15",
 })
 const membershipRouter = express.Router()
 
 
 
-import { checkAuth } from '../middleware/checkAuth.mjs'
-import MemberPlan from '../models/memberPlan.mjs'
-import User from '../models/user.mjs'
-import membershipController from '../controllers/membership-controller.mjs'
+import { checkAuth } from "../middleware/checkAuth.mjs"
+import MemberPlan from "../models/memberPlan.mjs"
+import User from "../models/user.mjs"
+import membershipController from "../controllers/membership-controller.mjs"
 
-membershipRouter.get('/', membershipController.getMemberships)
+membershipRouter.get("/", membershipController.getMemberships)
 
-membershipRouter.post('/membership_create', checkAuth, async (req, res) => {
+membershipRouter.post("/membership_create", checkAuth, async (req, res) => {
   const { plan, userId, email } = req.body
-  console.log('membership_create')
+  console.log("membership_create")
 
   const customer = await stripe.customers.create(
     {
@@ -33,13 +33,13 @@ membershipRouter.post('/membership_create', checkAuth, async (req, res) => {
 
   const session = await stripe.checkout.sessions.create(
     {
-      mode: 'payment',
-      payment_method_types: ['card'],
+      mode: "payment",
+      payment_method_types: ["card"],
 
       line_items: [
         {
           price_data: {
-            currency: 'usd',
+            currency: "usd",
             product_data: {
               name: plan.title,
               description: plan.duration,
@@ -91,9 +91,9 @@ const createMemberPlan = async (customer, data) => {
 }
 
 membershipRouter.post(
-  '/webhook',
+  "/webhook",
 
-  express.json({ type: 'application/json' }),
+  express.json({ type: "application/json" }),
   async (req, res) => {
     let eventType
     let data
@@ -103,7 +103,7 @@ membershipRouter.post(
     if (webhookSecret) {
 
       let event
-      let signature = req.headers['stripe-signature']
+      let signature = req.headers["stripe-signature"]
 
       try {
         event = stripe.webhooks.constructEvent(
@@ -111,7 +111,7 @@ membershipRouter.post(
           signature,
           webhookSecret
         )
-        console.log('webhook verified')
+        console.log("webhook verified")
       } catch (err) {
         console.log(`  Webhook signature verification failed:  ${err}`)
         return res.sendStatus(400)
@@ -121,7 +121,7 @@ membershipRouter.post(
       eventType = event.type
     }
 
-    if (eventType === 'checkout.session.completed') {
+    if (eventType === "checkout.session.completed") {
       stripe.customers
         .retrieve(data.customer)
         .then(async (customer) => {
