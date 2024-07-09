@@ -14,14 +14,30 @@ export const UserAccount = ({ modalUserAcctClose }) => {
   const [plan, setPlan] = useState([])
   const [loading, setLoading] = useState(false)
 
+  // useEffect(() => {
+  //   const getUser = async () => {
+  //     setLoading(true)
+  //     const { data } = await axios.get(
+  //       `${process.env.REACT_APP_API_URL}/api/user/${userId}`,
+  //     )
+  //     setPlan(data.plan)
+  //     setLoading(false)
+  //   }
+  //   getUser()
+  // }, [])
+  // update this function with try/catch
   useEffect(() => {
     const getUser = async () => {
       setLoading(true)
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/user/${userId}`,
-      )
-      setPlan(data.plan)
-      setLoading(false)
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/user/${userId}`,
+        )
+        setPlan(data.plan)
+        setLoading(false)
+      } catch (err) {
+        console(err)
+      }
     }
     getUser()
   }, [])

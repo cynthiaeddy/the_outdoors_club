@@ -8,6 +8,7 @@ import path from 'path'
 import memberExtendRoutes from "./routes/extend-route.mjs";
 import memberPlanRoutes from "./routes/plan-route.mjs";
 import membershipRoutes from './routes/membership-route.mjs'
+import stripeRoutes from './routes/stripe-route.mjs'
 import userRoutes from './routes/user-route.mjs'
 import passwordRoutes from './routes/password-route.mjs'
 import contactUsRoutes from './routes/contact-us-route.mjs'
@@ -39,7 +40,8 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE')
   next()
 })
-app.use('/api/membership/webhook', bodyParser.raw({ type: '*/*' }))
+// app.use('/api/webhook', bodyParser.raw({ type: '*/*' }))
+app.use('/api/stripe/webhook', bodyParser.raw({ type: '*/*' }))
 app.use(express.json({ limit: '50mb' }))
 
 app.use("/api/extend", memberExtendRoutes);
@@ -48,6 +50,8 @@ app.use("/api/plan", memberPlanRoutes);
 app.use("/api/membership", membershipRoutes);
 app.use("/api/password", passwordRoutes);
 app.use("/api/contact", contactUsRoutes);
+app.use("/api/stripe", stripeRoutes)
+// app.use('/api/membership/webhook', bodyParser.raw({ type: '*/*' }))
 
 
 
