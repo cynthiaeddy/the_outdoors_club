@@ -17,11 +17,15 @@ export const MemberPlan = () => {
   useEffect(() => {
     setLoading(true)
     const fetchPlans = async () => {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/membership`,
-      )
-      setPlans(data)
-      setLoading(false)
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/membership`,
+        )
+        setPlans(data)
+        setLoading(false)
+      } catch (err) {
+        console.log(err)
+      }
     }
     fetchPlans()
   }, [])
@@ -40,7 +44,7 @@ export const MemberPlan = () => {
     if (state && user) {
       try {
         const { data } = await axios.post(
-          `${process.env.REACT_APP_API_URL}/api/membership/membership_create`,
+          `${process.env.REACT_APP_API_URL}/api/stripe/membership_create`,
           {
             plan,
             userId: state.data?.id,
