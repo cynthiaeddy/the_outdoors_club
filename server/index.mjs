@@ -8,9 +8,9 @@ import path from 'path'
 import memberExtendRoutes from "./routes/extend-route.mjs";
 import memberPlanRoutes from "./routes/plan-route.mjs";
 import membershipRoutes from './routes/membership-route.mjs'
-import stripeRoutes from './routes/stripe-route.mjs'
-import userRoutes from './routes/user-route.mjs'
 import passwordRoutes from './routes/password-route.mjs'
+import userRoutes from './routes/user-route.mjs'
+import stripeRoutes from './routes/stripe-route.mjs'
 import contactUsRoutes from './routes/contact-us-route.mjs'
 
 dotenv.config({ path: './.env' });
@@ -43,6 +43,9 @@ app.use((req, res, next) => {
 // app.use('/api/webhook', bodyParser.raw({ type: '*/*' }))
 app.use('/api/stripe/webhook', bodyParser.raw({ type: '*/*' }))
 app.use(express.json({ limit: '50mb' }))
+
+
+
 
 app.use("/api/extend", memberExtendRoutes);
 app.use("/api/user", userRoutes);
