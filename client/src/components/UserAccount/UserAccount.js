@@ -29,6 +29,7 @@ export const UserAccount = ({ modalUserAcctClose }) => {
   useEffect(() => {
     const getUser = async () => {
       setLoading(true)
+      console.log('in userAcct use effect')
       try {
         const { data } = await axios.get(
           `${process.env.REACT_APP_API_URL}/api/user/${userId}`,

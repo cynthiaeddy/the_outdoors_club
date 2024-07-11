@@ -16,11 +16,13 @@ export const MemberPlan = () => {
 
   useEffect(() => {
     setLoading(true)
+    console.log('in memberplan use effect')
     const fetchPlans = async () => {
       try {
         const { data } = await axios.get(
           `${process.env.REACT_APP_API_URL}/api/membership`,
         )
+        console.log(data, 'in memberplan use effect after call, data')
         setPlans(data)
         setLoading(false)
       } catch (err) {
