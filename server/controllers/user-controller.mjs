@@ -1,7 +1,11 @@
+import Stripe from 'stripe'
 import User from '../models/user.mjs'
 import MemberPlan from '../models/memberPlan.mjs'
 import bcrypt from 'bcryptjs'
 import JWT from 'jsonwebtoken'
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: '2022-11-15',
+})
 
 export const signup = async (req, res) => {
 
@@ -29,6 +33,10 @@ export const signup = async (req, res) => {
 
   const hashedPassword = await bcrypt.hash(password, 10)
 
+  const customer = await stripe.customers.create({ email })
+
+  console.log('stripe customer created on sign up,', customer)
+
   const newUser = await User.create({
     firstName,
     lastName,
@@ -45,6 +53,7 @@ export const signup = async (req, res) => {
     volunteer,
     agreeToTerms,
     notes,
+    stripe_customer_id: customer.id
   })
 
   const token = JWT.sign(

@@ -33,6 +33,9 @@ const userSchema = new Schema(
       required: true,
       default: 'user',
     },
+    stripe_customer_id: {
+      type: String
+    },
     createdAt: {
       type: Date,
       default: new Date(),
