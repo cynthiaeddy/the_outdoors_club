@@ -92,6 +92,7 @@ export const signup = async (req, res) => {
         volunteer: newUser.volunteer,
         agreeToTerms: newUser.agreeToTerms,
         notes: newUser.notes,
+        stripe_customer_id: newUser.stripe_customer_id,
       },
     },
   })
@@ -152,6 +153,7 @@ export const login = async (req, res)=> {
         newsletter: user.newsletter,
         volunteer: user.volunteer,
         agreeToTerms: user.agreeToTerms,
+        stripe_customer_id: user.stripe_customer_id,
       },
     },
   })
@@ -178,6 +180,8 @@ export const checkUserAuth = async (req, res) => {
         newsletter: user.newsletter,
         volunteer: user.volunteer,
         agreeToTerms: user.agreeToTerms,
+        stripe_customer_id: user.stripe_customer_id,
+
       },
     },
   })

@@ -15,8 +15,11 @@ import User from '../models/user.mjs'
 
 
 stripeRouter.post('/membership_create', checkAuth, async (req, res) => {
-  const { plan, userId, email } = req.body
-  console.log('membership_create stripe')
+  // try {
+    const { plan, userId, email, stripe_customer_id } = req.body
+    // const user = await User.findById(userId)
+    // console.log('membership_create stripe, stripe_customer_id, user.stripe_customer_id, user', stripe_customer_id,user )
+  // }catch{}
 
   const customer = await stripe.customers.create(
     {
@@ -24,6 +27,7 @@ stripeRouter.post('/membership_create', checkAuth, async (req, res) => {
         userId: req.body.userId,
         customer_email: req.body.email,
         plan: JSON.stringify(req.body.plan),
+        // stripe_customer_id: req.body.stripe_customer_id,
       },
     },
     { apiKey: process.env.STRIPE_SECRET_KEY }
@@ -51,7 +55,7 @@ stripeRouter.post('/membership_create', checkAuth, async (req, res) => {
           quantity: 1,
         },
       ],
-      customer: customer.id,
+      customer: stripe_customer_id,
 
       success_url:
         `${process.env.FRONTEND_URL}/success`,
@@ -62,30 +66,29 @@ stripeRouter.post('/membership_create', checkAuth, async (req, res) => {
   )
 
   res.send({ url: session.url })
-  // res.sendStatus(200)
+  res.sendStatus(200)
 })
 
 const createMemberPlan = async (customer, data) => {
   const memberData = JSON.parse(customer.metadata.plan)
 
-
   const newMemberPlan = new MemberPlan({
     userId: customer.metadata.userId,
-    stripeCustomerId: data.customer,
     plan: memberData,
     payment_status: data.payment_status,
   })
-  try {
-    const memberPlanSaved = await newMemberPlan.save()
+  console.log(newMemberPlan, 'newMemberPlan')
+  // try {
+  //   const memberPlanSaved = await newMemberPlan.save()
 
-    let userFind = await User.findById(customer.metadata.userId)
-    userFind.plan.push(memberPlanSaved)
-    await userFind.save()
+  //   let userFind = await User.findById(customer.metadata.userId)
+  //   userFind.plan.push(memberPlanSaved)
+  //   await userFind.save()
 
 
-  } catch (err) {
-    console.log(err)
-  }
+  // } catch (err) {
+  //   console.log(err)
+  // }
 }
 
 stripeRouter.post(

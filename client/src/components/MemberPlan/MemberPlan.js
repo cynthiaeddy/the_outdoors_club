@@ -13,6 +13,7 @@ export const MemberPlan = () => {
   const [isModalLoginOpen, setIsModalLoginOpen] = useState(false)
 
   const user = localStorage.getItem('token')
+  console.log(state, 'state.data.user')
 
   useEffect(() => {
     setLoading(true)
@@ -40,25 +41,26 @@ export const MemberPlan = () => {
     setIsModalLoginOpen(false)
   }
 
-  // const createSession = async (plan) => {
-  //   if (state && user) {
-  //     try {
-  //       const { data } = await axios.post(
-  //         `${process.env.REACT_APP_API_URL}/api/stripe/membership_create`,
-  //         {
-  //           plan,
-  //           userId: state.data?.id,
-  //           email: state.data?.email,
-  //         },
-  //       )
-  //       window.location.href = data.url
-  //     } catch (err) {
-  //       console.log(err)
-  //     }
-  //   } else {
-  //     navigate('/signup')
-  //   }
-  // }
+  const createSession = async (plan) => {
+    if (state && user) {
+      try {
+        const { data } = await axios.post(
+          `${process.env.REACT_APP_API_URL}/api/stripe/membership_create`,
+          {
+            plan,
+            userId: state.data?.id,
+            email: state.data?.email,
+            stripe_customer_id: state.data?.stripe_customer_id,
+          },
+        )
+        window.location.href = data.url
+      } catch (err) {
+        console.log(err)
+      }
+    } else {
+      navigate('/signup')
+    }
+  }
   return (
     <section className='MemberPlanContainer'>
       <h3 className='Main_hed'>Memberships</h3>
@@ -83,7 +85,10 @@ export const MemberPlan = () => {
               return (
                 <Fragment key={plan._id}>
                   <div className='MemberPlan-card'>
-                    <button className='cta-button'>
+                    <button
+                      className='cta-button'
+                      onClick={() => createSession(plan)}
+                    >
                       <h3>
                         <br />
                         {plan.title}

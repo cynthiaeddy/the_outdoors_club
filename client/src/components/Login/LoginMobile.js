@@ -74,6 +74,7 @@ export const LoginMobile = () => {
           volunteer: resp.data.user.volunteer,
           agreeToTerms: resp.data.user.agreeToTerms,
           notes: resp.data.user.notes,
+          stripe_customer_id: resp.data.user.stripe_customer_id,
         },
         loading: false,
         error: null,
